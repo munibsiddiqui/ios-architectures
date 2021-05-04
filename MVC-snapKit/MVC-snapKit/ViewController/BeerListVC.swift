@@ -48,7 +48,7 @@ class BeerListVC: UIViewController {
         tableView.register(BeerTableViewCell.self, forCellReuseIdentifier: "BeerTableViewCell")
         
         tableView.snp.makeConstraints {
-            $0.size.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
     }
     
