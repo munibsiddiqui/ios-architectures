@@ -1,0 +1,6 @@
+framework module Pods_MVVM_RxSwift_snapKit {
+  umbrella header "Pods-MVVM-RxSwift-snapKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

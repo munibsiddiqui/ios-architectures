@@ -1,0 +1,6 @@
+framework module Pods_MVVM_RxSwift_snapKit_MVVM_RxSwift_snapKitTests {
+  umbrella header "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
