@@ -1,0 +1,23 @@
+name: Swift
+
+on:
+  push:
+    branches: [ test ]
+  pull_request:
+    branches: [ test ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: MVVM-C-RxSwift test
+      run: |
+        cd MVVM-C-RxSwift
+        xcodebuild clean test -workspace MVVM-C-RxSwift.xcworkspace -scheme MVVM-C-RxSwift -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 11 Pro Max'
+        
+    - name: MVVM-C-RxSwift-swinject test
+      run: |
+        cd MVVM-C-RxSwift-swinject
+        xcodebuild clean test -workspace MVVM-C-RxSwift-swinject.xcworkspace -scheme MVVM-C-RxSwift-swinject -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 11 Pro Max'

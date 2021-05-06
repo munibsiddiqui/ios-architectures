@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		661538679EB33F6E5EA0ABDC /* Pods_MVVM_RxSwift_storyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE018ABFEF03A09952A3D98 /* Pods_MVVM_RxSwift_storyboard.framework */; };
 		D9F96E39263994190030E1C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96E38263994190030E1C8 /* AppDelegate.swift */; };
 		D9F96E422639941A0030E1C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F96E412639941A0030E1C8 /* Assets.xcassets */; };
 		D9F96E452639941B0030E1C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F96E432639941B0030E1C8 /* LaunchScreen.storyboard */; };
@@ -51,13 +50,9 @@
 /* Begin PBXFileReference section */
 		29E152EB3DBF368D16C95FE3 /* Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests/Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		53200012E6DE0D7CD8867DD0 /* Pods-MVVM-RxSwift-storyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-storyboard.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-storyboard/Pods-MVVM-RxSwift-storyboard.debug.xcconfig"; sourceTree = "<group>"; };
-		73AE614DD9B07724AD139613 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		76231EAA091DCD04D9186F39 /* Pods-MVVM-RxSwift-storyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-storyboard.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-storyboard/Pods-MVVM-RxSwift-storyboard.release.xcconfig"; sourceTree = "<group>"; };
-		9C4A75822A5DC20A5A9AE5E6 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		A291D5EE9142CFAC81E5FB88 /* Pods_MVVM_RxSwift_storyboard_MVVM_RxSwift_storyboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_storyboard_MVVM_RxSwift_storyboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEE018ABFEF03A09952A3D98 /* Pods_MVVM_RxSwift_storyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_storyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71A23AAF3CD8F13A6FE85DB /* Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests/Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests.release.xcconfig"; sourceTree = "<group>"; };
-		CBE9F31D580E438BD415602E /* Pods-MVVM-RxSwift-snapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit/Pods-MVVM-RxSwift-snapKit.release.xcconfig"; sourceTree = "<group>"; };
 		D9F96E35263994190030E1C8 /* MVVM-RxSwift-storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM-RxSwift-storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F96E38263994190030E1C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9F96E412639941A0030E1C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,7 +84,6 @@
 		D9F9708E263BD5D70030E1C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9F97093263BD5DD0030E1C8 /* BeerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeerTableViewCell.xib; sourceTree = "<group>"; };
 		D9F97094263BD5DD0030E1C8 /* BeerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerTableViewCell.swift; sourceTree = "<group>"; };
-		DD1FE4B66692258BA62ACB99 /* Pods-MVVM-RxSwift-snapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit/Pods-MVVM-RxSwift-snapKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				661538679EB33F6E5EA0ABDC /* Pods_MVVM_RxSwift_storyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,10 +108,6 @@
 		07594DD43CE19CA5239EE23B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DD1FE4B66692258BA62ACB99 /* Pods-MVVM-RxSwift-snapKit.debug.xcconfig */,
-				CBE9F31D580E438BD415602E /* Pods-MVVM-RxSwift-snapKit.release.xcconfig */,
-				73AE614DD9B07724AD139613 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig */,
-				9C4A75822A5DC20A5A9AE5E6 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig */,
 				53200012E6DE0D7CD8867DD0 /* Pods-MVVM-RxSwift-storyboard.debug.xcconfig */,
 				76231EAA091DCD04D9186F39 /* Pods-MVVM-RxSwift-storyboard.release.xcconfig */,
 				29E152EB3DBF368D16C95FE3 /* Pods-MVVM-RxSwift-storyboard-MVVM-RxSwift-storyboardTests.debug.xcconfig */,
@@ -130,7 +119,6 @@
 		33E2D52F8F031F04D549046D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AEE018ABFEF03A09952A3D98 /* Pods_MVVM_RxSwift_storyboard.framework */,
 				A291D5EE9142CFAC81E5FB88 /* Pods_MVVM_RxSwift_storyboard_MVVM_RxSwift_storyboardTests.framework */,
 			);
 			name = Frameworks;
