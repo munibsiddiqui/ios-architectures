@@ -116,7 +116,7 @@ Unit Tests 👌 - RxTest, Nimble
 
 
 
-## 5-2. [MVVM - RxSwift - sqlite]
+## 5-3. [MVVM - RxSwift - sqlite]
 
 UI - SnapKit, Then, RxDatasource
 
@@ -132,6 +132,10 @@ Unit Tests 👌 - RxTest, Nimble
 
 
 
+## 5-4. Clean Architecture - MVVM - RxSwift - coreData
+
+
+
 ## 6. ReactorKit
 
 UI - SnapKit, Then, RxDatasource
@@ -142,7 +146,7 @@ Unit Tests 👌 - RxTest, Nimble
 
 
 
-## 7. MVVM-C + RxSwift + Moya
+## 7. MVVM-C - RxSwift
 
 UI - SnapKit, Then, RxDatasource
 
@@ -154,7 +158,7 @@ CI - Github Actions 👌
 
 
 
-## 8. MVVM-C + RxSwift + Moya + Swinject
+## 7-1. MVVM-C - RxSwift - Swinject
 
 UI - SnapKit, Then, RxDatasource
 
@@ -168,15 +172,15 @@ DI - Swinject
 
 
 
-## 9. Clean Architecture with MVVM-C + RxSwift
+## 8. MVVM - RxSwift - RxFlow
 
 
 
-## 10. Clean Architecture with MVVM + RxSwift + RxFlow
+## 8-1. Clean Architecture - MVVM - RxSwift - RxFlow
 
 
 
-## 11. Clean Architecture with MVVM + RxSwift + RxFlow + Swinject
+## 8-2. Clean Architecture - MVVM - RxSwift - RxFlow - Swinject
 
 
 

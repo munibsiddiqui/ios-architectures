@@ -1,0 +1,34 @@
+name: MVVM-RxSwift-xcodegen
+options:
+  postGenCommand: pod install # 생성 이후 명령 실행
+settingGroups:
+  app:
+    DEVELOPMENT_TEAM: C2JSJLJ4FN
+targets:
+  MVVM-RxSwift-xcodegen:
+    scheme:
+      testTargets:
+        - MVVM-RxSwift-xcodegenTests
+    sources:
+      excludes:
+          - "SceneDelegate.swift"
+    settings:
+      groups: [app]
+      base:
+        INFOPLIST_FILE: MVVM-RxSwift-xcodegen/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.jeonggo.MVVM-RxSwift-xcodegen
+    type: application
+    platform: iOS
+    deploymentTarget: 11.0
+    sources: [MVVM-RxSwift-xcodegen]
+    
+  MVVM-RxSwift-xcodegenTests:
+    type: bundle.unit-test # 테스트 타입
+    platform: iOS # 플랫폼
+    sources: [MVVM-RxSwift-xcodegen, MVVM-RxSwift-xcodegenTests]
+    settings:
+      groups: [app]
+      INFOPLIST_FILE: Info.plist # Info.plist 등록
+      commandLineArguments: [run: true, test: true]
+    dependencies:
+      - target: MVVM-RxSwift-xcodegen
