@@ -76,8 +76,33 @@ Unit Tests 👌 - RxTest
 Xcodegen 👌
 
 ```
+$ brew install xcodegen
+```
+
+```
 $ cd MVVM-RxSwift-xcodegen/
 $ xcodegen
+```
+
+
+
+## 4-2. [MVVM - RxSwift - tuist]
+
+UI - Storyboard, RxDatasource
+
+Network - RxURLSession
+
+Unit Tests 👌 - RxTest
+
+Tuist 👌
+
+```
+$ bash <(curl -Ls https://install.tuist.io)
+```
+
+```
+$ cd MVVM-RxSwift-tuist/
+$ tuist generate
 ```
 
 
@@ -120,7 +145,7 @@ Unit Tests 👌 - RxTest, Nimble
 
 UI - SnapKit, Then, RxDatasource
 
-Network - Moya
+Network - RxURLSession
 
 Repositoy Pattern - Sqlite3
 
@@ -166,7 +191,7 @@ Network - Moya
 
 Unit Tests 👌 - RxTest, Nimble, Quick
 
-Xcodegen 👌
+CI - Github Actions 👌
 
 DI - Swinject
 
