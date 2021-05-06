@@ -12,7 +12,7 @@ import Nimble
 import Quick
 import Moya
 
-@testable import MVVM_C_RxSwift_snapKit
+@testable import MVVM_C_RxSwift_swinject
 
 class SearchBeerTests: QuickSpec {
     let disposeBag = DisposeBag()
