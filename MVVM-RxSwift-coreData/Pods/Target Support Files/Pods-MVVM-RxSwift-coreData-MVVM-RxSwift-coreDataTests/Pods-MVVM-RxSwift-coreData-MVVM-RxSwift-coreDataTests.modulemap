@@ -1,0 +1,6 @@
+framework module Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests {
+  umbrella header "Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
