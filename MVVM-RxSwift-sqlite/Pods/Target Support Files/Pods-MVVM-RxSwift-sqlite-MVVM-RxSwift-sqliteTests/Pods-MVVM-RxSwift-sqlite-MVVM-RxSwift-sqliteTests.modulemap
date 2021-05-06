@@ -1,0 +1,6 @@
+framework module Pods_MVVM_RxSwift_sqlite_MVVM_RxSwift_sqliteTests {
+  umbrella header "Pods-MVVM-RxSwift-sqlite-MVVM-RxSwift-sqliteTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
