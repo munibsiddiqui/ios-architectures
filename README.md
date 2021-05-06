@@ -161,17 +161,7 @@ Unit Tests 👌 - RxTest, Nimble
 
 
 
-## 6. ReactorKit
-
-UI - SnapKit, Then, RxDatasource
-
-Network - Moya
-
-Unit Tests 👌 - RxTest, Nimble
-
-
-
-## 7. [MVVM-C - RxSwift](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-C-RxSwift)
+## 6. [MVVM-C - RxSwift](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-C-RxSwift)
 
 UI - SnapKit, Then, RxDatasource
 
@@ -183,7 +173,7 @@ CI - Github Actions 👌
 
 
 
-## 7-1. [MVVM-C - RxSwift - Swinject](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-C-RxSwift-swinject)
+## 6-1. [MVVM-C - RxSwift - Swinject](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-C-RxSwift-swinject)
 
 UI - SnapKit, Then, RxDatasource
 
@@ -197,15 +187,31 @@ DI - Swinject
 
 
 
-## 8. MVVM - RxSwift - RxFlow
+## 7. MVVM - RxSwift - RxFlow
 
 
 
-## 8-1. Clean Architecture - MVVM - RxSwift - RxFlow
+## 7-1. Clean Architecture - MVVM - RxSwift - RxFlow
 
 
 
-## 8-2. Clean Architecture - MVVM - RxSwift - RxFlow - Swinject
+## 7-2. Clean Architecture - MVVM - RxSwift - RxFlow - Swinject
+
+
+
+## 8. ReactorKit
+
+UI - SnapKit, Then, RxDatasource
+
+Network - Moya
+
+Unit Tests 👌 - RxTest, Nimble
+
+
+
+## 9. VIPER
+
+## 10. VIP
 
 
 
