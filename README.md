@@ -187,7 +187,13 @@ DI - Swinject
 
 
 
-## 7. MVVM - RxSwift - RxFlow
+## 7. [MVVM - RxSwift - RxFlow](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-RxSwift-rxflow)
+
+UI - SnapKit, Then, RxDatasource
+
+Network - Moya
+
+Unit Tests 👌 - RxTest
 
 
 
@@ -209,9 +215,13 @@ Unit Tests 👌 - RxTest, Nimble
 
 
 
-## 9. VIPER
+## 9. RIBs
 
-## 10. VIP
+## 10. VIPER
+
+## 11. VIP
+
+## 
 
 
 
