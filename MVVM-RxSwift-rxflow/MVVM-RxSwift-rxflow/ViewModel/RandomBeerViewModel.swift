@@ -39,7 +39,7 @@ class RandomBeerViewModel: Stepper {
             .flatMapLatest {
                 networkingApi.request(.random)
                     .trackActivity(activityIndicator)
-                    .do(onError: { self.output.errorRelay.accept($0) })
+                    .do(onError: { self.steps.accept(BeerStep.alert($0.localizedDescription)) })
                     .catchErrorJustReturn([])
             }
             .bind(to: output.beer)

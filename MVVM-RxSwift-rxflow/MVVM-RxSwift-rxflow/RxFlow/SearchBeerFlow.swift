@@ -25,6 +25,8 @@ class SearchBeerFlow: Flow {
         switch step {
         case .SearchBeerIsRequired:
             return navigateToSearchBeerScreen()
+        case .alert(let string):
+            return alert(string: string)
         default:
             return .none
         }
@@ -34,5 +36,10 @@ class SearchBeerFlow: Flow {
         let vc = SearchBeerVC()
         self.rootViewController.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: vc.viewModel))
+    }
+    
+    private func alert(string: String) -> FlowContributors {
+        self.rootViewController.showErrorAlert(with: string)
+        return .none
     }
 }

@@ -80,11 +80,6 @@ class SearchBeerVC: UIViewController {
             .bind(to: activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
-        viewModel.output.errorRelay
-            .subscribe(onNext: { [weak self] error in
-                self?.showErrorAlert(with: error.localizedDescription)
-            }).disposed(by: disposeBag)
-        
         searchController.searchBar.rx.searchButtonClicked
             .subscribe(onNext: {
                 self.searchController.dismiss(animated: true, completion: nil)

@@ -86,10 +86,5 @@ class RandomBeerVC: UIViewController {
         viewModel.output.isLoading
             .bind(to: activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
-        
-        viewModel.output.errorRelay
-            .subscribe(onNext: { [weak self] error in
-                self?.showErrorAlert(with: error.localizedDescription)
-            }).disposed(by: disposeBag)
     }
 }
