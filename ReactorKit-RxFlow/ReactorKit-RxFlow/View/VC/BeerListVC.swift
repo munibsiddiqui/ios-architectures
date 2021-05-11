@@ -17,7 +17,7 @@ class BeerListVC: UIViewController, View {
     
     private let tableView = UITableView()
     let refreshControl = UIRefreshControl()
-    let activityIndicator = UIActivityIndicatorView()
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     var disposeBag = DisposeBag()
     
     // MARK: - Table View
@@ -56,11 +56,15 @@ class BeerListVC: UIViewController, View {
     
     private func setupSubview() {
         view.addSubview(tableView)
+        view.addSubview(activityIndicator)
         tableView.addSubview(refreshControl)
-        tableView.addSubview(activityIndicator)
         
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
     

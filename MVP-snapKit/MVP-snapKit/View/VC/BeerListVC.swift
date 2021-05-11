@@ -15,7 +15,7 @@ protocol BeerListView: class {
 class BeerListVC: UIViewController {
     private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
-    private let activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     private var beers: [Beer] = []
     
     var presenter: BeerListViewPresenter!
@@ -41,6 +41,10 @@ class BeerListVC: UIViewController {
         
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
     

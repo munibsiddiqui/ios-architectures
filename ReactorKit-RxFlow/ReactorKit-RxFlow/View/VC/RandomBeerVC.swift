@@ -15,7 +15,7 @@ class RandomBeerVC: UIViewController, View {
     typealias Reactor = RandomBeerReactor
     
     private let randomView = BeerView()
-    let activityIndicator = UIActivityIndicatorView()
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     
     var disposeBag = DisposeBag()
     
@@ -59,12 +59,16 @@ class RandomBeerVC: UIViewController, View {
     private func setupSubview() {
         view.backgroundColor = .white
         view.addSubview(randomView)
+        view.addSubview(activityIndicator)
         randomView.addSubview(randomButton)
-        randomView.addSubview(activityIndicator)
-        
+
         randomView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
             $0.size.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
         
         randomButton.snp.makeConstraints {

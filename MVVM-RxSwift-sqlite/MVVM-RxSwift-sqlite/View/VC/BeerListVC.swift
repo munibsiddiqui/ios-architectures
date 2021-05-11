@@ -14,7 +14,7 @@ import SnapKit
 class BeerListVC: UIViewController {
     private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
-    private let activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     private let disposeBag = DisposeBag()
     private let viewModel = BeerListViewModel()
     
@@ -49,11 +49,15 @@ class BeerListVC: UIViewController {
     
     private func setupSubview() {
         view.addSubview(tableView)
+        view.addSubview(activityIndicator)
         tableView.addSubview(refreshControl)
-        tableView.addSubview(activityIndicator)
         
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
     

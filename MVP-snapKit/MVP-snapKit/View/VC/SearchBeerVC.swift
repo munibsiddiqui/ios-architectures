@@ -14,7 +14,7 @@ protocol SearchView: class {
 class SearchBeerVC: UIViewController {
     private let beerView = BeerView()
     private let searchController = UISearchController(searchResultsController: nil)
-    private let activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     var presenter: SearchBeerViewPresenter!
     
     // MARK: - Life Cycle
@@ -48,6 +48,10 @@ class SearchBeerVC: UIViewController {
         beerView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
             $0.size.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
     

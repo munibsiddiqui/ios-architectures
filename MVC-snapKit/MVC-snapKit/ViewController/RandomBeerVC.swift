@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class RandomBeerVC: UIViewController {
-    private let activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     private let randomView = BeerView()
     private let networkingApi: NetworkingService!
     
@@ -65,6 +65,10 @@ class RandomBeerVC: UIViewController {
         randomView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
             $0.size.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
         
         randomButton.snp.makeConstraints {

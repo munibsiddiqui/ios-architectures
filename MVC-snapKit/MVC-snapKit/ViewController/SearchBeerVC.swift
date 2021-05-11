@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchBeerVC: UIViewController {
-    private let activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     private let beerView = BeerView()
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -56,6 +56,10 @@ class SearchBeerVC: UIViewController {
         beerView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
             $0.size.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
 }

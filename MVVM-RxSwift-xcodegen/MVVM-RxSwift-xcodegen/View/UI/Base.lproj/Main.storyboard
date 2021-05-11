@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B2W-lT-GBj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B2W-lT-GBj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,22 +57,28 @@
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HHn-qb-pXH">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CGx-oL-tW4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="oGm-e6-VWJ" firstAttribute="leading" secondItem="CGx-oL-tW4" secondAttribute="leading" constant="20" id="00u-Nb-hBO"/>
                             <constraint firstItem="CGx-oL-tW4" firstAttribute="bottom" secondItem="oGm-e6-VWJ" secondAttribute="bottom" constant="30" id="7bL-6D-mAu"/>
+                            <constraint firstItem="HHn-qb-pXH" firstAttribute="centerY" secondItem="NiV-HN-Y1C" secondAttribute="centerY" id="Jrm-Rj-Oki"/>
                             <constraint firstItem="oGm-e6-VWJ" firstAttribute="centerX" secondItem="NiV-HN-Y1C" secondAttribute="centerX" id="Kn2-e5-Ls9"/>
                             <constraint firstItem="oGm-e6-VWJ" firstAttribute="top" secondItem="CGx-oL-tW4" secondAttribute="top" id="Lbh-Q2-qlI"/>
                             <constraint firstItem="oGm-e6-VWJ" firstAttribute="centerX" secondItem="u9d-Nd-MaT" secondAttribute="centerX" id="N1r-6l-dz1"/>
                             <constraint firstItem="CGx-oL-tW4" firstAttribute="trailing" secondItem="oGm-e6-VWJ" secondAttribute="trailing" constant="20" id="PTN-lX-aKD"/>
                             <constraint firstItem="u9d-Nd-MaT" firstAttribute="top" secondItem="CGx-oL-tW4" secondAttribute="top" constant="287" id="XN2-22-YTX"/>
+                            <constraint firstItem="HHn-qb-pXH" firstAttribute="centerX" secondItem="NiV-HN-Y1C" secondAttribute="centerX" id="YxJ-Hh-MGR"/>
                             <constraint firstItem="u9d-Nd-MaT" firstAttribute="leading" secondItem="CGx-oL-tW4" secondAttribute="leading" constant="192" id="m52-Ya-GTW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search by ID" id="a2Z-09-YHy"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="HHn-qb-pXH" id="6qY-HO-IC8"/>
                         <outlet property="beerImageView" destination="mgm-Vn-tvL" id="pfx-aX-HeG"/>
                         <outlet property="descLabel" destination="qC3-QY-9V5" id="ww9-vj-rRz"/>
                         <outlet property="idLabel" destination="u9d-Nd-MaT" id="VRq-gm-Dwn"/>
@@ -95,18 +101,24 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="o0c-5T-jlv">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bSe-lj-mvb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Ci-Na-ytk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bSe-lj-mvb" secondAttribute="trailing" id="K00-us-RQb"/>
+                            <constraint firstItem="o0c-5T-jlv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PMA-0D-InJ"/>
                             <constraint firstItem="bSe-lj-mvb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RPb-IF-bly"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bSe-lj-mvb" secondAttribute="bottom" id="VPK-Y9-Vs5"/>
+                            <constraint firstItem="o0c-5T-jlv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZJk-Vs-d9p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BeerList" id="LcX-NT-WXD"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="o0c-5T-jlv" id="5dG-Q9-MgG"/>
                         <outlet property="tableView" destination="bSe-lj-mvb" id="1RT-Er-byd"/>
                     </connections>
                 </viewController>
@@ -254,6 +266,9 @@
                                     <action selector="rarndomButtonClicked:" destination="sAe-rt-Bn2" eventType="touchUpInside" id="6wP-kp-jrS"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8Ym-es-Xv8">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="quk-LK-XT0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -261,6 +276,7 @@
                             <constraint firstItem="quk-LK-XT0" firstAttribute="trailing" secondItem="Hvv-T0-qjb" secondAttribute="trailing" constant="20" id="4jD-3E-DdE"/>
                             <constraint firstItem="TNH-Hj-7oj" firstAttribute="leading" secondItem="quk-LK-XT0" secondAttribute="leading" constant="50" id="4vE-Rg-qBp"/>
                             <constraint firstItem="Hvv-T0-qjb" firstAttribute="centerX" secondItem="Fqz-eU-eHY" secondAttribute="centerX" id="6ic-VK-3td"/>
+                            <constraint firstItem="8Ym-es-Xv8" firstAttribute="centerX" secondItem="Fqz-eU-eHY" secondAttribute="centerX" id="7qF-O1-u3h"/>
                             <constraint firstItem="Hvv-T0-qjb" firstAttribute="centerX" secondItem="zWt-9X-3MW" secondAttribute="centerX" id="8rY-q9-5Ca"/>
                             <constraint firstItem="quk-LK-XT0" firstAttribute="trailing" secondItem="TNH-Hj-7oj" secondAttribute="trailing" constant="50" id="9nN-hS-M6W"/>
                             <constraint firstItem="zWt-9X-3MW" firstAttribute="leading" secondItem="quk-LK-XT0" secondAttribute="leading" constant="192" id="V2S-a2-Yce"/>
@@ -269,10 +285,12 @@
                             <constraint firstItem="quk-LK-XT0" firstAttribute="bottom" secondItem="TNH-Hj-7oj" secondAttribute="bottom" constant="53" id="dLe-Kb-RuE"/>
                             <constraint firstItem="Hvv-T0-qjb" firstAttribute="leading" secondItem="quk-LK-XT0" secondAttribute="leading" constant="20" id="fOx-gc-KYG"/>
                             <constraint firstItem="Hvv-T0-qjb" firstAttribute="top" secondItem="quk-LK-XT0" secondAttribute="top" id="kJ6-He-pgN"/>
+                            <constraint firstItem="8Ym-es-Xv8" firstAttribute="centerY" secondItem="Fqz-eU-eHY" secondAttribute="centerY" id="uFl-8P-LrV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Random Beer" id="ZfX-R4-N1d"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="8Ym-es-Xv8" id="5nZ-zZ-mp2"/>
                         <outlet property="beerImageView" destination="GZo-Eg-wcH" id="dHu-Ke-Tj0"/>
                         <outlet property="descLabel" destination="TYb-nQ-BGk" id="de0-NV-oae"/>
                         <outlet property="idLabel" destination="zWt-9X-3MW" id="8hn-LL-bSJ"/>

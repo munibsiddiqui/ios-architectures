@@ -16,7 +16,7 @@ class SearchBeerVC: UIViewController {
     @IBOutlet private weak var descLabel: UILabel!
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private let activityIndicator = UIActivityIndicatorView()
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let disposeBag = DisposeBag()
     private let viewModel = SearchBeerViewModel()
     

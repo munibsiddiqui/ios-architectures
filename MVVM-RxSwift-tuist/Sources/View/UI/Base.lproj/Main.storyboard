@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B2W-lT-GBj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B2W-lT-GBj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,7 @@
         <!--Search by ID-->
         <scene sceneID="o4M-xn-TrJ">
             <objects>
-                <viewController id="1HD-GT-Uo4" customClass="SearchBeerVC" customModule="MVVM_RxSwift_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1HD-GT-Uo4" customClass="SearchBeerVC" customModule="MVVM_RxSwift_tuist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NiV-HN-Y1C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -39,10 +39,14 @@
                                         <color key="textColor" systemColor="systemGray2Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-fJ-WSL">
+                                        <rect key="frame" x="168.5" y="303" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="mgm-Vn-tvL" firstAttribute="centerX" secondItem="oGm-e6-VWJ" secondAttribute="centerX" id="6O8-6U-WzY"/>
+                                    <constraint firstItem="gVD-fJ-WSL" firstAttribute="centerX" secondItem="oGm-e6-VWJ" secondAttribute="centerX" id="Jc6-kX-W86"/>
                                     <constraint firstItem="XFT-Yo-yFQ" firstAttribute="centerX" secondItem="oGm-e6-VWJ" secondAttribute="centerX" id="TGX-zu-oQm"/>
                                     <constraint firstItem="mgm-Vn-tvL" firstAttribute="top" secondItem="oGm-e6-VWJ" secondAttribute="top" id="Xm5-3G-0hz"/>
                                     <constraint firstItem="qC3-QY-9V5" firstAttribute="centerX" secondItem="oGm-e6-VWJ" secondAttribute="centerX" id="bd5-98-zyR"/>
@@ -50,6 +54,7 @@
                                     <constraint firstAttribute="trailing" secondItem="qC3-QY-9V5" secondAttribute="trailing" id="t1v-QJ-PSe"/>
                                     <constraint firstItem="qC3-QY-9V5" firstAttribute="top" secondItem="XFT-Yo-yFQ" secondAttribute="bottom" constant="5" id="t4v-yV-Q3X"/>
                                     <constraint firstItem="qC3-QY-9V5" firstAttribute="leading" secondItem="oGm-e6-VWJ" secondAttribute="leading" id="zIO-q5-eZ3"/>
+                                    <constraint firstItem="gVD-fJ-WSL" firstAttribute="centerY" secondItem="oGm-e6-VWJ" secondAttribute="centerY" id="zpv-ex-6Ux"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9d-Nd-MaT">
@@ -74,6 +79,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Search by ID" id="a2Z-09-YHy"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="gVD-fJ-WSL" id="Rsn-FB-LBh"/>
                         <outlet property="beerImageView" destination="mgm-Vn-tvL" id="pfx-aX-HeG"/>
                         <outlet property="descLabel" destination="qC3-QY-9V5" id="ww9-vj-rRz"/>
                         <outlet property="idLabel" destination="u9d-Nd-MaT" id="VRq-gm-Dwn"/>
@@ -87,7 +93,7 @@
         <!--BeerList-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BeerListVC" customModule="MVVM_RxSwift_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BeerListVC" customModule="MVVM_RxSwift_tuist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,18 +102,24 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Mh2-fI-np2">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Mh2-fI-np2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7WJ-Bv-1Pv"/>
                             <constraint firstItem="bSe-lj-mvb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Ci-Na-ytk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bSe-lj-mvb" secondAttribute="trailing" id="K00-us-RQb"/>
                             <constraint firstItem="bSe-lj-mvb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RPb-IF-bly"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bSe-lj-mvb" secondAttribute="bottom" id="VPK-Y9-Vs5"/>
+                            <constraint firstItem="Mh2-fI-np2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bSA-kC-RYS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BeerList" id="LcX-NT-WXD"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Mh2-fI-np2" id="lEd-NF-Jh0"/>
                         <outlet property="tableView" destination="bSe-lj-mvb" id="1RT-Er-byd"/>
                     </connections>
                 </viewController>
@@ -195,7 +207,7 @@
         <!--Random Beer-->
         <scene sceneID="jND-Hj-vbN">
             <objects>
-                <viewController id="sAe-rt-Bn2" customClass="RandomBeerVC" customModule="MVVM_RxSwift_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sAe-rt-Bn2" customClass="RandomBeerVC" customModule="MVVM_RxSwift_tuist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fqz-eU-eHY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -255,10 +267,14 @@
                                     <action selector="rarndomButtonClicked:" destination="sAe-rt-Bn2" eventType="touchUpInside" id="6wP-kp-jrS"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="v56-Le-TA9">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="quk-LK-XT0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="v56-Le-TA9" firstAttribute="centerX" secondItem="Fqz-eU-eHY" secondAttribute="centerX" id="1xR-du-ZGN"/>
                             <constraint firstItem="quk-LK-XT0" firstAttribute="trailing" secondItem="Hvv-T0-qjb" secondAttribute="trailing" constant="20" id="4jD-3E-DdE"/>
                             <constraint firstItem="TNH-Hj-7oj" firstAttribute="leading" secondItem="quk-LK-XT0" secondAttribute="leading" constant="50" id="4vE-Rg-qBp"/>
                             <constraint firstItem="Hvv-T0-qjb" firstAttribute="centerX" secondItem="Fqz-eU-eHY" secondAttribute="centerX" id="6ic-VK-3td"/>
@@ -270,10 +286,12 @@
                             <constraint firstItem="quk-LK-XT0" firstAttribute="bottom" secondItem="TNH-Hj-7oj" secondAttribute="bottom" constant="53" id="dLe-Kb-RuE"/>
                             <constraint firstItem="Hvv-T0-qjb" firstAttribute="leading" secondItem="quk-LK-XT0" secondAttribute="leading" constant="20" id="fOx-gc-KYG"/>
                             <constraint firstItem="Hvv-T0-qjb" firstAttribute="top" secondItem="quk-LK-XT0" secondAttribute="top" id="kJ6-He-pgN"/>
+                            <constraint firstItem="v56-Le-TA9" firstAttribute="centerY" secondItem="Fqz-eU-eHY" secondAttribute="centerY" id="oy4-g6-zIv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Random Beer" id="ZfX-R4-N1d"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="v56-Le-TA9" id="Uem-m4-PY3"/>
                         <outlet property="beerImageView" destination="GZo-Eg-wcH" id="dHu-Ke-Tj0"/>
                         <outlet property="descLabel" destination="TYb-nQ-BGk" id="de0-NV-oae"/>
                         <outlet property="idLabel" destination="zWt-9X-3MW" id="8hn-LL-bSJ"/>
@@ -287,7 +305,7 @@
         <!--Detail BeerVC-->
         <scene sceneID="Rx4-Dh-3gC">
             <objects>
-                <viewController storyboardIdentifier="DetailBeerVC" id="mxt-XW-ND5" customClass="DetailBeerVC" customModule="MVVM_RxSwift_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailBeerVC" id="mxt-XW-ND5" customClass="DetailBeerVC" customModule="MVVM_RxSwift_tuist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x9d-7T-czA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

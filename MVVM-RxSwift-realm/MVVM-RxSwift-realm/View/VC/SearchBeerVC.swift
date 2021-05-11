@@ -12,7 +12,7 @@ import RxCocoa
 class SearchBeerVC: UIViewController {
     private let beerView = BeerView()
     private let searchController = UISearchController(searchResultsController: nil)
-    private let activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     private let disposeBag = DisposeBag()
     private let viewModel = SearchBeerViewModel()
@@ -53,12 +53,14 @@ class SearchBeerVC: UIViewController {
     private func setupSubview() {
         view.backgroundColor = .white
         view.addSubview(beerView)
-        beerView.addSubview(activityIndicator)
+        view.addSubview(activityIndicator)
         
         beerView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
             $0.size.equalToSuperview()
         }
+        
+        view.addSubview(activityIndicator)
     }
     
     private func bindViewModel() {

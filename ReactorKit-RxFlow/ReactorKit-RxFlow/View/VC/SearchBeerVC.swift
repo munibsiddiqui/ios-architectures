@@ -15,7 +15,7 @@ class SearchBeerVC: UIViewController, View {
     
     let beerView = BeerView()
     private let searchController = UISearchController(searchResultsController: nil)
-    let activityIndicator = UIActivityIndicatorView()
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     
     var disposeBag = DisposeBag()
     
@@ -60,11 +60,15 @@ class SearchBeerVC: UIViewController, View {
     private func setupSubview() {
         view.backgroundColor = .white
         view.addSubview(beerView)
-        beerView.addSubview(activityIndicator)
+        view.addSubview(activityIndicator)
         
         beerView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
             $0.size.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
     

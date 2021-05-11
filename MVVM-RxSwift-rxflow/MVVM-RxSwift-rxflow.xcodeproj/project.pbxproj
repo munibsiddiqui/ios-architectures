@@ -26,7 +26,7 @@
 		D9F96E6926399E1B0030E1C8 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96E6826399E1B0030E1C8 /* Beer.swift */; };
 		D9F96E83263A2F210030E1C8 /* BeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96E82263A2F210030E1C8 /* BeerView.swift */; };
 		D9F96EE3263A7F760030E1C8 /* BeerListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96EE2263A7F760030E1C8 /* BeerListTests.swift */; };
-		D9F96EFD263A80970030E1C8 /* BeerListViewMoodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96EFC263A80970030E1C8 /* BeerListViewMoodel.swift */; };
+		D9F96EFD263A80970030E1C8 /* BeerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96EFC263A80970030E1C8 /* BeerListViewModel.swift */; };
 		D9F96F04263A80E40030E1C8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F03263A80E40030E1C8 /* ActivityIndicator.swift */; };
 		D9F96F0A263A811D0030E1C8 /* Rx+ReachBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F09263A811D0030E1C8 /* Rx+ReachBottom.swift */; };
 		D9F96F0E263A81A40030E1C8 /* RandomBeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F0D263A81A40030E1C8 /* RandomBeerViewModel.swift */; };
@@ -82,7 +82,7 @@
 		D9F96EE0263A7F760030E1C8 /* MVVM-RxSwift-rxflowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MVVM-RxSwift-rxflowTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F96EE2263A7F760030E1C8 /* BeerListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListTests.swift; sourceTree = "<group>"; };
 		D9F96EE4263A7F760030E1C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9F96EFC263A80970030E1C8 /* BeerListViewMoodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewMoodel.swift; sourceTree = "<group>"; };
+		D9F96EFC263A80970030E1C8 /* BeerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewModel.swift; sourceTree = "<group>"; };
 		D9F96F03263A80E40030E1C8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D9F96F09263A811D0030E1C8 /* Rx+ReachBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+ReachBottom.swift"; sourceTree = "<group>"; };
 		D9F96F0D263A81A40030E1C8 /* RandomBeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerViewModel.swift; sourceTree = "<group>"; };
@@ -195,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				D9313EAF26481AD300B6B0D3 /* RxFlow */,
-				D9F96F73263B73B80030E1C8 /* Stub.bundle */,
 				D9F96F02263A80D50030E1C8 /* Extension */,
 				D9F96EFB263A808D0030E1C8 /* ViewModel */,
 				D9F96E6626399E0D0030E1C8 /* Model */,
@@ -241,6 +240,7 @@
 		D9F96EE1263A7F760030E1C8 /* MVVM-RxSwift-rxflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9F96F73263B73B80030E1C8 /* Stub.bundle */,
 				D9F96EE2263A7F760030E1C8 /* BeerListTests.swift */,
 				D9F96EE4263A7F760030E1C8 /* Info.plist */,
 				D9F96F81263B80860030E1C8 /* RandomBeerTests.swift */,
@@ -252,7 +252,7 @@
 		D9F96EFB263A808D0030E1C8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D9F96EFC263A80970030E1C8 /* BeerListViewMoodel.swift */,
+				D9F96EFC263A80970030E1C8 /* BeerListViewModel.swift */,
 				D9F96F0D263A81A40030E1C8 /* RandomBeerViewModel.swift */,
 				D9F96F11263A81AD0030E1C8 /* SearchBeerViewModel.swift */,
 			);
@@ -472,7 +472,7 @@
 				D9313EBB264820A700B6B0D3 /* AppFlow.swift in Sources */,
 				D9F96F0E263A81A40030E1C8 /* RandomBeerViewModel.swift in Sources */,
 				D9F96F0A263A811D0030E1C8 /* Rx+ReachBottom.swift in Sources */,
-				D9F96EFD263A80970030E1C8 /* BeerListViewMoodel.swift in Sources */,
+				D9F96EFD263A80970030E1C8 /* BeerListViewModel.swift in Sources */,
 				D9F96F04263A80E40030E1C8 /* ActivityIndicator.swift in Sources */,
 				D9313EB326481B8B00B6B0D3 /* BeerListFlow.swift in Sources */,
 				D9F96F12263A81AD0030E1C8 /* SearchBeerViewModel.swift in Sources */,

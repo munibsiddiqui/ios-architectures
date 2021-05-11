@@ -14,7 +14,7 @@ protocol RandomView: class {
 
 class RandomBeerVC: UIViewController {
     private let randomView = BeerView()
-    private let activityIndicator = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     var presenter: RandomBeerViewPresenter!
     
     private let randomButton = UIButton().then {
@@ -46,6 +46,10 @@ class RandomBeerVC: UIViewController {
         randomView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
             $0.size.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
         
         randomButton.snp.makeConstraints {
