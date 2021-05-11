@@ -15,7 +15,7 @@ protocol NetworkingService {
 final class NetworkingAPI: NetworkingService {
     let provider: MoyaProvider<BeerAPI>
     
-    init(provider: MoyaProvider<BeerAPI> = MoyaProvider<BeerAPI>(plugins: [NetworkLoggerPlugin()])) {
+    init(provider: MoyaProvider<BeerAPI> = MoyaProvider<BeerAPI>()) {
         self.provider = provider
     }
     

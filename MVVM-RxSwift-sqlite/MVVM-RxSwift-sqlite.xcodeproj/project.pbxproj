@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8233F3833FFFB027A728CF67 /* Pods_MVVM_RxSwift_sqlite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6865BF972F5CD49DD8E83A /* Pods_MVVM_RxSwift_sqlite.framework */; };
+		D9227BA9264A5701004F6841 /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */; };
 		D93EC96A26423EAB00851ADA /* BeerListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93EC96926423EAB00851ADA /* BeerListRepository.swift */; };
 		D93EC9C72642880700851ADA /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93EC9C62642880700851ADA /* BeerAPI.swift */; };
 		D93EC9DB26428ED900851ADA /* SearchBeerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93EC9DA26428ED900851ADA /* SearchBeerRepository.swift */; };
 		D93EC9DF26428EE100851ADA /* RandomBeerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93EC9DE26428EE100851ADA /* RandomBeerRepository.swift */; };
 		D93ECA152642A67C00851ADA /* MockRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93ECA142642A67C00851ADA /* MockRepositories.swift */; };
-		D93ECA192642A6EE00851ADA /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */; };
 		D93ECA812642E78000851ADA /* SqliteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93ECA802642E78000851ADA /* SqliteManager.swift */; };
 		D95BFC26264A148D008B03C1 /* SqliteManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95BFC25264A148D008B03C1 /* SqliteManagerTests.swift */; };
 		D9F96E39263994190030E1C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96E38263994190030E1C8 /* AppDelegate.swift */; };
@@ -237,6 +237,7 @@
 		D9F96EE1263A7F760030E1C8 /* MVVM-RxSwift-sqliteTests */ = {
 			isa = PBXGroup;
 			children = (
+				D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */,
 				D9F96EE2263A7F760030E1C8 /* BeerListTests.swift */,
 				D93ECA142642A67C00851ADA /* MockRepositories.swift */,
 				D9F96EE4263A7F760030E1C8 /* Info.plist */,
@@ -261,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				D9F96F03263A80E40030E1C8 /* ActivityIndicator.swift */,
-				D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */,
 				D9F96F09263A811D0030E1C8 /* Rx+ReachBottom.swift */,
 				D9F96F17263A81E90030E1C8 /* Alert.swift */,
 				D9F96F51263AB8190030E1C8 /* ArrarngeSubViews.swift */,
@@ -466,7 +466,6 @@
 				D93EC9DF26428EE100851ADA /* RandomBeerRepository.swift in Sources */,
 				D93EC9DB26428ED900851ADA /* SearchBeerRepository.swift in Sources */,
 				D9F96E59263996360030E1C8 /* RandomBeerVC.swift in Sources */,
-				D93ECA192642A6EE00851ADA /* Bundle+Decode.swift in Sources */,
 				D9F96F56263AB8830030E1C8 /* Rx+ViewDidLoad.swift in Sources */,
 				D9F96F52263AB8190030E1C8 /* ArrarngeSubViews.swift in Sources */,
 				D9F96F0E263A81A40030E1C8 /* RandomBeerViewModel.swift in Sources */,
@@ -491,6 +490,7 @@
 				D9F96EE3263A7F760030E1C8 /* BeerListTests.swift in Sources */,
 				D95BFC26264A148D008B03C1 /* SqliteManagerTests.swift in Sources */,
 				D9F96F82263B80860030E1C8 /* RandomBeerTests.swift in Sources */,
+				D9227BA9264A5701004F6841 /* Bundle+Decode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

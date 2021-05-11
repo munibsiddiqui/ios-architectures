@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F597BFC9DE55AC5022A1FD9 /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CBC8F5565832113A7BF677 /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework */; };
+		A01C5A5A6682DD7482E1BD9A /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61D100F497322006D02ABBE /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework */; };
+		D907F72624B5054BB4025C22 /* Pods_MVVM_RxSwift_coreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC670330A0CDC8AFCA8AAB1 /* Pods_MVVM_RxSwift_coreData.framework */; };
+		D9227BA7264A56D0004F6841 /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */; };
 		D93EC96A26423EAB00851ADA /* BeerListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93EC96926423EAB00851ADA /* BeerListRepository.swift */; };
 		D93EC9B526427F9700851ADA /* Beer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D93EC9B326427F9700851ADA /* Beer.xcdatamodeld */; };
 		D93EC9B92642805100851ADA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93EC9B82642805100851ADA /* CoreDataManager.swift */; };
@@ -16,7 +18,7 @@
 		D93EC9DB26428ED900851ADA /* SearchBeerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93EC9DA26428ED900851ADA /* SearchBeerRepository.swift */; };
 		D93EC9DF26428EE100851ADA /* RandomBeerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93EC9DE26428EE100851ADA /* RandomBeerRepository.swift */; };
 		D93ECA152642A67C00851ADA /* MockRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93ECA142642A67C00851ADA /* MockRepositories.swift */; };
-		D93ECA192642A6EE00851ADA /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */; };
+		D95EA204264960000099D0C4 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95EA203264960000099D0C4 /* CoreDataManagerTests.swift */; };
 		D9F96E39263994190030E1C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96E38263994190030E1C8 /* AppDelegate.swift */; };
 		D9F96E422639941A0030E1C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F96E412639941A0030E1C8 /* Assets.xcassets */; };
 		D9F96E452639941B0030E1C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F96E432639941B0030E1C8 /* LaunchScreen.storyboard */; };
@@ -41,7 +43,6 @@
 		D9F96F74263B73B90030E1C8 /* Stub.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9F96F73263B73B80030E1C8 /* Stub.bundle */; };
 		D9F96F82263B80860030E1C8 /* RandomBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F81263B80860030E1C8 /* RandomBeerTests.swift */; };
 		D9F96F88263B81600030E1C8 /* SearchBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F87263B81600030E1C8 /* SearchBeerTests.swift */; };
-		DFB8CB1120E1E4C437771215 /* Pods_MVVM_RxSwift_coreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA21E4D9813C6C16C27AB970 /* Pods_MVVM_RxSwift_coreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,17 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05CBC8F5565832113A7BF677 /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECBFD6A92C24A9AE14FF650 /* Pods-MVVM-RxSwift-coreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-coreData.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-coreData/Pods-MVVM-RxSwift-coreData.debug.xcconfig"; sourceTree = "<group>"; };
-		14C2965CD6E58E887CB0F1CF /* Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests/Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		1D6C646E5AEEB2749F36570D /* Pods-MVVM-RxSwift-coreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-coreData.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-coreData/Pods-MVVM-RxSwift-coreData.release.xcconfig"; sourceTree = "<group>"; };
-		4EC67870CEB1815733AB3109 /* Pods-MVVM-RxSwift-repository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-repository.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-repository/Pods-MVVM-RxSwift-repository.debug.xcconfig"; sourceTree = "<group>"; };
 		5257EB231D7B28FBCD516FD7 /* Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests/Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests.release.xcconfig"; sourceTree = "<group>"; };
-		73AE614DD9B07724AD139613 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8B0DB7899DC2392E3DEB2522 /* Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests/Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9C4A75822A5DC20A5A9AE5E6 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig"; sourceTree = "<group>"; };
-		CA21E4D9813C6C16C27AB970 /* Pods_MVVM_RxSwift_coreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_coreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBE9F31D580E438BD415602E /* Pods-MVVM-RxSwift-snapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit/Pods-MVVM-RxSwift-snapKit.release.xcconfig"; sourceTree = "<group>"; };
+		AAC670330A0CDC8AFCA8AAB1 /* Pods_MVVM_RxSwift_coreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_coreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61D100F497322006D02ABBE /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93EC96926423EAB00851ADA /* BeerListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListRepository.swift; sourceTree = "<group>"; };
 		D93EC9B426427F9700851ADA /* Beer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Beer.xcdatamodel; sourceTree = "<group>"; };
 		D93EC9B82642805100851ADA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -75,6 +70,7 @@
 		D93EC9DE26428EE100851ADA /* RandomBeerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerRepository.swift; sourceTree = "<group>"; };
 		D93ECA142642A67C00851ADA /* MockRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepositories.swift; sourceTree = "<group>"; };
 		D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decode.swift"; sourceTree = "<group>"; };
+		D95EA203264960000099D0C4 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
 		D9F96E35263994190030E1C8 /* MVVM-RxSwift-coreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM-RxSwift-coreData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F96E38263994190030E1C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9F96E412639941A0030E1C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,8 +99,6 @@
 		D9F96F73263B73B80030E1C8 /* Stub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Stub.bundle; sourceTree = "<group>"; };
 		D9F96F81263B80860030E1C8 /* RandomBeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerTests.swift; sourceTree = "<group>"; };
 		D9F96F87263B81600030E1C8 /* SearchBeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBeerTests.swift; sourceTree = "<group>"; };
-		DD1FE4B66692258BA62ACB99 /* Pods-MVVM-RxSwift-snapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit/Pods-MVVM-RxSwift-snapKit.debug.xcconfig"; sourceTree = "<group>"; };
-		EB9393FA870EE608C312FFB2 /* Pods-MVVM-RxSwift-repository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-repository.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-repository/Pods-MVVM-RxSwift-repository.release.xcconfig"; sourceTree = "<group>"; };
 		EC952CDDC71B0F23F583B8B2 /* Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests/Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFB8CB1120E1E4C437771215 /* Pods_MVVM_RxSwift_coreData.framework in Frameworks */,
+				D907F72624B5054BB4025C22 /* Pods_MVVM_RxSwift_coreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F597BFC9DE55AC5022A1FD9 /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework in Frameworks */,
+				A01C5A5A6682DD7482E1BD9A /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,14 +125,6 @@
 		07594DD43CE19CA5239EE23B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DD1FE4B66692258BA62ACB99 /* Pods-MVVM-RxSwift-snapKit.debug.xcconfig */,
-				CBE9F31D580E438BD415602E /* Pods-MVVM-RxSwift-snapKit.release.xcconfig */,
-				73AE614DD9B07724AD139613 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig */,
-				9C4A75822A5DC20A5A9AE5E6 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig */,
-				4EC67870CEB1815733AB3109 /* Pods-MVVM-RxSwift-repository.debug.xcconfig */,
-				EB9393FA870EE608C312FFB2 /* Pods-MVVM-RxSwift-repository.release.xcconfig */,
-				8B0DB7899DC2392E3DEB2522 /* Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests.debug.xcconfig */,
-				14C2965CD6E58E887CB0F1CF /* Pods-MVVM-RxSwift-repository-MVVM-RxSwift-repositoryTests.release.xcconfig */,
 				0ECBFD6A92C24A9AE14FF650 /* Pods-MVVM-RxSwift-coreData.debug.xcconfig */,
 				1D6C646E5AEEB2749F36570D /* Pods-MVVM-RxSwift-coreData.release.xcconfig */,
 				EC952CDDC71B0F23F583B8B2 /* Pods-MVVM-RxSwift-coreData-MVVM-RxSwift-coreDataTests.debug.xcconfig */,
@@ -150,8 +136,8 @@
 		33E2D52F8F031F04D549046D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CA21E4D9813C6C16C27AB970 /* Pods_MVVM_RxSwift_coreData.framework */,
-				05CBC8F5565832113A7BF677 /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework */,
+				AAC670330A0CDC8AFCA8AAB1 /* Pods_MVVM_RxSwift_coreData.framework */,
+				C61D100F497322006D02ABBE /* Pods_MVVM_RxSwift_coreData_MVVM_RxSwift_coreDataTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,7 +195,6 @@
 		D9F96E37263994190030E1C8 /* MVVM-RxSwift-coreData */ = {
 			isa = PBXGroup;
 			children = (
-				D9F96F73263B73B80030E1C8 /* Stub.bundle */,
 				D9F96F02263A80D50030E1C8 /* Extension */,
 				D9F96EFB263A808D0030E1C8 /* ViewModel */,
 				D9F96E6626399E0D0030E1C8 /* Model */,
@@ -257,11 +242,14 @@
 		D9F96EE1263A7F760030E1C8 /* MVVM-RxSwift-coreDataTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9F96F73263B73B80030E1C8 /* Stub.bundle */,
+				D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */,
 				D9F96EE2263A7F760030E1C8 /* BeerListTests.swift */,
 				D93ECA142642A67C00851ADA /* MockRepositories.swift */,
 				D9F96EE4263A7F760030E1C8 /* Info.plist */,
 				D9F96F81263B80860030E1C8 /* RandomBeerTests.swift */,
 				D9F96F87263B81600030E1C8 /* SearchBeerTests.swift */,
+				D95EA203264960000099D0C4 /* CoreDataManagerTests.swift */,
 			);
 			path = "MVVM-RxSwift-coreDataTests";
 			sourceTree = "<group>";
@@ -280,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				D9F96F03263A80E40030E1C8 /* ActivityIndicator.swift */,
-				D93ECA182642A6EE00851ADA /* Bundle+Decode.swift */,
 				D9F96F09263A811D0030E1C8 /* Rx+ReachBottom.swift */,
 				D9F96F17263A81E90030E1C8 /* Alert.swift */,
 				D9F96F51263AB8190030E1C8 /* ArrarngeSubViews.swift */,
@@ -485,7 +472,6 @@
 				D93EC9DB26428ED900851ADA /* SearchBeerRepository.swift in Sources */,
 				D93EC9B92642805100851ADA /* CoreDataManager.swift in Sources */,
 				D9F96E59263996360030E1C8 /* RandomBeerVC.swift in Sources */,
-				D93ECA192642A6EE00851ADA /* Bundle+Decode.swift in Sources */,
 				D9F96F56263AB8830030E1C8 /* Rx+ViewDidLoad.swift in Sources */,
 				D9F96F52263AB8190030E1C8 /* ArrarngeSubViews.swift in Sources */,
 				D9F96F0E263A81A40030E1C8 /* RandomBeerViewModel.swift in Sources */,
@@ -510,7 +496,9 @@
 				D9F96F88263B81600030E1C8 /* SearchBeerTests.swift in Sources */,
 				D93ECA152642A67C00851ADA /* MockRepositories.swift in Sources */,
 				D9F96EE3263A7F760030E1C8 /* BeerListTests.swift in Sources */,
+				D95EA204264960000099D0C4 /* CoreDataManagerTests.swift in Sources */,
 				D9F96F82263B80860030E1C8 /* RandomBeerTests.swift in Sources */,
+				D9227BA7264A56D0004F6841 /* Bundle+Decode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,6 +689,33 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2JSJLJ4FN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(PLATFORM_DIR)/Developer/Library/Frameworks\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Differentiator\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Nimble\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxDataSources\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxRelay\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxTest\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Then\"",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Differentiator/Differentiator.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Nimble/Nimble.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa/RxCocoa.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxDataSources/RxDataSources.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxRelay/RxRelay.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift/RxSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxTest/RxTest.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Then/Then.framework/Headers\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "MVVM-RxSwift-coreDataTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -708,7 +723,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jeonggo.MVVM-RxSwift-snapKitTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeonggo.MVVM-RxSwift-coreDataTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -723,6 +738,33 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2JSJLJ4FN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(PLATFORM_DIR)/Developer/Library/Frameworks\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Differentiator\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Nimble\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxDataSources\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxRelay\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxTest\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Then\"",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Differentiator/Differentiator.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Nimble/Nimble.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa/RxCocoa.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxDataSources/RxDataSources.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxRelay/RxRelay.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift/RxSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxTest/RxTest.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Then/Then.framework/Headers\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "MVVM-RxSwift-coreDataTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -730,7 +772,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jeonggo.MVVM-RxSwift-snapKitTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeonggo.MVVM-RxSwift-coreDataTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

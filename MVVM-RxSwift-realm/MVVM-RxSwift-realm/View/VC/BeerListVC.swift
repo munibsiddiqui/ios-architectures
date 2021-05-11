@@ -12,7 +12,7 @@ import RxDataSources
 import SnapKit
 
 class BeerListVC: UIViewController {
-    private let tableView = UITableView() // lazy var랑 뭐가 다른지 모르겠음.
+    private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
     private let activityIndicator = UIActivityIndicatorView()
     private let disposeBag = DisposeBag()

@@ -48,7 +48,7 @@ class BeerListFlow: Flow {
     }
     
     private func alert(string: String) -> FlowContributors {
-        self.rootViewController.topViewController?.showErrorAlert(with: string)
+        self.rootViewController.showErrorAlert(with: string)
         return .none
     }
 }

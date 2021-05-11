@@ -64,12 +64,9 @@ class RealmManager: LocalManager {
     func localRandom(completion: @escaping ((Result<[Beer], NetworkingError>) -> Void)) {
         let realm = try! Realm()
         
-        let id = Int.random(in: 0...9)
-        let result = realm.objects(BeerRealm.self).filter("id CONTAINS \(id)")
+        let result = realm.objects(BeerRealm.self).randomElement()
         var beerArray = [Beer]()
-        for beer in result {
-            beerArray.append(beer.toDTO())
-        }
+        beerArray.append(result?.toDTO() ?? Beer(id: nil, name: "Don't have data", description: nil, imageURL: nil))
         if !beerArray.isEmpty {
             completion(.success(beerArray))
         } else {

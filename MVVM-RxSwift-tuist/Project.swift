@@ -11,7 +11,7 @@ let project = Project(
             deploymentTarget: .iOS(targetVersion: "13.0", devices: .iphone),
             infoPlist: "Sources/Info.plist",
             sources: ["Sources/**"],
-            resources: ["Sources/View/UI/Base.lproj/*", "Sources/View/UI/xibs/BeerTableViewCell.xib"],
+            resources: ["Sources/View/UI/Base.lproj/*", "Sources/View/UI/xibs/BeerTableViewCell.xib", "Sources/Stub.bundle"],
             dependencies: [
                 .cocoapods(path: ".")
             ]

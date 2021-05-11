@@ -27,8 +27,8 @@ class MockNetworkingAPI: NetworkingService {
         return [Beer]()
     }
     
-    func request(_ api: BeerAPI) -> Observable<[Beer]> {
-        return Observable.just(getBeerFromJson(api))
+    func request(_ api: BeerAPI) -> Single<[Beer]> {
+        return Single.just(getBeerFromJson(api))
     }
 }
 

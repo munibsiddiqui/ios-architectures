@@ -55,14 +55,11 @@
 /* Begin PBXFileReference section */
 		0EEEBCD9186EC229DD18D221 /* Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests/Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		140CC10CCAAD556CF1EE97A8 /* Pods_MVVM_RxSwift_rxflow_MVVM_RxSwift_rxflowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_rxflow_MVVM_RxSwift_rxflowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		73AE614DD9B07724AD139613 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80C219817128431309C95400 /* Pods_MVVM_RxSwift_snapKit_MVVM_RxSwift_snapKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_snapKit_MVVM_RxSwift_snapKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C4A75822A5DC20A5A9AE5E6 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E37916BE32B73570458C4BA /* Pods_MVVM_RxSwift_snapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_snapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7EE79A492E04A9E9CA1928C /* Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests/Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests.release.xcconfig"; sourceTree = "<group>"; };
 		BEF08F3F05C2A5F4493C465A /* Pods-MVVM-RxSwift-rxflow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-rxflow.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-rxflow/Pods-MVVM-RxSwift-rxflow.debug.xcconfig"; sourceTree = "<group>"; };
 		C70BB2E7B2605E38AB7D7AC9 /* Pods_MVVM_RxSwift_rxflow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_rxflow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBE9F31D580E438BD415602E /* Pods-MVVM-RxSwift-snapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit/Pods-MVVM-RxSwift-snapKit.release.xcconfig"; sourceTree = "<group>"; };
 		CFB65515686FE333C3DC81E5 /* Pods-MVVM-RxSwift-rxflow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-rxflow.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-rxflow/Pods-MVVM-RxSwift-rxflow.release.xcconfig"; sourceTree = "<group>"; };
 		D9313EB026481ADC00B6B0D3 /* BeerStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerStep.swift; sourceTree = "<group>"; };
 		D9313EB226481B8B00B6B0D3 /* BeerListFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListFlow.swift; sourceTree = "<group>"; };
@@ -99,7 +96,6 @@
 		D9F96F73263B73B80030E1C8 /* Stub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Stub.bundle; sourceTree = "<group>"; };
 		D9F96F81263B80860030E1C8 /* RandomBeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerTests.swift; sourceTree = "<group>"; };
 		D9F96F87263B81600030E1C8 /* SearchBeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBeerTests.swift; sourceTree = "<group>"; };
-		DD1FE4B66692258BA62ACB99 /* Pods-MVVM-RxSwift-snapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit/Pods-MVVM-RxSwift-snapKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +121,6 @@
 		07594DD43CE19CA5239EE23B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DD1FE4B66692258BA62ACB99 /* Pods-MVVM-RxSwift-snapKit.debug.xcconfig */,
-				CBE9F31D580E438BD415602E /* Pods-MVVM-RxSwift-snapKit.release.xcconfig */,
-				73AE614DD9B07724AD139613 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig */,
-				9C4A75822A5DC20A5A9AE5E6 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig */,
 				BEF08F3F05C2A5F4493C465A /* Pods-MVVM-RxSwift-rxflow.debug.xcconfig */,
 				CFB65515686FE333C3DC81E5 /* Pods-MVVM-RxSwift-rxflow.release.xcconfig */,
 				0EEEBCD9186EC229DD18D221 /* Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests.debug.xcconfig */,

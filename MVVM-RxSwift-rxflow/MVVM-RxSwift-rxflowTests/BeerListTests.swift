@@ -11,7 +11,7 @@ import RxSwift
 import RxTest
 import Moya
 
-@testable import MVVM_RxSwift_snapKit
+@testable import MVVM_RxSwift_rxflow
 
 class BeerListTests: XCTestCase {
     let disposeBag = DisposeBag()

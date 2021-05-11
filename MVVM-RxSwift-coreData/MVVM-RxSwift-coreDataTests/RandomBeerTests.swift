@@ -9,6 +9,7 @@ import XCTest
 import RxCocoa
 import RxSwift
 import RxTest
+import Nimble
 
 @testable import MVVM_RxSwift_coreData
 
@@ -49,7 +50,7 @@ class RandomBeerTests: XCTestCase {
         
         // MARK: - THEN
         
-        XCTAssertEqual(observer.events, exceptEvents)
+        expect(observer.events).to(equal(exceptEvents))
     }
     
     func testBeerData() throws {
@@ -72,7 +73,7 @@ class RandomBeerTests: XCTestCase {
         
         // MARK: - THEN
         
-        XCTAssertEqual(observer.events, exceptEvents)
+        expect(observer.events).to(equal(exceptEvents))
     }
 
 }

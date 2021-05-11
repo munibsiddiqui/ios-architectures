@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9227BAA264A5710004F6841 /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F77263B78E40030E1C8 /* Bundle+Decode.swift */; };
 		D95BFC29264A17CA008B03C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95BFC27264A17CA008B03C1 /* Main.storyboard */; };
 		D9F96E39263994190030E1C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96E38263994190030E1C8 /* AppDelegate.swift */; };
 		D9F96E422639941A0030E1C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F96E412639941A0030E1C8 /* Assets.xcassets */; };
@@ -28,7 +29,6 @@
 		D9F96F52263AB8190030E1C8 /* ArrarngeSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F51263AB8190030E1C8 /* ArrarngeSubViews.swift */; };
 		D9F96F6C263AE1A10030E1C8 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F6B263AE1A10030E1C8 /* DetailVC.swift */; };
 		D9F96F74263B73B90030E1C8 /* Stub.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9F96F73263B73B80030E1C8 /* Stub.bundle */; };
-		D9F96F78263B78E40030E1C8 /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F77263B78E40030E1C8 /* Bundle+Decode.swift */; };
 		D9F96F7C263B790A0030E1C8 /* MockNetworkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F7B263B790A0030E1C8 /* MockNetworkingAPI.swift */; };
 		D9F96F82263B80860030E1C8 /* RandomBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F81263B80860030E1C8 /* RandomBeerTests.swift */; };
 		D9F96F88263B81600030E1C8 /* SearchBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F87263B81600030E1C8 /* SearchBeerTests.swift */; };
@@ -203,6 +203,7 @@
 		D9F96EE1263A7F760030E1C8 /* MVVM-RxSwift-storyboardTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9F96F77263B78E40030E1C8 /* Bundle+Decode.swift */,
 				D9F96EE2263A7F760030E1C8 /* BeerListTests.swift */,
 				D9F96EE4263A7F760030E1C8 /* Info.plist */,
 				D9F96F7B263B790A0030E1C8 /* MockNetworkingAPI.swift */,
@@ -229,7 +230,6 @@
 				D9F96F09263A811D0030E1C8 /* Rx+ReachBottom.swift */,
 				D9F96F17263A81E90030E1C8 /* Alert.swift */,
 				D9F96F51263AB8190030E1C8 /* ArrarngeSubViews.swift */,
-				D9F96F77263B78E40030E1C8 /* Bundle+Decode.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -441,7 +441,6 @@
 				D9F96F0A263A811D0030E1C8 /* Rx+ReachBottom.swift in Sources */,
 				D9F96EFD263A80970030E1C8 /* BeerListViewMoodel.swift in Sources */,
 				D9F96F04263A80E40030E1C8 /* ActivityIndicator.swift in Sources */,
-				D9F96F78263B78E40030E1C8 /* Bundle+Decode.swift in Sources */,
 				D9F96F12263A81AD0030E1C8 /* SearchBeerViewModel.swift in Sources */,
 				D9F96E55263996290030E1C8 /* BeerListVC.swift in Sources */,
 				D9F96E6926399E1B0030E1C8 /* Beer.swift in Sources */,
@@ -455,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9227BAA264A5710004F6841 /* Bundle+Decode.swift in Sources */,
 				D9F96F88263B81600030E1C8 /* SearchBeerTests.swift in Sources */,
 				D9F96F7C263B790A0030E1C8 /* MockNetworkingAPI.swift in Sources */,
 				D9F96EE3263A7F760030E1C8 /* BeerListTests.swift in Sources */,

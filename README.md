@@ -153,11 +153,9 @@ Unit Tests 👌 - RxTest, Nimble
 
 
 
-### // MARK: - UNDO
+## 5-4. Clean - MVVM
 
-
-
-## 5-4. Clean Architecture - MVVM - RxSwift - coreData
+sub framework👌 - CleanFrameworks.zip
 
 
 
@@ -195,23 +193,23 @@ Network - Moya
 
 Unit Tests 👌 - RxTest
 
-
-
-## 7-1. Clean Architecture - MVVM - RxSwift - RxFlow
-
-
-
-## 7-2. Clean Architecture - MVVM - RxSwift - RxFlow - Swinject
+❗️ **Alert** : I used **' DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) '** Because If tabbarflow does not navigate to a total of 3 flows, it cannot navigate to an alert. If you know a better solution, please PR!
 
 
 
-## 8. ReactorKit
+## 7-1. Clean Architecture - MVVM - RxSwift - RxFlow - Swinject
+
+
+
+## 8. ReactorKit - RxFlow
 
 UI - SnapKit, Then, RxDatasource
 
 Network - Moya
 
-Unit Tests 👌 - RxTest, Nimble
+Unit Tests 👌
+
+❗️ **Alert** : I used **' DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) '** Because If tabbarflow does not navigate to a total of 3 flows, it cannot navigate to an alert. If you know a better solution, please PR!
 
 
 
