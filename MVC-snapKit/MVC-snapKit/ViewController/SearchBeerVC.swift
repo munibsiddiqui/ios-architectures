@@ -8,10 +8,11 @@
 import UIKit
 
 class SearchBeerVC: UIViewController {
-    let beerView = BeerView()
-    let searchController = UISearchController(searchResultsController: nil)
+    private let activityIndicator = UIActivityIndicatorView()
+    private let beerView = BeerView()
+    private let searchController = UISearchController(searchResultsController: nil)
     
-    let networkingApi: NetworkingService!
+    private let networkingApi: NetworkingService!
     
     // MARK: - Initialization
     
@@ -50,6 +51,7 @@ class SearchBeerVC: UIViewController {
     private func setupSubview() {
         view.backgroundColor = .white
         view.addSubview(beerView)
+        view.addSubview(activityIndicator)
         
         beerView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
@@ -61,9 +63,11 @@ class SearchBeerVC: UIViewController {
 extension SearchBeerVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.text != "" {
+            self.activityIndicator.startAnimating()
             networkingApi.searchBeer(id: Int(searchController.searchBar.text!)!, completion: { beers in
                 self.beerView.setupView(model: beers.first!)
             })
+            self.activityIndicator.stopAnimating()
         }
     }
 }

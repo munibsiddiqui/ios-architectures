@@ -12,7 +12,6 @@ class DetailBeerVC: UIViewController {
     private let detailView = BeerView()
     private let beer: Beer
     
-    private let indicator = UIActivityIndicatorView()
     
     // MARK: - Initialization
 

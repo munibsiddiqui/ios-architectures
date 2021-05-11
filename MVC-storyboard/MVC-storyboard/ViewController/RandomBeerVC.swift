@@ -13,6 +13,7 @@ class RandomBeerVC: UIViewController {
     @IBOutlet private weak var idLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var descLabel: UILabel!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     var networkingApi = NetworkingAPI()
     
@@ -26,9 +27,11 @@ class RandomBeerVC: UIViewController {
     // MARK: - Private Methods
     
     private func getRandom() {
+        activityIndicator.startAnimating()
         networkingApi.getRandomBeer(completion: { beers in
             self.setupView(model: beers.first ?? Beer(id: 0, name: "", description: "", imageURL: ""))
         })
+        activityIndicator.stopAnimating()
     }
     
     private func setupView(model: Beer) {

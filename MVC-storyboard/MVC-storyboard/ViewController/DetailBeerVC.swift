@@ -14,7 +14,6 @@ class DetailBeerVC: UIViewController {
     @IBOutlet weak var descLabel: UILabel!
     
     var beer: Beer!
-    private let indicator = UIActivityIndicatorView()
 
     // MARK: - Life Cycle
 

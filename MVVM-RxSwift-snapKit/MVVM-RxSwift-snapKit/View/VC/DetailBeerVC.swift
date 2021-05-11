@@ -12,8 +12,6 @@ class DetailBeerVC: UIViewController {
     private let detailView = BeerView()
     private let beer: Beer
     
-    private let indicator = UIActivityIndicatorView()
-    
     // MARK: - Initialization
 
     init(beer: Beer) {
@@ -35,9 +33,9 @@ class DetailBeerVC: UIViewController {
     // MARK: - Private Methods
     
     private func setupSubview() {
+        view.backgroundColor = .white
         view.addSubview(detailView)
         detailView.setupView(model: beer)
-        detailView.addSubview(indicator)
         
         detailView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)

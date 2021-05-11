@@ -9,6 +9,7 @@ import UIKit
 
 class BeerListVC: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let refreshControl = UIRefreshControl()
     
     private var beers: [Beer] = []
@@ -51,12 +52,14 @@ class BeerListVC: UIViewController {
     }
     
     private func getBeerList() {
+        activityIndicator.startAnimating()
         networkingApi.getBeerList(page: self.page, completion: { beers in
             self.beers += beers
             DispatchQueue.main.async { // Change UI
                 self.tableView.reloadData()
             }
         })
+        activityIndicator.stopAnimating()
     }
 }
 

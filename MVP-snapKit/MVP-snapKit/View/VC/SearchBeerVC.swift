@@ -14,6 +14,7 @@ protocol SearchView: class {
 class SearchBeerVC: UIViewController {
     private let beerView = BeerView()
     private let searchController = UISearchController(searchResultsController: nil)
+    private let activityIndicator = UIActivityIndicatorView()
     var presenter: SearchBeerViewPresenter!
     
     // MARK: - Life Cycle
@@ -42,6 +43,7 @@ class SearchBeerVC: UIViewController {
     private func setupSubview() {
         view.backgroundColor = .white
         view.addSubview(beerView)
+        view.addSubview(activityIndicator)
         
         beerView.snp.makeConstraints {
             $0.top.equalTo(view.layoutMarginsGuide)
@@ -53,12 +55,16 @@ class SearchBeerVC: UIViewController {
 
 extension SearchBeerVC: UISearchResultsUpdating, SearchView {
     func onItemsRetrieval(beers: [Beer]) {
+        activityIndicator.startAnimating()
         self.beerView.setupView(model: beers.first!)
+        activityIndicator.stopAnimating()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.text != "" {
+            activityIndicator.startAnimating()
             self.presenter.search(id: Int(searchController.searchBar.text!) ?? 0)
+            activityIndicator.stopAnimating()
         }
     }
 }

@@ -55,15 +55,9 @@
 
 /* Begin PBXFileReference section */
 		57DAC431A8F1319D9C4A510F /* Pods-MVVM-C-RxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-C-RxSwift.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-C-RxSwift/Pods-MVVM-C-RxSwift.debug.xcconfig"; sourceTree = "<group>"; };
-		5F9B2433B8EE3BB4F512F872 /* Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests/Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		73AE614DD9B07724AD139613 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95F3F8C98236362B775C036A /* Pods-MVVM-C-RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-C-RxSwift.release.xcconfig"; path = "Target Support Files/Pods-MVVM-C-RxSwift/Pods-MVVM-C-RxSwift.release.xcconfig"; sourceTree = "<group>"; };
 		963DF9D329272C4AA83FCE29 /* Pods_MVVM_C_RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_C_RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D27F985B8D94762414E48B /* Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests/Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9C4A75822A5DC20A5A9AE5E6 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests/Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig"; sourceTree = "<group>"; };
-		9D5A7D1E5E2353616167CA9D /* Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests/Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests.release.xcconfig"; sourceTree = "<group>"; };
-		CBE9F31D580E438BD415602E /* Pods-MVVM-RxSwift-snapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit.release.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit/Pods-MVVM-RxSwift-snapKit.release.xcconfig"; sourceTree = "<group>"; };
-		D8FC56AA358360DF1D633557 /* Pods-MVVM-C-RxSwift-snapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-C-RxSwift-snapKit.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-C-RxSwift-snapKit/Pods-MVVM-C-RxSwift-snapKit.debug.xcconfig"; sourceTree = "<group>"; };
 		D93EC8A62641575000851ADA /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		D93EC8C026415E7500851ADA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D93EC8C426415F4E00851ADA /* TabBarCoordinatorr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorr.swift; sourceTree = "<group>"; };
@@ -100,8 +94,6 @@
 		D9F96F73263B73B80030E1C8 /* Stub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Stub.bundle; sourceTree = "<group>"; };
 		D9F96F81263B80860030E1C8 /* RandomBeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerTests.swift; sourceTree = "<group>"; };
 		D9F96F87263B81600030E1C8 /* SearchBeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBeerTests.swift; sourceTree = "<group>"; };
-		DD1FE4B66692258BA62ACB99 /* Pods-MVVM-RxSwift-snapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-RxSwift-snapKit.debug.xcconfig"; path = "Target Support Files/Pods-MVVM-RxSwift-snapKit/Pods-MVVM-RxSwift-snapKit.debug.xcconfig"; sourceTree = "<group>"; };
-		E3C293449C2AF82A93C57F70 /* Pods-MVVM-C-RxSwift-snapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-C-RxSwift-snapKit.release.xcconfig"; path = "Target Support Files/Pods-MVVM-C-RxSwift-snapKit/Pods-MVVM-C-RxSwift-snapKit.release.xcconfig"; sourceTree = "<group>"; };
 		E807E196C4A6DE0AFF6877CA /* Pods_MVVM_C_RxSwift_MVVM_C_RxSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_C_RxSwift_MVVM_C_RxSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4DE52849DCB1D691C94649 /* Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests/Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,14 +121,6 @@
 		07594DD43CE19CA5239EE23B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DD1FE4B66692258BA62ACB99 /* Pods-MVVM-RxSwift-snapKit.debug.xcconfig */,
-				CBE9F31D580E438BD415602E /* Pods-MVVM-RxSwift-snapKit.release.xcconfig */,
-				73AE614DD9B07724AD139613 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.debug.xcconfig */,
-				9C4A75822A5DC20A5A9AE5E6 /* Pods-MVVM-RxSwift-snapKit-MVVM-RxSwift-snapKitTests.release.xcconfig */,
-				D8FC56AA358360DF1D633557 /* Pods-MVVM-C-RxSwift-snapKit.debug.xcconfig */,
-				E3C293449C2AF82A93C57F70 /* Pods-MVVM-C-RxSwift-snapKit.release.xcconfig */,
-				5F9B2433B8EE3BB4F512F872 /* Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests.debug.xcconfig */,
-				9D5A7D1E5E2353616167CA9D /* Pods-MVVM-C-RxSwift-snapKit-MVVM-C-RxSwift-snapKitTests.release.xcconfig */,
 				57DAC431A8F1319D9C4A510F /* Pods-MVVM-C-RxSwift.debug.xcconfig */,
 				95F3F8C98236362B775C036A /* Pods-MVVM-C-RxSwift.release.xcconfig */,
 				99D27F985B8D94762414E48B /* Pods-MVVM-C-RxSwift-MVVM-C-RxSwiftTests.debug.xcconfig */,

@@ -15,6 +15,7 @@ protocol BeerListView: class {
 class BeerListVC: UIViewController {
     private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
+    private let activityIndicator = UIActivityIndicatorView()
     private var beers: [Beer] = []
     
     var presenter: BeerListViewPresenter!
@@ -32,6 +33,7 @@ class BeerListVC: UIViewController {
     
     private func setupSubview() {
         view.addSubview(tableView)
+        view.addSubview(activityIndicator)
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(resetView), for: .valueChanged)
         
@@ -49,9 +51,11 @@ class BeerListVC: UIViewController {
     }
     
     @objc private func resetView() {
+        activityIndicator.startAnimating()
         presenter.refresh()
         DispatchQueue.main.async { // Change UI
             self.refreshControl.endRefreshing()
+            self.activityIndicator.stopAnimating()
         }
     }
 }
@@ -86,14 +90,18 @@ extension BeerListVC: BeerListView {
     func onItemsRetrieval(beers: [Beer]) {
         self.beers += beers
         DispatchQueue.main.async { // Change UI
+            activityIndicator.startAnimating()
             self.tableView.reloadData()
+            activityIndicator.stopAnimating()
         }
     }
     
     func onItemsReset(beers: [Beer]) {
         self.beers = beers
         DispatchQueue.main.async { // Change UI
+            activityIndicator.startAnimating()
             self.tableView.reloadData()
+            activityIndicator.stopAnimating()
         }
     }
 }

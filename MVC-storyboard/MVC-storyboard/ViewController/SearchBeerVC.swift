@@ -12,6 +12,7 @@ class SearchBeerVC: UIViewController {
     @IBOutlet private weak var idLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var descLabel: UILabel!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -46,9 +47,11 @@ class SearchBeerVC: UIViewController {
 extension SearchBeerVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.text != "" {
+            activityIndicator.startAnimating()
             networkingApi.searchBeer(id: Int(searchController.searchBar.text!)!, completion: { beers in
                 self.setupView(model: beers.first ?? Beer(id: 0, name: "", description: "", imageURL: ""))
             })
+            activityIndicator.stopAnimating()
         }
     }
     

@@ -9,8 +9,9 @@ import UIKit
 import Kingfisher
 
 class RandomBeerVC: UIViewController {
-    let randomView = BeerView()
-    let networkingApi: NetworkingService!
+    private let activityIndicator = UIActivityIndicatorView()
+    private let randomView = BeerView()
+    private let networkingApi: NetworkingService!
     
     lazy var randomButton: UIButton = {
         let randomButton = UIButton()
@@ -48,14 +49,17 @@ class RandomBeerVC: UIViewController {
     }
     
     private func getRandom() {
+        self.activityIndicator.startAnimating()
         networkingApi.getRandomBeer(completion: { beers in
             self.randomView.setupView(model: beers.first ?? Beer(id: 0, name: "", description: "", imageURL: ""))
         })
+        self.activityIndicator.stopAnimating()
     }
     
     private func setupSubview() {
         view.backgroundColor = .white
         view.addSubview(randomView)
+        view.addSubview(activityIndicator)
         randomView.addSubview(randomButton)
         
         randomView.snp.makeConstraints {

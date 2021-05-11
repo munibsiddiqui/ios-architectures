@@ -10,11 +10,12 @@ import UIKit
 class BeerListVC: UIViewController {
     private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
+    private let activityIndicator = UIActivityIndicatorView()
     
     private var beers: [Beer] = []
     private var page = 1
     
-    let networkingApi: NetworkingService!
+    private let networkingApi: NetworkingService!
     
     // MARK: - Initialization
     
@@ -34,6 +35,7 @@ class BeerListVC: UIViewController {
         setupSubview()
         setupNavigationTitle()
         getBeerList()
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -42,6 +44,7 @@ class BeerListVC: UIViewController {
     
     private func setupSubview() {
         view.addSubview(tableView)
+        view.addSubview(activityIndicator)
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(resetView), for: .valueChanged)
         
@@ -49,6 +52,10 @@ class BeerListVC: UIViewController {
         
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
     }
     
@@ -69,12 +76,14 @@ class BeerListVC: UIViewController {
     }
     
     private func getBeerList() {
+        self.activityIndicator.startAnimating()
         networkingApi.getBeerList(page: self.page, completion: { beers in
             self.beers += beers
             DispatchQueue.main.async { // Change UI
                 self.tableView.reloadData()
             }
         })
+        self.activityIndicator.stopAnimating()
     }
 }
 

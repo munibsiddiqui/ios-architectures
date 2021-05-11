@@ -14,6 +14,7 @@ protocol RandomView: class {
 
 class RandomBeerVC: UIViewController {
     private let randomView = BeerView()
+    private let activityIndicator = UIActivityIndicatorView()
     var presenter: RandomBeerViewPresenter!
     
     private let randomButton = UIButton().then {
@@ -39,6 +40,7 @@ class RandomBeerVC: UIViewController {
     func setupSubview() {
         view.backgroundColor = .white
         view.addSubview(randomView)
+        view.addSubview(activityIndicator)
         randomView.addSubview(randomButton)
         
         randomView.snp.makeConstraints {
@@ -63,7 +65,9 @@ class RandomBeerVC: UIViewController {
 
 extension RandomBeerVC: RandomView {
     func onItemsRetrieval(beers: [Beer]) {
+        activityIndicator.startAnimating()
         self.randomView.setupView(model: beers.first ?? Beer(id: 0, name: "", description: "", imageURL: ""))
+        activityIndicator.stopAnimating()
     }
     
 }
