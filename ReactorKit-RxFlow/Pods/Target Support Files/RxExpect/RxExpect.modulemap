@@ -1,0 +1,6 @@
+framework module RxExpect {
+  umbrella header "RxExpect-umbrella.h"
+
+  export *
+  module * { export * }
+}
