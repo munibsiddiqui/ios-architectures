@@ -1,0 +1,44 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+
+target 'Clean-RxFlow-Swinject' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Clean-RxFlow-Swinject
+    pod 'RxSwift', '~> 5'
+    pod 'RxCocoa', '~> 5'
+    pod 'RxDataSources', '~> 4.0'
+
+    pod 'RxFlow', '~> 2.11.0'
+    pod 'Swinject', '~> 2.7'
+    pod 'SwinjectAutoregistration', '~> 2.7'
+
+    pod 'Kingfisher', '~> 6.0'
+    pod 'SnapKit', '~> 5.0.0'
+    pod 'Then', '~> 2.7.0'
+
+    target 'Clean-RxFlow-SwinjectTests' do
+      pod 'RxSwift', '~> 5'
+
+      # Test
+      pod 'RxTest', '~> 5'
+      pod 'Nimble', '~> 9'
+    end
+
+end
+
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name == "Nimble"
+            target.build_configurations.each do |config|
+                xcconfig_path = config.base_configuration_reference.real_path
+                xcconfig = File.read(xcconfig_path)
+                new_xcconfig = xcconfig.sub('lswiftXCTest', 'lXCTestSwiftSupport')
+                File.open(xcconfig_path, "w") { |file| file << new_xcconfig }
+            end
+        end
+    end
+end

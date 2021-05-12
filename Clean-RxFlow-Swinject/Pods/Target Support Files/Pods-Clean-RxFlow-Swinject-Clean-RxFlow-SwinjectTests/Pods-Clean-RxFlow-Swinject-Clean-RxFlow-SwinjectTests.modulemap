@@ -1,0 +1,6 @@
+framework module Pods_Clean_RxFlow_Swinject_Clean_RxFlow_SwinjectTests {
+  umbrella header "Pods-Clean-RxFlow-Swinject-Clean-RxFlow-SwinjectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

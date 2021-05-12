@@ -52,7 +52,7 @@ class BeerListViewModel {
             .map { self.page = 1 }
             .flatMapLatest {
                 networkingApi.request(.getBeerList(page: self.page))
-                    .trackActivity(activityIndicator)
+                    .trackActivity(refreshIndicator)
                     .do(onError: { self.output.errorRelay.accept($0) })
                     .catchErrorJustReturn([])
             }

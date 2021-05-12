@@ -13,20 +13,6 @@ import RxTest
 @testable import ReactorKit_RxFlow
 
 class BeerListTests: XCTestCase {
-    // View -> Action
-    func test_View_Action_refresh() {
-        // 1. Prepare Stubbed Reactor
-        let reactor = BeerListReactor()
-        reactor.isStubEnabled = true
-        
-        // 2. Prepare View that injected stubbed Reactor
-        let view = BeerListVC(reactor: reactor)
-        
-        // 3. Send refresh Action
-        view.refreshControl.sendActions(for: .valueChanged)
-        
-        XCTAssertEqual(reactor.stub.actions.last, .refresh)
-    }
     
     // State -> View
     func test_View_State_isLoading() {

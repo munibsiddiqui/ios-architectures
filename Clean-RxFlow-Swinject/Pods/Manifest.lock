@@ -1,0 +1,72 @@
+PODS:
+  - Differentiator (4.0.1)
+  - Kingfisher (6.2.1)
+  - Nimble (9.0.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxFlow (2.11.0):
+    - RxCocoa (>= 5.1.1)
+    - RxSwift (>= 5.1.1)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.2)
+  - RxTest (5.1.2):
+    - RxSwift (~> 5)
+  - SnapKit (5.0.1)
+  - Swinject (2.7.1)
+  - SwinjectAutoregistration (2.7.0):
+    - Swinject (~> 2.7)
+  - Then (2.7.0)
+
+DEPENDENCIES:
+  - Kingfisher (~> 6.0)
+  - Nimble (~> 9)
+  - RxCocoa (~> 5)
+  - RxDataSources (~> 4.0)
+  - RxFlow (~> 2.11.0)
+  - RxSwift (~> 5)
+  - RxTest (~> 5)
+  - SnapKit (~> 5.0.0)
+  - Swinject (~> 2.7)
+  - SwinjectAutoregistration (~> 2.7)
+  - Then (~> 2.7.0)
+
+SPEC REPOS:
+  trunk:
+    - Differentiator
+    - Kingfisher
+    - Nimble
+    - RxCocoa
+    - RxDataSources
+    - RxFlow
+    - RxRelay
+    - RxSwift
+    - RxTest
+    - SnapKit
+    - Swinject
+    - SwinjectAutoregistration
+    - Then
+
+SPEC CHECKSUMS:
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxFlow: c5242626a73a03d0a0163f0ab795538c467b791f
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  RxTest: 274549b747dca56f47c52c8991ec5cf797ecfe40
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  SwinjectAutoregistration: 330f5012642a8b5c89a8a4adb0c5e52df07382c0
+  Then: acfe0be7e98221c6204e12f8161459606d5d822d
+
+PODFILE CHECKSUM: b8d47abeaa28da83d7daa9682feefe1551e2b61e
+
+COCOAPODS: 1.10.0

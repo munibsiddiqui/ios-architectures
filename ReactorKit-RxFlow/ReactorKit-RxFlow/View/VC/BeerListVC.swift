@@ -91,10 +91,9 @@ class BeerListVC: UIViewController, View {
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Beer.self)
-            .subscribe(onNext: { [weak self] beer in
-                let controller = DetailBeerVC(beer: beer)
-                self?.navigationController?.pushViewController(controller, animated: true)
-            }).disposed(by: disposeBag)
+            .map { Reactor.Action.detailBeer($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
             .subscribe(onNext: { self.tableView.deselectRow(at: $0, animated: true)})

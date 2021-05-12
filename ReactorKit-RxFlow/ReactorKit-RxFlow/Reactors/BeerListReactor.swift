@@ -17,6 +17,7 @@ final class BeerListReactor: Reactor, Stepper {
         case viewWillAppear
         case refresh
         case nextPage
+        case detailBeer(Beer)
     }
     
     enum Mutation {
@@ -25,6 +26,7 @@ final class BeerListReactor: Reactor, Stepper {
         case setRefreshing(Bool)
         case setError(String)
         case setLoading(Bool)
+        case detailBeer(Beer)
     }
     
     struct State {
@@ -76,6 +78,9 @@ final class BeerListReactor: Reactor, Stepper {
                 .map { return .appendBeers($0) }
                 .catchError { return .just(.setError($0.localizedDescription)) }
             return .concat([startRefreshing, beerList, endRefreshing])
+            
+        case .detailBeer(let beer):
+            return Observable<Mutation>.just(.detailBeer(beer))
         }
     }
     
@@ -98,6 +103,8 @@ final class BeerListReactor: Reactor, Stepper {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1)  {
                 self.steps.accept(BeerStep.alert(error))
             }
+        case .detailBeer(let beer):
+            self.steps.accept(BeerStep.BeerDetailIsPicked(beer: beer))
         }
         
         return state

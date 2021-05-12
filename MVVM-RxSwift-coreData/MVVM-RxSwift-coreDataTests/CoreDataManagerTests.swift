@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 import RxTest
 import Nimble
+import CoreData
 
 @testable import MVVM_RxSwift_coreData
 
@@ -44,7 +45,7 @@ class CoreDataManagerTests: XCTestCase {
             switch result {
             case .success(let beers):
                 coreDataBeers = beers
-            case .failure: break
+            case .failure: print("ERROR")
             }
         }
         

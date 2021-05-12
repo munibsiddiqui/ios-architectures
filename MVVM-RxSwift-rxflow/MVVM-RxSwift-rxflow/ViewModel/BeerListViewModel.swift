@@ -60,7 +60,7 @@ class BeerListViewModel: Stepper {
             .map { self.page = 1 }
             .flatMapLatest {
                 networkingApi.request(.getBeerList(page: self.page))
-                    .trackActivity(activityIndicator)
+                    .trackActivity(refreshIndicator)
                     .do(onError: {
                         self.steps.accept(BeerStep.alert($0.localizedDescription))
                     })

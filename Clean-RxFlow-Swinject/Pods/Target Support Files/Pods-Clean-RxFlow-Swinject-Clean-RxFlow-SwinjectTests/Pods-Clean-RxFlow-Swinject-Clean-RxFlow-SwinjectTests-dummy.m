@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_Clean_RxFlow_Swinject_Clean_RxFlow_SwinjectTests : NSObject
+@end
+@implementation PodsDummy_Pods_Clean_RxFlow_Swinject_Clean_RxFlow_SwinjectTests
+@end

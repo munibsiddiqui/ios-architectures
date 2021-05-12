@@ -82,7 +82,6 @@ class BeerListVC: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.isLoading
-            .filter { !$0 }
             .bind(to: activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
