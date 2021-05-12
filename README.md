@@ -11,7 +11,7 @@
 1. Started from [Pawel Krawiec](https://github.com/tailec)'s [ios-architecture](https://github.com/tailec/ios-architecture) & [Bo-Young PARK](https://github.com/fimuxd)'s [BringMyOwnBeer-](https://github.com/fimuxd/BringMyOwnBeer-)
 2. Studied MVVM+RxSwift with [Miguel Lin](https://github.com/gannasong)'s [RxSwift-MVVM-Demo](https://github.com/gannasong/RxSwift-MVVM-Demo)
 3. Studied Coodinator Pattern with [wojciech-kulik](https://github.com/wojciech-kulik)'s [Swift-MVVMC-Demo](https://github.com/wojciech-kulik/Swift-MVVMC-Demo)
-4. Studied Clean Architecture with [Oleh](https://github.com/kudoleh)'s [iOS-Clean-Architecture-MVVM](https://github.com/kudoleh/iOS-Clean-Architecture-MVVM)
+4. Studied Clean Architecture with [Oleh](https://github.com/kudoleh)'s [iOS-Clean-Architecture-MVVM](https://github.com/kudoleh/iOS-Clean-Architecture-MVVM
 
 Thank for people of this list!
 
@@ -22,6 +22,14 @@ Thank for people of this list!
 | List | Search | Random |
 | :--: | :----: | :----: |
 <img src = "./screenshots/1.png" width = 400> | <img src = "./screenshots/2.png" width = 400> | <img src = "./screenshots/3.png" width = 400> |
+
+
+
+## Concept
+
+1. Objc
+2. [Swift](#1.-mvc-storyboard)
+3. [SwiftUI](#1.-swiftui)
 
 
 
@@ -127,7 +135,7 @@ Repositoy Pattern - CoreData
 
 Unit Tests 👌 - RxTest, Nimble
 
-
+❗️ **Bug** : If the simulator saves more than 1 page of beer list in CoreData, CoreDataManagerTest's randomTests fails. If you know a solution, Please PR.
 
 ## 5-2. [MVVM - RxSwift - realm](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-RxSwift-realm)
 
@@ -153,11 +161,9 @@ Unit Tests 👌 - RxTest, Nimble
 
 
 
-## 5-4. Clean - MVVM
+## 5-4. [Clean Architecture - MVVM - RxSwift - coredata](https://github.com/Goeun1001/ios-architectures/tree/master/Clean-MVVM)
 
-sub framework👌 - CleanFrameworks.zip
-
-
+❗️ **Bug** : CoreDataTests same.
 
 ## 6. [MVVM-C - RxSwift](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-C-RxSwift)
 
@@ -197,11 +203,13 @@ Unit Tests 👌 - RxTest
 
 
 
-## 7-1. Clean Architecture - MVVM - RxSwift - RxFlow - Swinject
+## 7-1. [Clean Architecture - RxFlow - Swinject](https://github.com/Goeun1001/ios-architectures/tree/master/Clean-RxFlow-Swinject)
 
+❗️ **Alert** : I used **' DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) '** Because If tabbarflow does not navigate to a total of 3 flows, it cannot navigate to an alert. If you know a better solution, please PR!
 
+❗️ **Bug** : CoreDataTests same.
 
-## 8. ReactorKit - RxFlow
+## 8. [ReactorKit - RxFlow](https://github.com/Goeun1001/ios-architectures/tree/master/ReactorKit-RxFlow)
 
 UI - SnapKit, Then, RxDatasource
 
@@ -209,17 +217,27 @@ Network - Moya
 
 Unit Tests 👌
 
-❗️ **Alert** : I used **' DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) '** Because If tabbarflow does not navigate to a total of 3 flows, it cannot navigate to an alert. If you know a better solution, please PR!
+❗️ **Alert** : I used **' DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) '** Because If tabbarflow does not navigate to a total of 3 flows, it cannot navigate to an alert. If you know a better solution, ㅇ
 
 
 
 ## 9. RIBs
 
-## 10. VIPER
+## 10. [VIPER](https://github.com/Goeun1001/ios-architectures/tree/master/VIPER-snapKit)
+
+UI - SnapKit, Then, RxDatasource
+
+Network - Moya
+
+Unit Tests 👌 - RxTest
+
+VIPER Template - [VIPER + Rx Xcode Template](https://github.com/Goeun1001/VIPER-Rx-Template)
 
 ## 11. VIP
 
-## 
+
+
+## 1. SwiftUI
 
 
 
