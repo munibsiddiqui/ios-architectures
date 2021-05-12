@@ -1,0 +1,6 @@
+framework module Pods_VIPER_snapKit_VIPER_snapKitTests {
+  umbrella header "Pods-VIPER-snapKit-VIPER-snapKitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
