@@ -6,15 +6,36 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct DetailBeerView: View {
+    let beer: Beer
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 5) {
+            KFImage(URL(string: beer.imageURL ?? ""))
+                .resizable()
+                .scaledToFit()
+                .frame(height: UIFrame.UIHeight / 2.5)
+            
+            Text(String(beer.id ?? 0))
+                .foregroundColor(.orange)
+                .font(.caption)
+            
+            Text(beer.name ?? "")
+            Text(beer.description ?? "")
+                .fixedSize(horizontal: false, vertical: true)
+                .foregroundColor(.gray)
+            
+            Spacer()
+            
+        }.frame(width: UIFrame.UIWidth - 60)
     }
 }
 
 struct DetailBeerView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailBeerView()
+        DetailBeerView(beer: Bundle.getSingleBeerJson().first!)
+        
     }
 }
