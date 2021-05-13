@@ -28,8 +28,8 @@ Thank for people of this list!
 ## Concept
 
 1. Objc
-2. [Swift](#1-mvc-storyboard)
-3. [SwiftUI](#1-swiftui)
+2. [Swift](#1-mvc---storyboard)
+3. [SwiftUI](#1-swiftui---mv)
 
 
 
@@ -237,7 +237,7 @@ VIPER Template - [VIPER + Rx Xcode Template](https://github.com/Goeun1001/VIPER-
 
 
 
-## 1. [SwiftUI- MV](https://github.com/Goeun1001/ios-architectures/tree/master/SwiftUI- MV)
+## 1. [SwiftUI- MV](https://github.com/Goeun1001/ios-architectures/tree/master/SwiftUI-MV)
 
 Using @State only
 
@@ -245,7 +245,7 @@ Network - Moya
 
 
 
-## 2. [SwiftUI-MVVM](https://github.com/Goeun1001/ios-architectures/tree/master/SwiftUI- MVVM)
+## 2. [SwiftUI-MVVM](https://github.com/Goeun1001/ios-architectures/tree/master/SwiftUI-MVVM)
 
 Using @Published
 
@@ -255,7 +255,7 @@ Unit Tests 👌
 
 
 
-## 3. [SwiftUI-MVVM-Combine](https://github.com/Goeun1001/ios-architectures/tree/master/SwiftUI- MVVM-Combine)
+## 3. [SwiftUI-MVVM-Combine](https://github.com/Goeun1001/ios-architectures/tree/master/SwiftUI-MVVM-Combine)
 
 Using Combine's PassthroughSubject
 
