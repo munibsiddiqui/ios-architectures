@@ -15,11 +15,10 @@ enum BeerAPI {
 }
 
 extension BeerAPI: TargetType {
-    
     var baseURL: URL {
         return URL(string: "https://api.punkapi.com/v2/beers")!
     }
-    
+
     var path: String {
         switch self {
         case .random:
@@ -28,11 +27,11 @@ extension BeerAPI: TargetType {
             return ""
         }
     }
-    
+
     var method: Method {
         return .get
     }
-    
+
     var task: Task {
         switch self {
         case let .getBeerList(page):
@@ -45,7 +44,7 @@ extension BeerAPI: TargetType {
             return .requestPlain
         }
     }
-    
+
     var sampleData: Data {
         switch self {
         case .getBeerList:
@@ -56,11 +55,11 @@ extension BeerAPI: TargetType {
             return stubbedResponse("SingleBeer")
         }
     }
-    
+
     var headers: [String: String]? {
         return nil
     }
-    
+
     func stubbedResponse(_ filename: String) -> Data! {
         let bundlePath = Bundle.main.path(forResource: "Stub", ofType: "bundle")
         let bundle = Bundle(path: bundlePath!)

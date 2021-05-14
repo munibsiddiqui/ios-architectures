@@ -42,7 +42,7 @@ class ImageDataProcessor {
     init(data: Data, callbacks: [SessionDataTask.TaskCallback], processingQueue: CallbackQueue?) {
         self.data = data
         self.callbacks = callbacks
-        self.queue = processingQueue ?? sharedProcessingQueue
+        queue = processingQueue ?? sharedProcessingQueue
     }
 
     func process() {

@@ -1,43 +1,41 @@
 #if canImport(Combine)
 
-import Combine
-import Moya
+    import Combine
+    import Moya
 
-// This should be already provided in Combine, but it's not.
-// Ideally we would like to remove it, in favor of a framework-provided solution, ASAP.
+    // This should be already provided in Combine, but it's not.
+    // Ideally we would like to remove it, in favor of a framework-provided solution, ASAP.
 
-@available(OSX 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-internal class MoyaPublisher<Output>: Publisher {
+    @available(OSX 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    internal class MoyaPublisher<Output>: Publisher {
+        internal typealias Failure = MoyaError
 
-    internal typealias Failure = MoyaError
+        private class Subscription: Combine.Subscription {
+            private let cancellable: Moya.Cancellable?
 
-    private class Subscription: Combine.Subscription {
+            init(subscriber: AnySubscriber<Output, MoyaError>, callback: @escaping (AnySubscriber<Output, MoyaError>) -> Moya.Cancellable?) {
+                cancellable = callback(subscriber)
+            }
 
-        private let cancellable: Moya.Cancellable?
+            func request(_: Subscribers.Demand) {
+                // We don't care for the demand right now
+            }
 
-        init(subscriber: AnySubscriber<Output, MoyaError>, callback: @escaping (AnySubscriber<Output, MoyaError>) -> Moya.Cancellable?) {
-            self.cancellable = callback(subscriber)
+            func cancel() {
+                cancellable?.cancel()
+            }
         }
 
-        func request(_ demand: Subscribers.Demand) {
-            // We don't care for the demand right now
+        private let callback: (AnySubscriber<Output, MoyaError>) -> Moya.Cancellable?
+
+        init(callback: @escaping (AnySubscriber<Output, MoyaError>) -> Moya.Cancellable?) {
+            self.callback = callback
         }
 
-        func cancel() {
-            cancellable?.cancel()
+        internal func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Output == S.Input {
+            let subscription = Subscription(subscriber: AnySubscriber(subscriber), callback: callback)
+            subscriber.receive(subscription: subscription)
         }
     }
-
-    private let callback: (AnySubscriber<Output, MoyaError>) -> Moya.Cancellable?
-
-    init(callback: @escaping (AnySubscriber<Output, MoyaError>) -> Moya.Cancellable?) {
-        self.callback = callback
-    }
-
-    internal func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Output == S.Input {
-        let subscription = Subscription(subscriber: AnySubscriber(subscriber), callback: callback)
-        subscriber.receive(subscription: subscription)
-    }
-}
 
 #endif

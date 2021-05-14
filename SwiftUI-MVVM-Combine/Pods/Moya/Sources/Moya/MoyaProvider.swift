@@ -8,7 +8,6 @@ public typealias ProgressBlock = (_ progress: ProgressResponse) -> Void
 
 /// A type representing the progress of a request.
 public struct ProgressResponse {
-
     /// The optional response of the request.
     public let response: Response?
 
@@ -17,7 +16,7 @@ public struct ProgressResponse {
 
     /// Initializes a `ProgressResponse`.
     public init(progress: Progress? = nil, response: Response? = nil) {
-        self.progressObject = progress
+        progressObject = progress
         self.response = response
     }
 
@@ -41,7 +40,6 @@ public struct ProgressResponse {
 /// A protocol representing a minimal interface for a MoyaProvider.
 /// Used by the reactive provider extensions.
 public protocol MoyaProviderType: AnyObject {
-
     associatedtype Target: TargetType
 
     /// Designated request-making method. Returns a `Cancellable` token to cancel the request later.
@@ -50,7 +48,6 @@ public protocol MoyaProviderType: AnyObject {
 
 /// Request provider class. Requests should be made through this class only.
 open class MoyaProvider<Target: TargetType>: MoyaProviderType {
-
     /// Closure that defines the endpoints for the provider.
     public typealias EndpointClosure = (Target) -> Endpoint
 
@@ -89,7 +86,7 @@ open class MoyaProvider<Target: TargetType>: MoyaProviderType {
     /// Propagated to Alamofire as callback queue. If nil - the Alamofire default (as of their API in 2017 - the main queue) will be used.
     let callbackQueue: DispatchQueue?
 
-    let lock: NSRecursiveLock = NSRecursiveLock()
+    let lock = NSRecursiveLock()
 
     /// Initializes a provider.
     public init(endpointClosure: @escaping EndpointClosure = MoyaProvider.defaultEndpointMapping,
@@ -98,8 +95,8 @@ open class MoyaProvider<Target: TargetType>: MoyaProviderType {
                 callbackQueue: DispatchQueue? = nil,
                 session: Session = MoyaProvider<Target>.defaultAlamofireSession(),
                 plugins: [PluginType] = [],
-                trackInflights: Bool = false) {
-
+                trackInflights: Bool = false)
+    {
         self.endpointClosure = endpointClosure
         self.requestClosure = requestClosure
         self.stubClosure = stubClosure
@@ -119,8 +116,8 @@ open class MoyaProvider<Target: TargetType>: MoyaProviderType {
     open func request(_ target: Target,
                       callbackQueue: DispatchQueue? = .none,
                       progress: ProgressBlock? = .none,
-                      completion: @escaping Completion) -> Cancellable {
-
+                      completion: @escaping Completion) -> Cancellable
+    {
         let callbackQueue = callbackQueue ?? self.callbackQueue
         return requestNormal(target, callbackQueue: callbackQueue, progress: progress, completion: completion)
     }
@@ -132,7 +129,7 @@ open class MoyaProvider<Target: TargetType>: MoyaProviderType {
     @discardableResult
     open func stubRequest(_ target: Target, request: URLRequest, callbackQueue: DispatchQueue?, completion: @escaping Moya.Completion, endpoint: Endpoint, stubBehavior: Moya.StubBehavior) -> CancellableToken {
         let callbackQueue = callbackQueue ?? self.callbackQueue
-        let cancellableToken = CancellableToken { }
+        let cancellableToken = CancellableToken {}
         let preparedRequest = notifyPluginsOfImpendingStub(for: request, target: target)
         let plugins = self.plugins
         let stub: () -> Void = createStubFunction(cancellableToken, forTarget: target, withCompletion: completion, endpoint: endpoint, plugins: plugins, request: preparedRequest)
@@ -141,10 +138,10 @@ open class MoyaProvider<Target: TargetType>: MoyaProviderType {
             switch callbackQueue {
             case .none:
                 stub()
-            case .some(let callbackQueue):
+            case let .some(callbackQueue):
                 callbackQueue.async(execute: stub)
             }
-        case .delayed(let delay):
+        case let .delayed(delay):
             let killTimeOffset = Int64(CDouble(delay) * CDouble(NSEC_PER_SEC))
             let killTime = DispatchTime.now() + Double(killTimeOffset) / Double(NSEC_PER_SEC)
             (callbackQueue ?? DispatchQueue.main).asyncAfter(deadline: killTime) {
@@ -163,7 +160,6 @@ open class MoyaProvider<Target: TargetType>: MoyaProviderType {
 
 /// Controls how stub responses are returned.
 public enum StubBehavior {
-
     /// Do not stub.
     case never
 
@@ -175,7 +171,6 @@ public enum StubBehavior {
 }
 
 public extension MoyaProvider {
-
     // Swift won't let us put the StubBehavior enum inside the provider class, so we'll
     // at least add some class functions to allow easy access to common stubbing closures.
 
@@ -193,20 +188,21 @@ public extension MoyaProvider {
 
 /// A public function responsible for converting the result of a `URLRequest` to a Result<Moya.Response, MoyaError>.
 public func convertResponseToResult(_ response: HTTPURLResponse?, request: URLRequest?, data: Data?, error: Swift.Error?) ->
-    Result<Moya.Response, MoyaError> {
-        switch (response, data, error) {
-        case let (.some(response), data, .none):
-            let response = Moya.Response(statusCode: response.statusCode, data: data ?? Data(), request: request, response: response)
-            return .success(response)
-        case let (.some(response), _, .some(error)):
-            let response = Moya.Response(statusCode: response.statusCode, data: data ?? Data(), request: request, response: response)
-            let error = MoyaError.underlying(error, response)
-            return .failure(error)
-        case let (_, _, .some(error)):
-            let error = MoyaError.underlying(error, nil)
-            return .failure(error)
-        default:
-            let error = MoyaError.underlying(NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: nil), nil)
-            return .failure(error)
-        }
+    Result<Moya.Response, MoyaError>
+{
+    switch (response, data, error) {
+    case let (.some(response), data, .none):
+        let response = Moya.Response(statusCode: response.statusCode, data: data ?? Data(), request: request, response: response)
+        return .success(response)
+    case let (.some(response), _, .some(error)):
+        let response = Moya.Response(statusCode: response.statusCode, data: data ?? Data(), request: request, response: response)
+        let error = MoyaError.underlying(error, response)
+        return .failure(error)
+    case let (_, _, .some(error)):
+        let error = MoyaError.underlying(error, nil)
+        return .failure(error)
+    default:
+        let error = MoyaError.underlying(NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: nil), nil)
+        return .failure(error)
+    }
 }

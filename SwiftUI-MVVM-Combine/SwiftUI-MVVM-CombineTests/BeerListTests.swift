@@ -17,17 +17,17 @@ class BeerListTests: XCTestCase {
     override func setUp() {
         viewModel = BeerListViewModel(networkingApi: MockNetworkingAPI())
     }
-    
+
     func test_get_beer() {
         viewModel.apply(.getBeerList)
-        
+
         XCTAssertEqual(viewModel.beers, Bundle.getBeerListJson())
     }
-    
+
     func test_fail_network() {
         viewModel = BeerListViewModel(networkingApi: FailedNetworkingAPI())
         viewModel.apply(.getBeerList)
-        
+
         XCTAssertEqual(viewModel.isErrorAlert, true)
         XCTAssertEqual(viewModel.errorMessage, "Failed to map Endpoint to a URLRequest.")
     }

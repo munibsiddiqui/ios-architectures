@@ -225,15 +225,15 @@ public final class URLEncodedFormEncoder {
             //
             // It is assumed, per Swift naming conventions, that the first character of the key is lowercase.
             var wordStart = key.startIndex
-            var searchRange = key.index(after: wordStart)..<key.endIndex
+            var searchRange = key.index(after: wordStart) ..< key.endIndex
 
             // Find next uppercase character
             while let upperCaseRange = key.rangeOfCharacter(from: CharacterSet.uppercaseLetters, options: [], range: searchRange) {
-                let untilUpperCase = wordStart..<upperCaseRange.lowerBound
+                let untilUpperCase = wordStart ..< upperCaseRange.lowerBound
                 words.append(untilUpperCase)
 
                 // Find next lowercase character
-                searchRange = upperCaseRange.lowerBound..<searchRange.upperBound
+                searchRange = upperCaseRange.lowerBound ..< searchRange.upperBound
                 guard let lowerCaseRange = key.rangeOfCharacter(from: CharacterSet.lowercaseLetters, options: [], range: searchRange) else {
                     // There are no more lower case letters. Just end here.
                     wordStart = searchRange.lowerBound
@@ -251,14 +251,14 @@ public final class URLEncodedFormEncoder {
                 } else {
                     // There was a range of >1 capital letters. Turn those into a word, stopping at the capital before the lower case character.
                     let beforeLowerIndex = key.index(before: lowerCaseRange.lowerBound)
-                    words.append(upperCaseRange.lowerBound..<beforeLowerIndex)
+                    words.append(upperCaseRange.lowerBound ..< beforeLowerIndex)
 
                     // Next word starts at the capital before the lowercase we just found
                     wordStart = beforeLowerIndex
                 }
-                searchRange = lowerCaseRange.upperBound..<searchRange.upperBound
+                searchRange = lowerCaseRange.upperBound ..< searchRange.upperBound
             }
-            words.append(wordStart..<searchRange.upperBound)
+            words.append(wordStart ..< searchRange.upperBound)
             let result = words.map { range in
                 key[range].lowercased()
             }.joined(separator: separator)
@@ -340,7 +340,8 @@ public final class URLEncodedFormEncoder {
                 dateEncoding: DateEncoding = .deferredToDate,
                 keyEncoding: KeyEncoding = .useDefaultKeys,
                 spaceEncoding: SpaceEncoding = .percentEscaped,
-                allowedCharacters: CharacterSet = .afURLQueryAllowed) {
+                allowedCharacters: CharacterSet = .afURLQueryAllowed)
+    {
         self.alphabetizeKeyValuePairs = alphabetizeKeyValuePairs
         self.arrayEncoding = arrayEncoding
         self.boolEncoding = boolEncoding
@@ -415,7 +416,8 @@ final class _URLEncodedFormEncoder {
          codingPath: [CodingKey] = [],
          boolEncoding: URLEncodedFormEncoder.BoolEncoding,
          dataEncoding: URLEncodedFormEncoder.DataEncoding,
-         dateEncoding: URLEncodedFormEncoder.DateEncoding) {
+         dateEncoding: URLEncodedFormEncoder.DateEncoding)
+    {
         self.context = context
         self.codingPath = codingPath
         self.boolEncoding = boolEncoding
@@ -425,7 +427,7 @@ final class _URLEncodedFormEncoder {
 }
 
 extension _URLEncodedFormEncoder: Encoder {
-    func container<Key>(keyedBy type: Key.Type) -> KeyedEncodingContainer<Key> where Key: CodingKey {
+    func container<Key>(keyedBy _: Key.Type) -> KeyedEncodingContainer<Key> where Key: CodingKey {
         let container = _URLEncodedFormEncoder.KeyedContainer<Key>(context: context,
                                                                    codingPath: codingPath,
                                                                    boolEncoding: boolEncoding,
@@ -583,7 +585,8 @@ extension _URLEncodedFormEncoder {
              codingPath: [CodingKey],
              boolEncoding: URLEncodedFormEncoder.BoolEncoding,
              dataEncoding: URLEncodedFormEncoder.DataEncoding,
-             dateEncoding: URLEncodedFormEncoder.DateEncoding) {
+             dateEncoding: URLEncodedFormEncoder.DateEncoding)
+        {
             self.context = context
             self.codingPath = codingPath
             self.boolEncoding = boolEncoding
@@ -629,7 +632,7 @@ extension _URLEncodedFormEncoder.KeyedContainer: KeyedEncodingContainerProtocol 
         return container
     }
 
-    func nestedContainer<NestedKey>(keyedBy keyType: NestedKey.Type, forKey key: Key) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
+    func nestedContainer<NestedKey>(keyedBy _: NestedKey.Type, forKey key: Key) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
         let container = _URLEncodedFormEncoder.KeyedContainer<NestedKey>(context: context,
                                                                          codingPath: nestedCodingPath(for: key),
                                                                          boolEncoding: boolEncoding,
@@ -671,7 +674,8 @@ extension _URLEncodedFormEncoder {
              codingPath: [CodingKey],
              boolEncoding: URLEncodedFormEncoder.BoolEncoding,
              dataEncoding: URLEncodedFormEncoder.DataEncoding,
-             dateEncoding: URLEncodedFormEncoder.DateEncoding) {
+             dateEncoding: URLEncodedFormEncoder.DateEncoding)
+        {
             self.context = context
             self.codingPath = codingPath
             self.boolEncoding = boolEncoding
@@ -817,7 +821,8 @@ extension _URLEncodedFormEncoder {
              codingPath: [CodingKey],
              boolEncoding: URLEncodedFormEncoder.BoolEncoding,
              dataEncoding: URLEncodedFormEncoder.DataEncoding,
-             dateEncoding: URLEncodedFormEncoder.DateEncoding) {
+             dateEncoding: URLEncodedFormEncoder.DateEncoding)
+        {
             self.context = context
             self.codingPath = codingPath
             self.boolEncoding = boolEncoding
@@ -849,7 +854,7 @@ extension _URLEncodedFormEncoder.UnkeyedContainer: UnkeyedEncodingContainer {
                                                            dateEncoding: dateEncoding)
     }
 
-    func nestedContainer<NestedKey>(keyedBy keyType: NestedKey.Type) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
+    func nestedContainer<NestedKey>(keyedBy _: NestedKey.Type) -> KeyedEncodingContainer<NestedKey> where NestedKey: CodingKey {
         defer { count += 1 }
         let container = _URLEncodedFormEncoder.KeyedContainer<NestedKey>(context: context,
                                                                          codingPath: nestedCodingPath,
@@ -892,7 +897,8 @@ final class URLEncodedFormSerializer {
          arrayEncoding: URLEncodedFormEncoder.ArrayEncoding,
          keyEncoding: URLEncodedFormEncoder.KeyEncoding,
          spaceEncoding: URLEncodedFormEncoder.SpaceEncoding,
-         allowedCharacters: CharacterSet) {
+         allowedCharacters: CharacterSet)
+    {
         self.alphabetizeKeyValuePairs = alphabetizeKeyValuePairs
         self.arrayEncoding = arrayEncoding
         self.keyEncoding = keyEncoding
@@ -955,7 +961,7 @@ extension Array where Element == String {
     }
 }
 
-extension CharacterSet {
+public extension CharacterSet {
     /// Creates a CharacterSet from RFC 3986 allowed characters.
     ///
     /// RFC 3986 states that the following characters are "reserved" characters.
@@ -966,7 +972,7 @@ extension CharacterSet {
     /// In RFC 3986 - Section 3.4, it states that the "?" and "/" characters should not be escaped to allow
     /// query strings to include a URL. Therefore, all "reserved" characters with the exception of "?" and "/"
     /// should be percent-escaped in the query string.
-    public static let afURLQueryAllowed: CharacterSet = {
+    static let afURLQueryAllowed: CharacterSet = {
         let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
         let subDelimitersToEncode = "!$&'()*+,;="
         let encodableDelimiters = CharacterSet(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")

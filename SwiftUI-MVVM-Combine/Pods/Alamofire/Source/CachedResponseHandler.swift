@@ -77,7 +77,8 @@ public struct ResponseCacher {
 extension ResponseCacher: CachedResponseHandler {
     public func dataTask(_ task: URLSessionDataTask,
                          willCacheResponse response: CachedURLResponse,
-                         completion: @escaping (CachedURLResponse?) -> Void) {
+                         completion: @escaping (CachedURLResponse?) -> Void)
+    {
         switch behavior {
         case .cache:
             completion(response)

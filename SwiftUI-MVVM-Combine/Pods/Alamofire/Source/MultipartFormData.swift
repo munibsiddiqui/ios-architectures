@@ -25,9 +25,9 @@
 import Foundation
 
 #if os(iOS) || os(watchOS) || os(tvOS)
-import MobileCoreServices
+    import MobileCoreServices
 #elseif os(macOS)
-import CoreServices
+    import CoreServices
 #endif
 
 /// Constructs `multipart/form-data` for uploads within an HTTP or HTTPS body. There are currently two ways to encode
@@ -55,8 +55,8 @@ open class MultipartFormData {
         }
 
         static func randomBoundary() -> String {
-            let first = UInt32.random(in: UInt32.min...UInt32.max)
-            let second = UInt32.random(in: UInt32.min...UInt32.max)
+            let first = UInt32.random(in: UInt32.min ... UInt32.max)
+            let second = UInt32.random(in: UInt32.min ... UInt32.max)
 
             return String(format: "alamofire.boundary.%08x%08x", first, second)
         }
@@ -175,7 +175,7 @@ open class MultipartFormData {
         let fileName = fileURL.lastPathComponent
         let pathExtension = fileURL.pathExtension
 
-        if !fileName.isEmpty && !pathExtension.isEmpty {
+        if !fileName.isEmpty, !pathExtension.isEmpty {
             let mime = mimeType(forPathExtension: pathExtension)
             append(fileURL, withName: name, fileName: fileName, mimeType: mime)
         } else {
@@ -231,7 +231,7 @@ open class MultipartFormData {
         var isDirectory: ObjCBool = false
         let path = fileURL.path
 
-        guard fileManager.fileExists(atPath: path, isDirectory: &isDirectory) && !isDirectory.boolValue else {
+        guard fileManager.fileExists(atPath: path, isDirectory: &isDirectory), !isDirectory.boolValue else {
             setBodyPartError(withReason: .bodyPartFileIsDirectory(at: fileURL))
             return
         }
@@ -285,7 +285,8 @@ open class MultipartFormData {
                        withLength length: UInt64,
                        name: String,
                        fileName: String,
-                       mimeType: String) {
+                       mimeType: String)
+    {
         let headers = contentHeaders(withName: name, fileName: fileName, mimeType: mimeType)
         append(stream, withLength: length, headers: headers)
     }
@@ -463,7 +464,7 @@ open class MultipartFormData {
 
             if bytesRead > 0 {
                 if buffer.count != bytesRead {
-                    buffer = Array(buffer[0..<bytesRead])
+                    buffer = Array(buffer[0 ..< bytesRead])
                 }
 
                 try write(&buffer, to: outputStream)
@@ -501,7 +502,7 @@ open class MultipartFormData {
             bytesToWrite -= bytesWritten
 
             if bytesToWrite > 0 {
-                buffer = Array(buffer[bytesWritten..<buffer.count])
+                buffer = Array(buffer[bytesWritten ..< buffer.count])
             }
         }
     }
@@ -511,7 +512,8 @@ open class MultipartFormData {
     private func mimeType(forPathExtension pathExtension: String) -> String {
         if
             let id = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension as CFString, nil)?.takeRetainedValue(),
-            let contentType = UTTypeCopyPreferredTagWithClass(id, kUTTagClassMIMEType)?.takeRetainedValue() {
+            let contentType = UTTypeCopyPreferredTagWithClass(id, kUTTagClassMIMEType)?.takeRetainedValue()
+        {
             return contentType as String
         }
 

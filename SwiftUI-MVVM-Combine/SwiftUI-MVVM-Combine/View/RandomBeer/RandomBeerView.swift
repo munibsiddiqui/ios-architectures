@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RandomBeerView: View {
     @ObservedObject var viewModel = RandomBeerViewModel()
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -27,7 +27,7 @@ struct RandomBeerView: View {
                 }
                 ActivityIndicator(isAnimating: $viewModel.isLoading, style: .large)
             }.navigationBarTitle("Random Beer", displayMode: .large)
-        }.onAppear() {
+        }.onAppear {
             viewModel.apply(.getRandom)
         }
     }

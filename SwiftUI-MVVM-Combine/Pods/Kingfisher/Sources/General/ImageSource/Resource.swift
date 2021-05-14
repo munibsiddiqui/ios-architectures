@@ -30,20 +30,18 @@ import Foundation
 /// Kingfisher will use a `Resource` to download a resource from network and cache it with the cache key when
 /// using `Source.network` as its image setting source.
 public protocol Resource {
-    
     /// The key used in cache.
     var cacheKey: String { get }
-    
+
     /// The target image URL.
     var downloadURL: URL { get }
 }
 
-extension Resource {
-
+public extension Resource {
     /// Converts `self` to a valid `Source` based on its `downloadURL` scheme. A `.provider` with
     /// `LocalFileImageDataProvider` associated will be returned if the URL points to a local file. Otherwise,
     /// `.network` is returned.
-    public func convertToSource(overrideCacheKey: String? = nil) -> Source {
+    func convertToSource(overrideCacheKey: String? = nil) -> Source {
         return downloadURL.isFileURL ?
             .provider(LocalFileImageDataProvider(fileURL: downloadURL, cacheKey: overrideCacheKey ?? cacheKey)) :
             .network(ImageResource(downloadURL: downloadURL, cacheKey: overrideCacheKey ?? cacheKey))
@@ -54,7 +52,6 @@ extension Resource {
 /// When passed to image view set methods, Kingfisher will try to download the target
 /// image from the `downloadURL`, and then store it with the `cacheKey` as the key in cache.
 public struct ImageResource: Resource {
-
     // MARK: - Initializers
 
     /// Creates an image resource.
@@ -69,7 +66,7 @@ public struct ImageResource: Resource {
     }
 
     // MARK: Protocol Conforming
-    
+
     /// The key used in cache.
     public let cacheKey: String
 

@@ -25,25 +25,24 @@
 //  THE SOFTWARE.
 
 #if canImport(UIKit)
-import UIKit
+    import UIKit
 #endif
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-import AppKit
+    import AppKit
 #endif
 
 #if canImport(WatchKit)
-import WatchKit
+    import WatchKit
 #endif
 
 #if canImport(TVUIKit)
-import TVUIKit
+    import TVUIKit
 #endif
 
 /// A helper type to create image setting tasks in a builder pattern.
 /// Use methods in this type to create a `KF.Builder` instance and configure image tasks there.
 public enum KF {
-
     /// Creates a builder for a given `Source`.
     /// - Parameter source: The `Source` object defines data information from network or a data provider.
     /// - Returns: A `KF.Builder` for future configuration. After configuring the builder, call `set(to:)`
@@ -94,17 +93,15 @@ public enum KF {
     }
 }
 
-
-extension KF {
-
+public extension KF {
     /// A builder class to configure an image retrieving task and set it to a holder view or component.
-    public class Builder {
+    class Builder {
         private let source: Source?
 
         #if os(watchOS)
-        private var placeholder: KFCrossPlatformImage?
+            private var placeholder: KFCrossPlatformImage?
         #else
-        private var placeholder: Placeholder?
+            private var placeholder: Placeholder?
         #endif
 
         public var options = KingfisherParsedOptionsInfo(KingfisherManager.shared.defaultOptions)
@@ -120,9 +117,9 @@ extension KF {
         private var resultHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)? {
             {
                 switch $0 {
-                case .success(let result):
+                case let .success(result):
                     self.onSuccessDelegate(result)
-                case .failure(let error):
+                case let .failure(error):
                     self.onFailureDelegate(error)
                 }
             }
@@ -134,207 +131,206 @@ extension KF {
     }
 }
 
-extension KF.Builder {
+public extension KF.Builder {
     #if !os(watchOS)
 
-    /// Builds the image task request and sets it to an image view.
-    /// - Parameter imageView: The image view which loads the task and should be set with the image.
-    /// - Returns: A task represents the image downloading, if initialized.
-    ///            This value is `nil` if the image is being loaded from cache.
-    @discardableResult
-    public func set(to imageView: KFCrossPlatformImageView) -> DownloadTask? {
-        imageView.kf.setImage(
-            with: source,
-            placeholder: placeholder,
-            parsedOptions: options,
-            progressBlock: progressBlock,
-            completionHandler: resultHandler
-        )
-    }
+        /// Builds the image task request and sets it to an image view.
+        /// - Parameter imageView: The image view which loads the task and should be set with the image.
+        /// - Returns: A task represents the image downloading, if initialized.
+        ///            This value is `nil` if the image is being loaded from cache.
+        @discardableResult
+        func set(to imageView: KFCrossPlatformImageView) -> DownloadTask? {
+            imageView.kf.setImage(
+                with: source,
+                placeholder: placeholder,
+                parsedOptions: options,
+                progressBlock: progressBlock,
+                completionHandler: resultHandler
+            )
+        }
 
-    /// Builds the image task request and sets it to an `NSTextAttachment` object.
-    /// - Parameters:
-    ///   - attachment: The text attachment object which loads the task and should be set with the image.
-    ///   - attributedView: The owner of the attributed string which this `NSTextAttachment` is added.
-    /// - Returns: A task represents the image downloading, if initialized.
-    ///            This value is `nil` if the image is being loaded from cache.
-    @discardableResult
-    public func set(to attachment: NSTextAttachment, attributedView: KFCrossPlatformView) -> DownloadTask? {
-        let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
-        return attachment.kf.setImage(
-            with: source,
-            attributedView: attributedView,
-            placeholder: placeholderImage,
-            parsedOptions: options,
-            progressBlock: progressBlock,
-            completionHandler: resultHandler
-        )
-    }
+        /// Builds the image task request and sets it to an `NSTextAttachment` object.
+        /// - Parameters:
+        ///   - attachment: The text attachment object which loads the task and should be set with the image.
+        ///   - attributedView: The owner of the attributed string which this `NSTextAttachment` is added.
+        /// - Returns: A task represents the image downloading, if initialized.
+        ///            This value is `nil` if the image is being loaded from cache.
+        @discardableResult
+        func set(to attachment: NSTextAttachment, attributedView: KFCrossPlatformView) -> DownloadTask? {
+            let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
+            return attachment.kf.setImage(
+                with: source,
+                attributedView: attributedView,
+                placeholder: placeholderImage,
+                parsedOptions: options,
+                progressBlock: progressBlock,
+                completionHandler: resultHandler
+            )
+        }
 
-    #if canImport(UIKit)
+        #if canImport(UIKit)
 
-    /// Builds the image task request and sets it to a button.
-    /// - Parameters:
-    ///   - button: The button which loads the task and should be set with the image.
-    ///   - state: The button state to which the image should be set.
-    /// - Returns: A task represents the image downloading, if initialized.
-    ///            This value is `nil` if the image is being loaded from cache.
-    @discardableResult
-    public func set(to button: UIButton, for state: UIControl.State) -> DownloadTask? {
-        let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
-        return button.kf.setImage(
-            with: source,
-            for: state,
-            placeholder: placeholderImage,
-            parsedOptions: options,
-            progressBlock: progressBlock,
-            completionHandler: resultHandler
-        )
-    }
+            /// Builds the image task request and sets it to a button.
+            /// - Parameters:
+            ///   - button: The button which loads the task and should be set with the image.
+            ///   - state: The button state to which the image should be set.
+            /// - Returns: A task represents the image downloading, if initialized.
+            ///            This value is `nil` if the image is being loaded from cache.
+            @discardableResult
+            func set(to button: UIButton, for state: UIControl.State) -> DownloadTask? {
+                let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
+                return button.kf.setImage(
+                    with: source,
+                    for: state,
+                    placeholder: placeholderImage,
+                    parsedOptions: options,
+                    progressBlock: progressBlock,
+                    completionHandler: resultHandler
+                )
+            }
 
-    /// Builds the image task request and sets it to the background image for a button.
-    /// - Parameters:
-    ///   - button: The button which loads the task and should be set with the image.
-    ///   - state: The button state to which the image should be set.
-    /// - Returns: A task represents the image downloading, if initialized.
-    ///            This value is `nil` if the image is being loaded from cache.
-    @discardableResult
-    public func setBackground(to button: UIButton, for state: UIControl.State) -> DownloadTask? {
-        let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
-        return button.kf.setBackgroundImage(
-            with: source,
-            for: state,
-            placeholder: placeholderImage,
-            parsedOptions: options,
-            progressBlock: progressBlock,
-            completionHandler: resultHandler
-        )
-    }
-    #endif // end of canImport(UIKit)
+            /// Builds the image task request and sets it to the background image for a button.
+            /// - Parameters:
+            ///   - button: The button which loads the task and should be set with the image.
+            ///   - state: The button state to which the image should be set.
+            /// - Returns: A task represents the image downloading, if initialized.
+            ///            This value is `nil` if the image is being loaded from cache.
+            @discardableResult
+            func setBackground(to button: UIButton, for state: UIControl.State) -> DownloadTask? {
+                let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
+                return button.kf.setBackgroundImage(
+                    with: source,
+                    for: state,
+                    placeholder: placeholderImage,
+                    parsedOptions: options,
+                    progressBlock: progressBlock,
+                    completionHandler: resultHandler
+                )
+            }
+        #endif // end of canImport(UIKit)
 
-    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-    /// Builds the image task request and sets it to a button.
-    /// - Parameter button: The button which loads the task and should be set with the image.
-    /// - Returns: A task represents the image downloading, if initialized.
-    ///            This value is `nil` if the image is being loaded from cache.
-    @discardableResult
-    public func set(to button: NSButton) -> DownloadTask? {
-        let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
-        return button.kf.setImage(
-            with: source,
-            placeholder: placeholderImage,
-            parsedOptions: options,
-            progressBlock: progressBlock,
-            completionHandler: resultHandler
-        )
-    }
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
+            /// Builds the image task request and sets it to a button.
+            /// - Parameter button: The button which loads the task and should be set with the image.
+            /// - Returns: A task represents the image downloading, if initialized.
+            ///            This value is `nil` if the image is being loaded from cache.
+            @discardableResult
+            func set(to button: NSButton) -> DownloadTask? {
+                let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
+                return button.kf.setImage(
+                    with: source,
+                    placeholder: placeholderImage,
+                    parsedOptions: options,
+                    progressBlock: progressBlock,
+                    completionHandler: resultHandler
+                )
+            }
 
-    /// Builds the image task request and sets it to the alternative image for a button.
-    /// - Parameter button: The button which loads the task and should be set with the image.
-    /// - Returns: A task represents the image downloading, if initialized.
-    ///            This value is `nil` if the image is being loaded from cache.
-    @discardableResult
-    public func setAlternative(to button: NSButton) -> DownloadTask? {
-        let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
-        return button.kf.setAlternateImage(
-            with: source,
-            placeholder: placeholderImage,
-            parsedOptions: options,
-            progressBlock: progressBlock,
-            completionHandler: resultHandler
-        )
-    }
-    #endif // end of canImport(AppKit)
+            /// Builds the image task request and sets it to the alternative image for a button.
+            /// - Parameter button: The button which loads the task and should be set with the image.
+            /// - Returns: A task represents the image downloading, if initialized.
+            ///            This value is `nil` if the image is being loaded from cache.
+            @discardableResult
+            func setAlternative(to button: NSButton) -> DownloadTask? {
+                let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
+                return button.kf.setAlternateImage(
+                    with: source,
+                    placeholder: placeholderImage,
+                    parsedOptions: options,
+                    progressBlock: progressBlock,
+                    completionHandler: resultHandler
+                )
+            }
+        #endif // end of canImport(AppKit)
     #endif // end of !os(watchOS)
 
     #if canImport(WatchKit)
-    /// Builds the image task request and sets it to a `WKInterfaceImage` object.
-    /// - Parameter interfaceImage: The watch interface image which loads the task and should be set with the image.
-    /// - Returns: A task represents the image downloading, if initialized.
-    ///            This value is `nil` if the image is being loaded from cache.
-    @discardableResult
-    public func set(to interfaceImage: WKInterfaceImage) -> DownloadTask? {
-        return interfaceImage.kf.setImage(
-            with: source,
-            placeholder: placeholder,
-            parsedOptions: options,
-            progressBlock: progressBlock,
-            completionHandler: resultHandler
-        )
-    }
+        /// Builds the image task request and sets it to a `WKInterfaceImage` object.
+        /// - Parameter interfaceImage: The watch interface image which loads the task and should be set with the image.
+        /// - Returns: A task represents the image downloading, if initialized.
+        ///            This value is `nil` if the image is being loaded from cache.
+        @discardableResult
+        func set(to interfaceImage: WKInterfaceImage) -> DownloadTask? {
+            return interfaceImage.kf.setImage(
+                with: source,
+                placeholder: placeholder,
+                parsedOptions: options,
+                progressBlock: progressBlock,
+                completionHandler: resultHandler
+            )
+        }
     #endif // end of canImport(WatchKit)
 
     #if canImport(TVUIKit)
-    /// Builds the image task request and sets it to a TV monogram view.
-    /// - Parameter monogramView: The monogram view which loads the task and should be set with the image.
-    /// - Returns: A task represents the image downloading, if initialized.
-    ///            This value is `nil` if the image is being loaded from cache.
-    @available(tvOS 12.0, *)
-    @discardableResult
-    public func set(to monogramView: TVMonogramView) -> DownloadTask? {
-        let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
-        return monogramView.kf.setImage(
-            with: source,
-            placeholder: placeholderImage,
-            parsedOptions: options,
-            progressBlock: progressBlock,
-            completionHandler: resultHandler
-        )
-    }
+        /// Builds the image task request and sets it to a TV monogram view.
+        /// - Parameter monogramView: The monogram view which loads the task and should be set with the image.
+        /// - Returns: A task represents the image downloading, if initialized.
+        ///            This value is `nil` if the image is being loaded from cache.
+        @available(tvOS 12.0, *)
+        @discardableResult
+        func set(to monogramView: TVMonogramView) -> DownloadTask? {
+            let placeholderImage = placeholder as? KFCrossPlatformImage ?? nil
+            return monogramView.kf.setImage(
+                with: source,
+                placeholder: placeholderImage,
+                parsedOptions: options,
+                progressBlock: progressBlock,
+                completionHandler: resultHandler
+            )
+        }
     #endif // end of canImport(TVUIKit)
 }
 
 #if !os(watchOS)
-extension KF.Builder {
-    #if os(iOS) || os(tvOS)
+    public extension KF.Builder {
+        #if os(iOS) || os(tvOS)
 
-    /// Sets a placeholder which is used while retrieving the image.
-    /// - Parameter placeholder: A placeholder to show while retrieving the image from its source.
-    /// - Returns: A `KF.Builder` with changes applied.
-    public func placeholder(_ placeholder: Placeholder?) -> Self {
-        self.placeholder = placeholder
-        return self
-    }
-    #endif
+            /// Sets a placeholder which is used while retrieving the image.
+            /// - Parameter placeholder: A placeholder to show while retrieving the image from its source.
+            /// - Returns: A `KF.Builder` with changes applied.
+            func placeholder(_ placeholder: Placeholder?) -> Self {
+                self.placeholder = placeholder
+                return self
+            }
+        #endif
 
-    /// Sets a placeholder image which is used while retrieving the image.
-    /// - Parameter placeholder: An image to show while retrieving the image from its source.
-    /// - Returns: A `KF.Builder` with changes applied.
-    public func placeholder(_ image: KFCrossPlatformImage?) -> Self {
-        self.placeholder = image
-        return self
+        /// Sets a placeholder image which is used while retrieving the image.
+        /// - Parameter placeholder: An image to show while retrieving the image from its source.
+        /// - Returns: A `KF.Builder` with changes applied.
+        func placeholder(_ image: KFCrossPlatformImage?) -> Self {
+            placeholder = image
+            return self
+        }
     }
-}
 #endif
 
-extension KF.Builder {
-
+public extension KF.Builder {
     #if os(iOS) || os(tvOS)
-    /// Sets the transition for the image task.
-    /// - Parameter transition: The desired transition effect when setting the image to image view.
-    /// - Returns: A `KF.Builder` with changes applied.
-    ///
-    /// Kingfisher will use the `transition` to animate the image in if it is downloaded from web.
-    /// The transition will not happen when the
-    /// image is retrieved from either memory or disk cache by default. If you need to do the transition even when
-    /// the image being retrieved from cache, also call `forceRefresh()` on the returned `KF.Builder`.
-    public func transition(_ transition: ImageTransition) -> Self {
-        options.transition = transition
-        return self
-    }
+        /// Sets the transition for the image task.
+        /// - Parameter transition: The desired transition effect when setting the image to image view.
+        /// - Returns: A `KF.Builder` with changes applied.
+        ///
+        /// Kingfisher will use the `transition` to animate the image in if it is downloaded from web.
+        /// The transition will not happen when the
+        /// image is retrieved from either memory or disk cache by default. If you need to do the transition even when
+        /// the image being retrieved from cache, also call `forceRefresh()` on the returned `KF.Builder`.
+        func transition(_ transition: ImageTransition) -> Self {
+            options.transition = transition
+            return self
+        }
 
-    /// Sets a fade transition for the image task.
-    /// - Parameter duration: The duration of the fade transition.
-    /// - Returns: A `KF.Builder` with changes applied.
-    ///
-    /// Kingfisher will use the fade transition to animate the image in if it is downloaded from web.
-    /// The transition will not happen when the
-    /// image is retrieved from either memory or disk cache by default. If you need to do the transition even when
-    /// the image being retrieved from cache, also call `forceRefresh()` on the returned `KF.Builder`.
-    public func fade(duration: TimeInterval) -> Self {
-        options.transition = .fade(duration)
-        return self
-    }
+        /// Sets a fade transition for the image task.
+        /// - Parameter duration: The duration of the fade transition.
+        /// - Returns: A `KF.Builder` with changes applied.
+        ///
+        /// Kingfisher will use the fade transition to animate the image in if it is downloaded from web.
+        /// The transition will not happen when the
+        /// image is retrieved from either memory or disk cache by default. If you need to do the transition even when
+        /// the image being retrieved from cache, also call `forceRefresh()` on the returned `KF.Builder`.
+        func fade(duration: TimeInterval) -> Self {
+            options.transition = .fade(duration)
+            return self
+        }
     #endif
 
     /// Sets whether keeping the existing image of image view while setting another image to it.
@@ -344,7 +340,7 @@ extension KF.Builder {
     /// By setting this option, the placeholder image parameter of image view extension method
     /// will be ignored and the current image will be kept while loading or downloading the new image.
     ///
-    public func keepCurrentImageWhileLoading(_ enabled: Bool = true) -> Self {
+    func keepCurrentImageWhileLoading(_ enabled: Bool = true) -> Self {
         options.keepCurrentImageWhileLoading = enabled
         return self
     }
@@ -358,7 +354,7 @@ extension KF.Builder {
     ///
     /// This option will be ignored if the target image is not animated image data.
     ///
-    public func onlyLoadFirstFrame(_ enabled: Bool = true) -> Self {
+    func onlyLoadFirstFrame(_ enabled: Bool = true) -> Self {
         options.onlyLoadFirstFrame = enabled
         return self
     }
@@ -371,7 +367,7 @@ extension KF.Builder {
     /// in place of requested one. It's useful when you don't want to show placeholder
     /// during loading time but wants to use some default image when requests will be failed.
     ///
-    public func onFailureImage(_ image: KFCrossPlatformImage?) -> Self {
+    func onFailureImage(_ image: KFCrossPlatformImage?) -> Self {
         options.onFailureImage = .some(image)
         return self
     }
@@ -380,19 +376,18 @@ extension KF.Builder {
     /// progressive JPEG data and display it in a progressive way.
     /// - Parameter progressive: The progressive settings which is used while loading.
     /// - Returns: A `KF.Builder` with changes applied.
-    public func progressiveJPEG(_ progressive: ImageProgressive? = .default) -> Self {
+    func progressiveJPEG(_ progressive: ImageProgressive? = .default) -> Self {
         options.progressiveJPEG = progressive
         return self
     }
 }
 
 // MARK: - Redirect Handler
-extension KF {
 
+public extension KF {
     /// Represents the detail information when a task redirect happens. It is wrapping necessary information for a
     /// `ImageDownloadRedirectHandler`. See that protocol for more information.
-    public struct RedirectPayload {
-
+    struct RedirectPayload {
         /// The related session data task when the redirect happens. It is
         /// the current `SessionDataTask` which triggers this redirect.
         public let task: SessionDataTask

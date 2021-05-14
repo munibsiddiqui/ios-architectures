@@ -2,7 +2,6 @@ import Foundation
 
 // Workaround for new asynchronous handling of Alamofire's request creation.
 struct RequestTypeWrapper: RequestType {
-
     var request: URLRequest? { _urlRequest }
 
     var sessionHeaders: [String: String] { _request.sessionHeaders }
@@ -11,8 +10,8 @@ struct RequestTypeWrapper: RequestType {
     private var _urlRequest: URLRequest?
 
     init(request: Request, urlRequest: URLRequest?) {
-        self._request = request
-        self._urlRequest = urlRequest
+        _request = request
+        _urlRequest = urlRequest
     }
 
     func authenticate(username: String, password: String, persistence: URLCredential.Persistence) -> RequestTypeWrapper {

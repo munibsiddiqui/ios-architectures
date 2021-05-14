@@ -221,14 +221,14 @@ public enum AFError: Error {
     case urlRequestValidationFailed(reason: URLRequestValidationFailureReason)
 }
 
-extension Error {
+public extension Error {
     /// Returns the instance cast as an `AFError`.
-    public var asAFError: AFError? {
+    var asAFError: AFError? {
         self as? AFError
     }
 
     /// Returns the instance cast as an `AFError`. If casting fails, a `fatalError` with the specified `message` is thrown.
-    public func asAFError(orFailWith message: @autoclosure () -> String, file: StaticString = #file, line: UInt = #line) -> AFError {
+    func asAFError(orFailWith message: @autoclosure () -> String, file: StaticString = #file, line: UInt = #line) -> AFError {
         guard let afError = self as? AFError else {
             fatalError(message(), file: file, line: line)
         }
@@ -236,118 +236,118 @@ extension Error {
     }
 
     /// Casts the instance as `AFError` or returns `defaultAFError`
-    func asAFError(or defaultAFError: @autoclosure () -> AFError) -> AFError {
+    internal func asAFError(or defaultAFError: @autoclosure () -> AFError) -> AFError {
         self as? AFError ?? defaultAFError()
     }
 }
 
 // MARK: - Error Booleans
 
-extension AFError {
+public extension AFError {
     /// Returns whether the instance is `.sessionDeinitialized`.
-    public var isSessionDeinitializedError: Bool {
+    var isSessionDeinitializedError: Bool {
         if case .sessionDeinitialized = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.sessionInvalidated`.
-    public var isSessionInvalidatedError: Bool {
+    var isSessionInvalidatedError: Bool {
         if case .sessionInvalidated = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.explicitlyCancelled`.
-    public var isExplicitlyCancelledError: Bool {
+    var isExplicitlyCancelledError: Bool {
         if case .explicitlyCancelled = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.invalidURL`.
-    public var isInvalidURLError: Bool {
+    var isInvalidURLError: Bool {
         if case .invalidURL = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.parameterEncodingFailed`. When `true`, the `underlyingError` property will
     /// contain the associated value.
-    public var isParameterEncodingError: Bool {
+    var isParameterEncodingError: Bool {
         if case .parameterEncodingFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.parameterEncoderFailed`. When `true`, the `underlyingError` property will
     /// contain the associated value.
-    public var isParameterEncoderError: Bool {
+    var isParameterEncoderError: Bool {
         if case .parameterEncoderFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.multipartEncodingFailed`. When `true`, the `url` and `underlyingError`
     /// properties will contain the associated values.
-    public var isMultipartEncodingError: Bool {
+    var isMultipartEncodingError: Bool {
         if case .multipartEncodingFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.requestAdaptationFailed`. When `true`, the `underlyingError` property will
     /// contain the associated value.
-    public var isRequestAdaptationError: Bool {
+    var isRequestAdaptationError: Bool {
         if case .requestAdaptationFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.responseValidationFailed`. When `true`, the `acceptableContentTypes`,
     /// `responseContentType`,  `responseCode`, and `underlyingError` properties will contain the associated values.
-    public var isResponseValidationError: Bool {
+    var isResponseValidationError: Bool {
         if case .responseValidationFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.responseSerializationFailed`. When `true`, the `failedStringEncoding` and
     /// `underlyingError` properties will contain the associated values.
-    public var isResponseSerializationError: Bool {
+    var isResponseSerializationError: Bool {
         if case .responseSerializationFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `.serverTrustEvaluationFailed`. When `true`, the `underlyingError` property will
     /// contain the associated value.
-    public var isServerTrustEvaluationError: Bool {
+    var isServerTrustEvaluationError: Bool {
         if case .serverTrustEvaluationFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `requestRetryFailed`. When `true`, the `underlyingError` property will
     /// contain the associated value.
-    public var isRequestRetryError: Bool {
+    var isRequestRetryError: Bool {
         if case .requestRetryFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `createUploadableFailed`. When `true`, the `underlyingError` property will
     /// contain the associated value.
-    public var isCreateUploadableError: Bool {
+    var isCreateUploadableError: Bool {
         if case .createUploadableFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `createURLRequestFailed`. When `true`, the `underlyingError` property will
     /// contain the associated value.
-    public var isCreateURLRequestError: Bool {
+    var isCreateURLRequestError: Bool {
         if case .createURLRequestFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `downloadedFileMoveFailed`. When `true`, the `destination` and `underlyingError` properties will
     /// contain the associated values.
-    public var isDownloadedFileMoveError: Bool {
+    var isDownloadedFileMoveError: Bool {
         if case .downloadedFileMoveFailed = self { return true }
         return false
     }
 
     /// Returns whether the instance is `createURLRequestFailed`. When `true`, the `underlyingError` property will
     /// contain the associated value.
-    public var isSessionTaskError: Bool {
+    var isSessionTaskError: Bool {
         if case .sessionTaskFailed = self { return true }
         return false
     }
@@ -355,15 +355,15 @@ extension AFError {
 
 // MARK: - Convenience Properties
 
-extension AFError {
+public extension AFError {
     /// The `URLConvertible` associated with the error.
-    public var urlConvertible: URLConvertible? {
+    var urlConvertible: URLConvertible? {
         guard case let .invalidURL(url) = self else { return nil }
         return url
     }
 
     /// The `URL` associated with the error.
-    public var url: URL? {
+    var url: URL? {
         guard case let .multipartEncodingFailed(reason) = self else { return nil }
         return reason.url
     }
@@ -371,7 +371,7 @@ extension AFError {
     /// The underlying `Error` responsible for generating the failure associated with `.sessionInvalidated`,
     /// `.parameterEncodingFailed`, `.parameterEncoderFailed`, `.multipartEncodingFailed`, `.requestAdaptationFailed`,
     /// `.responseSerializationFailed`, `.requestRetryFailed` errors.
-    public var underlyingError: Error? {
+    var underlyingError: Error? {
         switch self {
         case let .multipartEncodingFailed(reason):
             return reason.underlyingError
@@ -408,43 +408,43 @@ extension AFError {
     }
 
     /// The acceptable `Content-Type`s of a `.responseValidationFailed` error.
-    public var acceptableContentTypes: [String]? {
+    var acceptableContentTypes: [String]? {
         guard case let .responseValidationFailed(reason) = self else { return nil }
         return reason.acceptableContentTypes
     }
 
     /// The response `Content-Type` of a `.responseValidationFailed` error.
-    public var responseContentType: String? {
+    var responseContentType: String? {
         guard case let .responseValidationFailed(reason) = self else { return nil }
         return reason.responseContentType
     }
 
     /// The response code of a `.responseValidationFailed` error.
-    public var responseCode: Int? {
+    var responseCode: Int? {
         guard case let .responseValidationFailed(reason) = self else { return nil }
         return reason.responseCode
     }
 
     /// The `String.Encoding` associated with a failed `.stringResponse()` call.
-    public var failedStringEncoding: String.Encoding? {
+    var failedStringEncoding: String.Encoding? {
         guard case let .responseSerializationFailed(reason) = self else { return nil }
         return reason.failedStringEncoding
     }
 
     /// The `source` URL of a `.downloadedFileMoveFailed` error.
-    public var sourceURL: URL? {
+    var sourceURL: URL? {
         guard case let .downloadedFileMoveFailed(_, source, _) = self else { return nil }
         return source
     }
 
     /// The `destination` URL of a `.downloadedFileMoveFailed` error.
-    public var destinationURL: URL? {
+    var destinationURL: URL? {
         guard case let .downloadedFileMoveFailed(_, _, destination) = self else { return nil }
         return destination
     }
 
     /// The download resume data of any underlying network error. Only produced by `DownloadRequest`s.
-    public var downloadResumeData: Data? {
+    var downloadResumeData: Data? {
         (underlyingError as? URLError)?.userInfo[NSURLSessionDownloadTaskResumeData] as? Data
     }
 }

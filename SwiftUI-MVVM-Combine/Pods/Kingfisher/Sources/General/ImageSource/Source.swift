@@ -35,10 +35,8 @@ import Foundation
 /// - provider: The target image should be provided in a data format. Normally, it can be an image
 ///             from local storage or in any other encoding format (like Base64).
 public enum Source {
-
     /// Represents the source task identifier when setting an image to a view with extension methods.
     public enum Identifier {
-
         /// The underlying value type of source identifier.
         public typealias Value = UInt
         static var current: Value = 0
@@ -53,7 +51,7 @@ public enum Source {
     /// The target image should be got from network remotely. The associated `Resource`
     /// value defines detail information like image URL and cache key.
     case network(Resource)
-    
+
     /// The target image should be provided in a data format. Normally, it can be an image
     /// from local storage or in any other encoding format (like Base64).
     case provider(ImageDataProvider)
@@ -63,8 +61,8 @@ public enum Source {
     /// The cache key defined for this source value.
     public var cacheKey: String {
         switch self {
-        case .network(let resource): return resource.cacheKey
-        case .provider(let provider): return provider.cacheKey
+        case let .network(resource): return resource.cacheKey
+        case let .provider(provider): return provider.cacheKey
         }
     }
 
@@ -74,8 +72,8 @@ public enum Source {
     /// For a `.provider` value, it is always `nil`.
     public var url: URL? {
         switch self {
-        case .network(let resource): return resource.downloadURL
-        case .provider(let provider): return provider.contentURL
+        case let .network(resource): return resource.downloadURL
+        case let .provider(provider): return provider.contentURL
         }
     }
 }
@@ -83,9 +81,9 @@ public enum Source {
 extension Source: Hashable {
     public static func == (lhs: Source, rhs: Source) -> Bool {
         switch (lhs, rhs) {
-        case (.network(let r1), .network(let r2)):
+        case let (.network(r1), .network(r2)):
             return r1.cacheKey == r2.cacheKey && r1.downloadURL == r2.downloadURL
-        case (.provider(let p1), .provider(let p2)):
+        case let (.provider(p1), .provider(p2)):
             return p1.cacheKey == p2.cacheKey && p1.contentURL == p2.contentURL
         case (.provider(_), .network(_)):
             return false
@@ -96,10 +94,10 @@ extension Source: Hashable {
 
     public func hash(into hasher: inout Hasher) {
         switch self {
-        case .network(let r):
+        case let .network(r):
             hasher.combine(r.cacheKey)
             hasher.combine(r.downloadURL)
-        case .provider(let p):
+        case let .provider(p):
             hasher.combine(p.cacheKey)
             hasher.combine(p.contentURL)
         }
@@ -108,14 +106,14 @@ extension Source: Hashable {
 
 extension Source {
     var asResource: Resource? {
-        guard case .network(let resource) = self else {
+        guard case let .network(resource) = self else {
             return nil
         }
         return resource
     }
 
     var asProvider: ImageDataProvider? {
-        guard case .provider(let provider) = self else {
+        guard case let .provider(provider) = self else {
             return nil
         }
         return provider

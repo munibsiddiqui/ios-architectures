@@ -73,7 +73,8 @@ open class JSONParameterEncoder: ParameterEncoder {
     }
 
     open func encode<Parameters: Encodable>(_ parameters: Parameters?,
-                                            into request: URLRequest) throws -> URLRequest {
+                                            into request: URLRequest) throws -> URLRequest
+    {
         guard let parameters = parameters else { return request }
 
         var request = request
@@ -144,7 +145,8 @@ open class URLEncodedFormParameterEncoder: ParameterEncoder {
     }
 
     open func encode<Parameters: Encodable>(_ parameters: Parameters?,
-                                            into request: URLRequest) throws -> URLRequest {
+                                            into request: URLRequest) throws -> URLRequest
+    {
         guard let parameters = parameters else { return request }
 
         var request = request
@@ -159,7 +161,8 @@ open class URLEncodedFormParameterEncoder: ParameterEncoder {
         }
 
         if destination.encodesParametersInURL(for: method),
-           var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+           var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        {
             let query: String = try Result<String, Error> { try encoder.encode(parameters) }
                 .mapError { AFError.parameterEncoderFailed(reason: .encoderFailed(error: $0)) }.get()
             let newQueryString = [components.percentEncodedQuery, query].compactMap { $0 }.joinedWithAmpersands()

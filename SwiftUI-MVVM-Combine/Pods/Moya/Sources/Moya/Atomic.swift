@@ -9,7 +9,7 @@ import Foundation
 
 @propertyWrapper
 final class Atomic<Value> {
-    private var lock: NSRecursiveLock = NSRecursiveLock()
+    private var lock = NSRecursiveLock()
 
     private var value: Value
 

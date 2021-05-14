@@ -144,7 +144,8 @@ public struct URLEncoding: ParameterEncoding {
     ///   - boolEncoding:  `BoolEncoding` to use. `.numeric` by default.
     public init(destination: Destination = .methodDependent,
                 arrayEncoding: ArrayEncoding = .brackets,
-                boolEncoding: BoolEncoding = .numeric) {
+                boolEncoding: BoolEncoding = .numeric)
+    {
         self.destination = destination
         self.arrayEncoding = arrayEncoding
         self.boolEncoding = boolEncoding
@@ -308,8 +309,8 @@ public struct JSONEncoding: ParameterEncoding {
 
 // MARK: -
 
-extension NSNumber {
-    fileprivate var isBool: Bool {
+private extension NSNumber {
+    var isBool: Bool {
         // Use Obj-C type encoding to check whether the underlying type is a `Bool`, as it's guaranteed as part of
         // swift-corelibs-foundation, per [this discussion on the Swift forums](https://forums.swift.org/t/alamofire-on-linux-possible-but-not-release-ready/34553/22).
         String(cString: objCType) == "c"

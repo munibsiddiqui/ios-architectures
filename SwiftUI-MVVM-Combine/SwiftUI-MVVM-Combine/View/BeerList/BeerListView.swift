@@ -5,12 +5,12 @@
 //  Created by GoEun Jeong on 2021/05/12.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 struct BeerListView: View {
     @ObservedObject var viewModel = BeerListViewModel()
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -22,23 +22,23 @@ struct BeerListView: View {
                                     viewModel.checkNextPage(id: beer.id ?? 0)
                                 }
                             NavigationLink(
-                                destination: DetailBeerView(beer: beer)) { }
+                                destination: DetailBeerView(beer: beer)) {}
                                 .frame(width: 0, height: 0)
                                 .hidden()
                         }
                     }
-                    
+
                 }.listStyle(PlainListStyle())
                 ActivityIndicator(isAnimating: $viewModel.isLoading, style: .large)
             }
-            
+
             .alert(isPresented: $viewModel.isErrorAlert) {
                 Alert(title: Text(""), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
             }
             .navigationBarTitle("BeerList", displayMode: .large)
         }
-        
-        .onAppear() {
+
+        .onAppear {
             viewModel.apply(.getBeerList)
         }
     }
@@ -46,14 +46,14 @@ struct BeerListView: View {
 
 struct BeerListRow: View {
     let beer: Beer
-    
+
     var body: some View {
         HStack {
             KFImage(URL(string: beer.imageURL ?? ""))
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)
-            
+
             VStack(alignment: .leading) {
                 Text(String(beer.id ?? 0))
                     .foregroundColor(.orange)

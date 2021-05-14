@@ -24,8 +24,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
 import CoreGraphics
+import Foundation
 
 public protocol KFOptionSetter {
     var options: KingfisherParsedOptionsInfo { get nonmutating set }
@@ -42,30 +42,31 @@ extension KF.Builder: KFOptionSetter {
 }
 
 #if canImport(SwiftUI) && canImport(Combine)
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-extension KFImage: KFOptionSetter {
-    public var options: KingfisherParsedOptionsInfo {
-        get { context.binder.options }
-        nonmutating set { context.binder.options = newValue }
+    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+    extension KFImage: KFOptionSetter {
+        public var options: KingfisherParsedOptionsInfo {
+            get { context.binder.options }
+            nonmutating set { context.binder.options = newValue }
+        }
+
+        public var onFailureDelegate: Delegate<KingfisherError, Void> { context.binder.onFailureDelegate }
+        public var onSuccessDelegate: Delegate<RetrieveImageResult, Void> { context.binder.onSuccessDelegate }
+        public var onProgressDelegate: Delegate<(Int64, Int64), Void> { context.binder.onProgressDelegate }
+
+        public var delegateObserver: AnyObject { context.binder }
     }
-
-    public var onFailureDelegate: Delegate<KingfisherError, Void> { context.binder.onFailureDelegate }
-    public var onSuccessDelegate: Delegate<RetrieveImageResult, Void> { context.binder.onSuccessDelegate }
-    public var onProgressDelegate: Delegate<(Int64, Int64), Void> { context.binder.onProgressDelegate }
-
-    public var delegateObserver: AnyObject { context.binder }
-}
 #endif
 
 // MARK: - Life cycles
-extension KFOptionSetter {
+
+public extension KFOptionSetter {
     /// Sets the progress block to current builder.
     /// - Parameter block: Called when the image downloading progress gets updated. If the response does not contain an
     ///                    `expectedContentLength`, this block will not be called. If `block` is `nil`, the callback
     ///                    will be reset.
     /// - Returns: A `Self` value with changes applied.
-    public func onProgress(_ block: DownloadProgressBlock?) -> Self {
-        onProgressDelegate.delegate(on: delegateObserver) { (observer, result) in
+    func onProgress(_ block: DownloadProgressBlock?) -> Self {
+        onProgressDelegate.delegate(on: delegateObserver) { _, result in
             block?(result.0, result.1)
         }
         return self
@@ -75,8 +76,8 @@ extension KFOptionSetter {
     /// - Parameter block: Called when the image task successfully completes and the the image set is done. If `block`
     ///                    is `nil`, the callback will be reset.
     /// - Returns: A `KF.Builder` with changes applied.
-    public func onSuccess(_ block: ((RetrieveImageResult) -> Void)?) -> Self {
-        onSuccessDelegate.delegate(on: delegateObserver) { (observer, result) in
+    func onSuccess(_ block: ((RetrieveImageResult) -> Void)?) -> Self {
+        onSuccessDelegate.delegate(on: delegateObserver) { _, result in
             block?(result)
         }
         return self
@@ -86,8 +87,8 @@ extension KFOptionSetter {
     /// - Parameter block: Called when an error happens during the image task. If `block`
     ///                    is `nil`, the callback will be reset.
     /// - Returns: A `KF.Builder` with changes applied.
-    public func onFailure(_ block: ((KingfisherError) -> Void)?) -> Self {
-        onFailureDelegate.delegate(on: delegateObserver) { (observer, error) in
+    func onFailure(_ block: ((KingfisherError) -> Void)?) -> Self {
+        onFailureDelegate.delegate(on: delegateObserver) { _, error in
             block?(error)
         }
         return self
@@ -95,7 +96,8 @@ extension KFOptionSetter {
 }
 
 // MARK: - Basic options settings.
-extension KFOptionSetter {
+
+public extension KFOptionSetter {
     /// Sets the target image cache for this task.
     /// - Parameter cache: The target cache is about to be used for the task.
     /// - Returns: A `Self` value with changes applied.
@@ -103,7 +105,7 @@ extension KFOptionSetter {
     /// Kingfisher will use the associated `ImageCache` object when handling related operations,
     /// including trying to retrieve the cached images and store the downloaded image to it.
     ///
-    public func targetCache(_ cache: ImageCache) -> Self {
+    func targetCache(_ cache: ImageCache) -> Self {
         options.targetCache = cache
         return self
     }
@@ -123,7 +125,7 @@ extension KFOptionSetter {
     /// it will be used and applied with the given processor. It is an optimization for not downloading
     /// the same image for multiple times.
     ///
-    public func originalCache(_ cache: ImageCache) -> Self {
+    func originalCache(_ cache: ImageCache) -> Self {
         options.originalCache = cache
         return self
     }
@@ -133,7 +135,7 @@ extension KFOptionSetter {
     /// - Returns: A `Self` value with changes applied.
     ///
     /// Kingfisher will use the set `ImageDownloader` object to download the requested images.
-    public func downloader(_ downloader: ImageDownloader) -> Self {
+    func downloader(_ downloader: ImageDownloader) -> Self {
         options.downloader = downloader
         return self
     }
@@ -146,7 +148,7 @@ extension KFOptionSetter {
     /// between 0.0~1.0. You can choose a value between `URLSessionTask.defaultPriority`, `URLSessionTask.lowPriority`
     /// or `URLSessionTask.highPriority`. If this option not set, the default value (`URLSessionTask.defaultPriority`)
     /// will be used.
-    public func downloadPriority(_ priority: Float) -> Self {
+    func downloadPriority(_ priority: Float) -> Self {
         options.downloadPriority = priority
         return self
     }
@@ -154,7 +156,7 @@ extension KFOptionSetter {
     /// Sets whether Kingfisher should ignore the cache and try to start a download task for the image source.
     /// - Parameter enabled: Enable the force refresh or not.
     /// - Returns: A `Self` value with changes applied.
-    public func forceRefresh(_ enabled: Bool = true) -> Self {
+    func forceRefresh(_ enabled: Bool = true) -> Self {
         options.forceRefresh = enabled
         return self
     }
@@ -166,7 +168,7 @@ extension KFOptionSetter {
     ///
     /// This is useful when you want to display a changeable image behind the same url at the same app session, while
     /// avoiding download it for multiple times.
-    public func fromMemoryCacheOrRefresh(_ enabled: Bool = true) -> Self {
+    func fromMemoryCacheOrRefresh(_ enabled: Bool = true) -> Self {
         options.fromMemoryCacheOrRefresh = enabled
         return self
     }
@@ -174,7 +176,7 @@ extension KFOptionSetter {
     /// Sets whether the image should only be cached in memory but not in disk.
     /// - Parameter enabled: Whether the image should be only cache in memory or not.
     /// - Returns: A `Self` value with changes applied.
-    public func cacheMemoryOnly(_ enabled: Bool = true) -> Self {
+    func cacheMemoryOnly(_ enabled: Bool = true) -> Self {
         options.cacheMemoryOnly = enabled
         return self
     }
@@ -183,7 +185,7 @@ extension KFOptionSetter {
     /// `onSuccess` or `onFailure` block.
     /// - Parameter enabled: Whether Kingfisher should wait for caching operation.
     /// - Returns: A `Self` value with changes applied.
-    public func waitForCache(_ enabled: Bool = true) -> Self {
+    func waitForCache(_ enabled: Bool = true) -> Self {
         options.waitForCache = enabled
         return self
     }
@@ -194,7 +196,7 @@ extension KFOptionSetter {
     ///
     /// If the image is not in cache, the image retrieving will fail with the
     /// `KingfisherError.cacheError` with `.imageNotExisting` as its reason.
-    public func onlyFromCache(_ enabled: Bool = true) -> Self {
+    func onlyFromCache(_ enabled: Bool = true) -> Self {
         options.onlyFromCache = enabled
         return self
     }
@@ -206,7 +208,7 @@ extension KFOptionSetter {
     /// Setting to `true` will decode the downloaded image data and do a off-screen rendering to extract pixel
     /// information in background. This can speed up display, but will cost more time and memory to prepare the image
     /// for using.
-    public func backgroundDecode(_ enabled: Bool = true) -> Self {
+    func backgroundDecode(_ enabled: Bool = true) -> Self {
         options.backgroundDecode = enabled
         return self
     }
@@ -219,7 +221,7 @@ extension KFOptionSetter {
     /// - Note:
     /// This option does not affect the callbacks for UI related extension methods or `KFImage` result handlers.
     /// You will always get the callbacks called from main queue.
-    public func callbackQueue(_ queue: CallbackQueue) -> Self {
+    func callbackQueue(_ queue: CallbackQueue) -> Self {
         options.callbackQueue = queue
         return self
     }
@@ -231,7 +233,7 @@ extension KFOptionSetter {
     /// Specify the image scale, instead of your screen scale. You may need to set the correct scale when you dealing
     /// with 2x or 3x retina images. Otherwise, Kingfisher will convert the data to image object at `scale` 1.0.
     ///
-    public func scaleFactor(_ factor: CGFloat) -> Self {
+    func scaleFactor(_ factor: CGFloat) -> Self {
         options.scaleFactor = factor
         return self
     }
@@ -248,7 +250,7 @@ extension KFOptionSetter {
     ///
     /// The original image will be only cached to disk storage.
     ///
-    public func cacheOriginalImage(_ enabled: Bool = true) -> Self {
+    func cacheOriginalImage(_ enabled: Bool = true) -> Self {
         options.cacheOriginalImage = enabled
         return self
     }
@@ -265,7 +267,7 @@ extension KFOptionSetter {
     /// Set this options will stop that flickering by keeping all loading in the same queue (typically the UI queue
     /// if you are using Kingfisher's extension methods to set an image), with a tradeoff of loading performance.
     ///
-    public func loadDiskFileSynchronously(_ enabled: Bool = true) -> Self {
+    func loadDiskFileSynchronously(_ enabled: Bool = true) -> Self {
         options.loadDiskFileSynchronously = enabled
         return self
     }
@@ -278,7 +280,7 @@ extension KFOptionSetter {
     /// queue to process images. Use this option to change this behavior. For example, specify a `.mainCurrentOrAsync`
     /// to let the image be processed in main queue to prevent a possible flickering (but with a possibility of
     /// blocking the UI, especially if the processor needs a lot of time to run).
-    public func processingQueue(_ queue: CallbackQueue?) -> Self {
+    func processingQueue(_ queue: CallbackQueue?) -> Self {
         options.processingQueue = queue
         return self
     }
@@ -295,7 +297,7 @@ extension KFOptionSetter {
     /// This is useful if you want to implement a fallback solution for setting image.
     ///
     /// User cancellation will not trigger the alternative source loading.
-    public func alternativeSources(_ sources: [Source]?) -> Self {
+    func alternativeSources(_ sources: [Source]?) -> Self {
         options.alternativeSources = sources
         return self
     }
@@ -303,7 +305,7 @@ extension KFOptionSetter {
     /// Sets a retry strategy that will be used when something gets wrong during the image retrieving.
     /// - Parameter strategy: The provided strategy to define how the retrying should happen.
     /// - Returns: A `Self` value with changes applied.
-    public func retry(_ strategy: RetryStrategy) -> Self {
+    func retry(_ strategy: RetryStrategy) -> Self {
         options.retryStrategy = strategy
         return self
     }
@@ -317,7 +319,7 @@ extension KFOptionSetter {
     /// This defines the simplest retry strategy, which retry a failing request for several times, with some certain
     /// interval between each time. For example, `.retry(maxCount: 3, interval: .second(3))` means attempt for at most
     /// three times, and wait for 3 seconds if a previous retry attempt fails, then start a new attempt.
-    public func retry(maxCount: Int, interval: DelayRetryStrategy.Interval = .seconds(3)) -> Self {
+    func retry(maxCount: Int, interval: DelayRetryStrategy.Interval = .seconds(3)) -> Self {
         let strategy = DelayRetryStrategy(maxRetryCount: maxCount, retryInterval: interval)
         options.retryStrategy = strategy
         return self
@@ -335,7 +337,7 @@ extension KFOptionSetter {
     ///
     /// If not set or the `source` is `nil`, the device Low Data Mode will be ignored and the original source will
     /// be loaded following the system default behavior, in a normal way.
-    public func lowDataModeSource(_ source: Source?) -> Self {
+    func lowDataModeSource(_ source: Source?) -> Self {
         options.lowDataModeSource = source
         return self
     }
@@ -343,15 +345,15 @@ extension KFOptionSetter {
     /// Sets whether the image setting for an image view should happen with transition even when retrieved from cache.
     /// - Parameter enabled: Enable the force transition or not.
     /// - Returns: A `KF.Builder` with changes applied.
-    public func forceTransition(_ enabled: Bool = true) -> Self {
+    func forceTransition(_ enabled: Bool = true) -> Self {
         options.forceTransition = enabled
         return self
     }
-
 }
 
 // MARK: - Request Modifier
-extension KFOptionSetter {
+
+public extension KFOptionSetter {
     /// Sets an `ImageDownloadRequestModifier` to change the image download request before it being sent.
     /// - Parameter modifier: The modifier will be used to change the request before it being sent.
     /// - Returns: A `Self` value with changes applied.
@@ -359,7 +361,7 @@ extension KFOptionSetter {
     /// This is the last chance you can modify the image download request. You can modify the request for some
     /// customizing purpose, such as adding auth token to the header, do basic HTTP auth or something like url mapping.
     ///
-    public func requestModifier(_ modifier: ImageDownloadRequestModifier) -> Self {
+    func requestModifier(_ modifier: ImageDownloadRequestModifier) -> Self {
         options.requestModifier = modifier
         return self
     }
@@ -371,7 +373,7 @@ extension KFOptionSetter {
     /// This is the last chance you can modify the image download request. You can modify the request for some
     /// customizing purpose, such as adding auth token to the header, do basic HTTP auth or something like url mapping.
     ///
-    public func requestModifier(_ modifyBlock: @escaping (inout URLRequest) -> Void) -> Self {
+    func requestModifier(_ modifyBlock: @escaping (inout URLRequest) -> Void) -> Self {
         options.requestModifier = AnyModifier { r -> URLRequest? in
             var request = r
             modifyBlock(&request)
@@ -382,7 +384,8 @@ extension KFOptionSetter {
 }
 
 // MARK: - Redirect Handler
-extension KFOptionSetter {
+
+public extension KFOptionSetter {
     /// The `ImageDownloadRedirectHandler` argument will be used to change the request before redirection.
     /// This is the possibility you can modify the image download request during redirect. You can modify the request for
     /// some customizing purpose, such as adding auth token to the header, do basic HTTP auth or something like url
@@ -390,7 +393,7 @@ extension KFOptionSetter {
     /// The original redirection request will be sent without any modification by default.
     /// - Parameter handler: The handler will be used for redirection.
     /// - Returns: A `Self` value with changes applied.
-    public func redirectHandler(_ handler: ImageDownloadRedirectHandler) -> Self {
+    func redirectHandler(_ handler: ImageDownloadRedirectHandler) -> Self {
         options.redirectHandler = handler
         return self
     }
@@ -402,8 +405,8 @@ extension KFOptionSetter {
     /// The original redirection request will be sent without any modification by default.
     /// - Parameter block: The block will be used for redirection.
     /// - Returns: A `Self` value with changes applied.
-    public func redirectHandler(_ block: @escaping (KF.RedirectPayload) -> Void) -> Self {
-        let redirectHandler = AnyRedirectHandler { (task, response, request, handler) in
+    func redirectHandler(_ block: @escaping (KF.RedirectPayload) -> Void) -> Self {
+        let redirectHandler = AnyRedirectHandler { task, response, request, handler in
             let payload = KF.RedirectPayload(
                 task: task, response: response, newRequest: request, completionHandler: handler
             )
@@ -415,8 +418,8 @@ extension KFOptionSetter {
 }
 
 // MARK: - Processor
-extension KFOptionSetter {
 
+public extension KFOptionSetter {
     /// Sets an image processor for the image task. It replaces the current image processor settings.
     ///
     /// - Parameter processor: The processor you want to use to process the image after it is downloaded.
@@ -424,7 +427,7 @@ extension KFOptionSetter {
     ///
     /// - Note:
     /// To append a processor to current ones instead of replacing them all, use `appendProcessor(_:)`.
-    public func setProcessor(_ processor: ImageProcessor) -> Self {
+    func setProcessor(_ processor: ImageProcessor) -> Self {
         options.processor = processor
         return self
     }
@@ -437,7 +440,7 @@ extension KFOptionSetter {
     /// - Note:
     /// To append processors to current ones instead of replacing them all, concatenate them by `|>`, then use
     /// `appendProcessor(_:)`.
-    public func setProcessors(_ processors: [ImageProcessor]) -> Self {
+    func setProcessors(_ processors: [ImageProcessor]) -> Self {
         switch processors.count {
         case 0:
             options.processor = DefaultImageProcessor.default
@@ -452,7 +455,7 @@ extension KFOptionSetter {
     /// Appends a processor to the current set processors.
     /// - Parameter processor: The processor which will be appended to current processor settings.
     /// - Returns: A `Self` value with changes applied.
-    public func appendProcessor(_ processor: ImageProcessor) -> Self {
+    func appendProcessor(_ processor: ImageProcessor) -> Self {
         options.processor = options.processor |> processor
         return self
     }
@@ -467,13 +470,12 @@ extension KFOptionSetter {
     ///   - corners: The target corners which will be applied rounding.
     ///   - backgroundColor: Background color of the output image. If `nil`, it will use a transparent background.
     /// - Returns: A `Self` value with changes applied.
-    public func roundCorner(
+    func roundCorner(
         radius: RoundCornerImageProcessor.Radius,
         targetSize: CGSize? = nil,
         roundingCorners corners: RectCorner = .all,
         backgroundColor: KFCrossPlatformColor? = nil
-    ) -> Self
-    {
+    ) -> Self {
         let processor = RoundCornerImageProcessor(
             radius: radius,
             targetSize: targetSize,
@@ -486,7 +488,7 @@ extension KFOptionSetter {
     /// Appends a `BlurImageProcessor` to current processors.
     /// - Parameter radius: Blur radius for the simulated Gaussian blur.
     /// - Returns: A `Self` value with changes applied.
-    public func blur(radius: CGFloat) -> Self {
+    func blur(radius: CGFloat) -> Self {
         appendProcessor(
             BlurImageProcessor(blurRadius: radius)
         )
@@ -497,7 +499,7 @@ extension KFOptionSetter {
     ///   - color: Overlay color will be used to overlay the input image.
     ///   - fraction: Fraction will be used when overlay the color to image.
     /// - Returns: A `Self` value with changes applied.
-    public func overlay(color: KFCrossPlatformColor, fraction: CGFloat = 0.5) -> Self {
+    func overlay(color: KFCrossPlatformColor, fraction: CGFloat = 0.5) -> Self {
         appendProcessor(
             OverlayImageProcessor(overlay: color, fraction: fraction)
         )
@@ -506,7 +508,7 @@ extension KFOptionSetter {
     /// Appends a `TintImageProcessor` to current processors.
     /// - Parameter color: Tint color will be used to tint the input image.
     /// - Returns: A `Self` value with changes applied.
-    public func tint(color: KFCrossPlatformColor) -> Self {
+    func tint(color: KFCrossPlatformColor) -> Self {
         appendProcessor(
             TintImageProcessor(tint: color)
         )
@@ -514,7 +516,7 @@ extension KFOptionSetter {
 
     /// Appends a `BlackWhiteProcessor` to current processors.
     /// - Returns: A `Self` value with changes applied.
-    public func blackWhite() -> Self {
+    func blackWhite() -> Self {
         appendProcessor(
             BlackWhiteProcessor()
         )
@@ -527,7 +529,7 @@ extension KFOptionSetter {
     ///             values between 0.0 and 1.0. It indicates a related point in current image.
     ///             See `CroppingImageProcessor.init(size:anchor:)` for more.
     /// - Returns: A `Self` value with changes applied.
-    public func cropping(size: CGSize, anchor: CGPoint = .init(x: 0.5, y: 0.5)) -> Self {
+    func cropping(size: CGSize, anchor: CGPoint = .init(x: 0.5, y: 0.5)) -> Self {
         appendProcessor(
             CroppingImageProcessor(size: size, anchor: anchor)
         )
@@ -545,7 +547,7 @@ extension KFOptionSetter {
     /// - Parameter size: Target size of output image should be. It should be smaller than the size of input image.
     ///                   If it is larger, the result image will be the same size of input data without downsampling.
     /// - Returns: A `Self` value with changes applied.
-    public func downsampling(size: CGSize) -> Self {
+    func downsampling(size: CGSize) -> Self {
         let processor = DownsamplingImageProcessor(size: size)
         if options.processor == DefaultImageProcessor.default {
             return setProcessor(processor)
@@ -553,7 +555,6 @@ extension KFOptionSetter {
             return appendProcessor(processor)
         }
     }
-
 
     /// Appends a `ResizingImageProcessor` to current processors.
     ///
@@ -564,7 +565,7 @@ extension KFOptionSetter {
     ///   - referenceSize: The reference size for resizing operation in point.
     ///   - mode: Target content mode of output image should be. Default is `.none`.
     /// - Returns: A `Self` value with changes applied.
-    public func resizing(referenceSize: CGSize, mode: ContentMode = .none) -> Self {
+    func resizing(referenceSize: CGSize, mode: ContentMode = .none) -> Self {
         appendProcessor(
             ResizingImageProcessor(referenceSize: referenceSize, mode: mode)
         )
@@ -572,13 +573,13 @@ extension KFOptionSetter {
 }
 
 // MARK: - Cache Serializer
-extension KFOptionSetter {
 
+public extension KFOptionSetter {
     /// Uses a given `CacheSerializer` to convert some data to an image object for retrieving from disk cache or vice
     /// versa for storing to disk cache.
     /// - Parameter cacheSerializer: The `CacheSerializer` which will be used.
     /// - Returns: A `Self` value with changes applied.
-    public func serialize(by cacheSerializer: CacheSerializer) -> Self {
+    func serialize(by cacheSerializer: CacheSerializer) -> Self {
         options.cacheSerializer = cacheSerializer
         return self
     }
@@ -589,7 +590,7 @@ extension KFOptionSetter {
     ///   - jpegCompressionQuality: If the format is `.JPEG`, it specify the compression quality when converting the
     ///                             image to a JPEG data. Otherwise, it is ignored.
     /// - Returns: A `Self` value with changes applied.
-    public func serialize(as format: ImageFormat, jpegCompressionQuality: CGFloat? = nil) -> Self {
+    func serialize(as format: ImageFormat, jpegCompressionQuality: CGFloat? = nil) -> Self {
         let cacheSerializer: FormatIndicatedCacheSerializer
         switch format {
         case .JPEG:
@@ -607,15 +608,15 @@ extension KFOptionSetter {
 }
 
 // MARK: - Image Modifier
-extension KFOptionSetter {
 
+public extension KFOptionSetter {
     /// Sets an `ImageModifier` to the image task. Use this to modify the fetched image object properties if needed.
     ///
     /// If the image was fetched directly from the downloader, the modifier will run directly after the
     /// `ImageProcessor`. If the image is being fetched from a cache, the modifier will run after the `CacheSerializer`.
     /// - Parameter modifier: The `ImageModifier` which will be used to modify the image object.
     /// - Returns: A `Self` value with changes applied.
-    public func imageModifier(_ modifier: ImageModifier?) -> Self {
+    func imageModifier(_ modifier: ImageModifier?) -> Self {
         options.imageModifier = modifier
         return self
     }
@@ -627,7 +628,7 @@ extension KFOptionSetter {
     ///
     /// - Parameter block: The block which is used to modify the image object.
     /// - Returns: A `Self` value with changes applied.
-    public func imageModifier(_ block: @escaping (inout KFCrossPlatformImage) throws -> Void) -> Self {
+    func imageModifier(_ block: @escaping (inout KFCrossPlatformImage) throws -> Void) -> Self {
         let modifier = AnyImageModifier { image -> KFCrossPlatformImage in
             var image = image
             try block(&image)
@@ -638,10 +639,9 @@ extension KFOptionSetter {
     }
 }
 
-
 // MARK: - Cache Expiration
-extension KFOptionSetter {
 
+public extension KFOptionSetter {
     /// Sets the expiration setting for memory cache of this image task.
     ///
     /// By default, the underlying `MemoryStorage.Backend` uses the
@@ -650,7 +650,7 @@ extension KFOptionSetter {
     ///
     /// - Parameter expiration: The expiration setting used in cache storage.
     /// - Returns: A `Self` value with changes applied.
-    public func memoryCacheExpiration(_ expiration: StorageExpiration?) -> Self {
+    func memoryCacheExpiration(_ expiration: StorageExpiration?) -> Self {
         options.memoryCacheExpiration = expiration
         return self
     }
@@ -665,7 +665,7 @@ extension KFOptionSetter {
     ///
     /// - Parameter extending: The expiration extending setting used in cache storage.
     /// - Returns: A `Self` value with changes applied.
-    public func memoryCacheAccessExtending(_ extending: ExpirationExtending) -> Self {
+    func memoryCacheAccessExtending(_ extending: ExpirationExtending) -> Self {
         options.memoryCacheAccessExtendingExpiration = extending
         return self
     }
@@ -677,7 +677,7 @@ extension KFOptionSetter {
     ///
     /// - Parameter expiration: The expiration setting used in cache storage.
     /// - Returns: A `Self` value with changes applied.
-    public func diskCacheExpiration(_ expiration: StorageExpiration?) -> Self {
+    func diskCacheExpiration(_ expiration: StorageExpiration?) -> Self {
         options.diskCacheExpiration = expiration
         return self
     }
@@ -692,7 +692,7 @@ extension KFOptionSetter {
     ///
     /// - Parameter extending: The expiration extending setting used in cache storage.
     /// - Returns: A `Self` value with changes applied.
-    public func diskCacheAccessExtending(_ extending: ExpirationExtending) -> Self {
+    func diskCacheAccessExtending(_ extending: ExpirationExtending) -> Self {
         options.diskCacheAccessExtendingExpiration = extending
         return self
     }

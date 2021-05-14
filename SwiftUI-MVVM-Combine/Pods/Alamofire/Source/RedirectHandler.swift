@@ -81,7 +81,8 @@ extension Redirector: RedirectHandler {
     public func task(_ task: URLSessionTask,
                      willBeRedirectedTo request: URLRequest,
                      for response: HTTPURLResponse,
-                     completion: @escaping (URLRequest?) -> Void) {
+                     completion: @escaping (URLRequest?) -> Void)
+    {
         switch behavior {
         case .follow:
             completion(request)

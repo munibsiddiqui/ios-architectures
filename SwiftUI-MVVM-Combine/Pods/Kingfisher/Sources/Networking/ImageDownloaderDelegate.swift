@@ -29,7 +29,6 @@ import Foundation
 /// Protocol of `ImageDownloader`. This protocol provides a set of methods which are related to image downloader
 /// working stages and rules.
 public protocol ImageDownloaderDelegate: AnyObject {
-
     /// Called when the `ImageDownloader` object will start downloading an image from a specified URL.
     ///
     /// - Parameters:
@@ -51,7 +50,8 @@ public protocol ImageDownloaderDelegate: AnyObject {
         _ downloader: ImageDownloader,
         didFinishDownloadingImageForURL url: URL,
         with response: URLResponse?,
-        error: Error?)
+        error: Error?
+    )
 
     /// Called when the `ImageDownloader` object successfully downloaded image data from specified URL. This is
     /// your last chance to verify or modify the downloaded data before Kingfisher tries to perform addition
@@ -69,7 +69,7 @@ public protocol ImageDownloaderDelegate: AnyObject {
     ///
     ///  If this method is implemented, `imageDownloader(_:didDownload:for:)` will not be called anymore.
     func imageDownloader(_ downloader: ImageDownloader, didDownload data: Data, with dataTask: SessionDataTask) -> Data?
-  
+
     /// Called when the `ImageDownloader` object successfully downloaded image data from specified URL. This is
     /// your last chance to verify or modify the downloaded data before Kingfisher tries to perform addition
     /// processing on the image data.
@@ -102,7 +102,8 @@ public protocol ImageDownloaderDelegate: AnyObject {
         _ downloader: ImageDownloader,
         didDownload image: KFCrossPlatformImage,
         for url: URL,
-        with response: URLResponse?)
+        with response: URLResponse?
+    )
 
     /// Checks if a received HTTP status code is valid or not.
     /// By default, a status code in range 200..<400 is considered as valid.
@@ -119,36 +120,39 @@ public protocol ImageDownloaderDelegate: AnyObject {
 }
 
 // Default implementation for `ImageDownloaderDelegate`.
-extension ImageDownloaderDelegate {
-    public func imageDownloader(
-        _ downloader: ImageDownloader,
-        willDownloadImageForURL url: URL,
-        with request: URLRequest?) {}
+public extension ImageDownloaderDelegate {
+    func imageDownloader(
+        _: ImageDownloader,
+        willDownloadImageForURL _: URL,
+        with _: URLRequest?
+    ) {}
 
-    public func imageDownloader(
-        _ downloader: ImageDownloader,
-        didFinishDownloadingImageForURL url: URL,
-        with response: URLResponse?,
-        error: Error?) {}
+    func imageDownloader(
+        _: ImageDownloader,
+        didFinishDownloadingImageForURL _: URL,
+        with _: URLResponse?,
+        error _: Error?
+    ) {}
 
-    public func imageDownloader(
-        _ downloader: ImageDownloader,
-        didDownload image: KFCrossPlatformImage,
-        for url: URL,
-        with response: URLResponse?) {}
+    func imageDownloader(
+        _: ImageDownloader,
+        didDownload _: KFCrossPlatformImage,
+        for _: URL,
+        with _: URLResponse?
+    ) {}
 
-    public func isValidStatusCode(_ code: Int, for downloader: ImageDownloader) -> Bool {
-        return (200..<400).contains(code)
+    func isValidStatusCode(_ code: Int, for _: ImageDownloader) -> Bool {
+        return (200 ..< 400).contains(code)
     }
-  
-    public func imageDownloader(_ downloader: ImageDownloader, didDownload data: Data, with task: SessionDataTask) -> Data? {
+
+    func imageDownloader(_ downloader: ImageDownloader, didDownload data: Data, with task: SessionDataTask) -> Data? {
         guard let url = task.originalURL else {
             return data
         }
         return imageDownloader(downloader, didDownload: data, for: url)
     }
-  
-    public func imageDownloader(_ downloader: ImageDownloader, didDownload data: Data, for url: URL) -> Data? {
+
+    func imageDownloader(_: ImageDownloader, didDownload data: Data, for _: URL) -> Data? {
         return data
     }
 }

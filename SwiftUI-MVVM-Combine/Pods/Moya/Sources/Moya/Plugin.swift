@@ -21,15 +21,14 @@ public protocol PluginType {
 }
 
 public extension PluginType {
-    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest { request }
-    func willSend(_ request: RequestType, target: TargetType) { }
-    func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) { }
-    func process(_ result: Result<Moya.Response, MoyaError>, target: TargetType) -> Result<Moya.Response, MoyaError> { result }
+    func prepare(_ request: URLRequest, target _: TargetType) -> URLRequest { request }
+    func willSend(_: RequestType, target _: TargetType) {}
+    func didReceive(_: Result<Moya.Response, MoyaError>, target _: TargetType) {}
+    func process(_ result: Result<Moya.Response, MoyaError>, target _: TargetType) -> Result<Moya.Response, MoyaError> { result }
 }
 
 /// Request type used by `willSend` plugin function.
 public protocol RequestType {
-
     // Note:
     //
     // We use this protocol instead of the Alamofire request to avoid leaking that abstraction.
