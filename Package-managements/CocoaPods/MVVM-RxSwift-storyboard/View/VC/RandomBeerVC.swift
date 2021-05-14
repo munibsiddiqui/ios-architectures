@@ -15,7 +15,7 @@ class RandomBeerVC: UIViewController {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var descLabel: UILabel!
     
-    private let activityIndicator = UIActivityIndicatorView()
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let disposeBag = DisposeBag()
     private let viewModel = RandomBeerViewModel()
     

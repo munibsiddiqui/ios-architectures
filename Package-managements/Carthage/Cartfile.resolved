@@ -1,0 +1,3 @@
+github "ReactiveX/RxSwift" "5.1.2"
+github "RxSwiftCommunity/RxDataSources" "4.0.1"
+github "onevcat/Kingfisher" "6.3.0"

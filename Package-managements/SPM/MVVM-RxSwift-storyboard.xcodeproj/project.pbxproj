@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		D9227BAA264A5710004F6841 /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F77263B78E40030E1C8 /* Bundle+Decode.swift */; };
 		D95BFC29264A17CA008B03C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95BFC27264A17CA008B03C1 /* Main.storyboard */; };
+		D9D07442264E0649002782AC /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = D9D07441264E0649002782AC /* RxBlocking */; };
+		D9D07444264E0649002782AC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D9D07443264E0649002782AC /* RxCocoa */; };
+		D9D07446264E0649002782AC /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = D9D07445264E0649002782AC /* RxRelay */; };
+		D9D07448264E0649002782AC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D9D07447264E0649002782AC /* RxSwift */; };
+		D9D0744C264E0649002782AC /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = D9D0744B264E0649002782AC /* Differentiator */; };
+		D9D0744E264E0649002782AC /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = D9D0744D264E0649002782AC /* RxDataSources */; };
+		D9D07450264E0649002782AC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D9D0744F264E0649002782AC /* Kingfisher */; };
+		D9D07452264E06A6002782AC /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = D9D07451264E06A6002782AC /* RxTest */; };
 		D9F96E39263994190030E1C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96E38263994190030E1C8 /* AppDelegate.swift */; };
 		D9F96E422639941A0030E1C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F96E412639941A0030E1C8 /* Assets.xcassets */; };
 		D9F96E452639941B0030E1C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F96E432639941B0030E1C8 /* LaunchScreen.storyboard */; };
@@ -34,14 +42,6 @@
 		D9F96F88263B81600030E1C8 /* SearchBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F96F87263B81600030E1C8 /* SearchBeerTests.swift */; };
 		D9F97096263BD5DD0030E1C8 /* BeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F97094263BD5DD0030E1C8 /* BeerTableViewCell.swift */; };
 		D9F970BF263BE29C0030E1C8 /* BeerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F97093263BD5DD0030E1C8 /* BeerTableViewCell.xib */; };
-		D9FEAD49264D2BED0089EAB2 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D9FEAD48264D2BED0089EAB2 /* RxSwift */; };
-		D9FEAD4B264D2BED0089EAB2 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = D9FEAD4A264D2BED0089EAB2 /* RxTest */; };
-		D9FEAD4D264D2BED0089EAB2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = D9FEAD4C264D2BED0089EAB2 /* RxRelay */; };
-		D9FEAD4F264D2BED0089EAB2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D9FEAD4E264D2BED0089EAB2 /* RxCocoa */; };
-		D9FEAD51264D2BED0089EAB2 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = D9FEAD50264D2BED0089EAB2 /* RxBlocking */; };
-		D9FEAD54264D2BFE0089EAB2 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = D9FEAD53264D2BFE0089EAB2 /* RxDataSources */; };
-		D9FEAD56264D2BFE0089EAB2 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = D9FEAD55264D2BFE0089EAB2 /* Differentiator */; };
-		D9FEAD59264D2C1C0089EAB2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D9FEAD58264D2C1C0089EAB2 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,14 +93,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9FEAD56264D2BFE0089EAB2 /* Differentiator in Frameworks */,
-				D9FEAD4D264D2BED0089EAB2 /* RxRelay in Frameworks */,
-				D9FEAD4B264D2BED0089EAB2 /* RxTest in Frameworks */,
-				D9FEAD4F264D2BED0089EAB2 /* RxCocoa in Frameworks */,
-				D9FEAD59264D2C1C0089EAB2 /* Kingfisher in Frameworks */,
-				D9FEAD54264D2BFE0089EAB2 /* RxDataSources in Frameworks */,
-				D9FEAD49264D2BED0089EAB2 /* RxSwift in Frameworks */,
-				D9FEAD51264D2BED0089EAB2 /* RxBlocking in Frameworks */,
+				D9D07446264E0649002782AC /* RxRelay in Frameworks */,
+				D9D07444264E0649002782AC /* RxCocoa in Frameworks */,
+				D9D07448264E0649002782AC /* RxSwift in Frameworks */,
+				D9D07450264E0649002782AC /* Kingfisher in Frameworks */,
+				D9D0744E264E0649002782AC /* RxDataSources in Frameworks */,
+				D9D0744C264E0649002782AC /* Differentiator in Frameworks */,
+				D9D07442264E0649002782AC /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D07452264E06A6002782AC /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,12 +124,20 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		D9D07440264E0649002782AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D9F96E2C263994190030E1C8 = {
 			isa = PBXGroup;
 			children = (
 				D9F96E37263994190030E1C8 /* MVVM-RxSwift-storyboard */,
 				D9F96EE1263A7F760030E1C8 /* MVVM-RxSwift-storyboardTests */,
 				D9F96E36263994190030E1C8 /* Products */,
+				D9D07440264E0649002782AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,14 +256,13 @@
 			);
 			name = "MVVM-RxSwift-storyboard";
 			packageProductDependencies = (
-				D9FEAD48264D2BED0089EAB2 /* RxSwift */,
-				D9FEAD4A264D2BED0089EAB2 /* RxTest */,
-				D9FEAD4C264D2BED0089EAB2 /* RxRelay */,
-				D9FEAD4E264D2BED0089EAB2 /* RxCocoa */,
-				D9FEAD50264D2BED0089EAB2 /* RxBlocking */,
-				D9FEAD53264D2BFE0089EAB2 /* RxDataSources */,
-				D9FEAD55264D2BFE0089EAB2 /* Differentiator */,
-				D9FEAD58264D2C1C0089EAB2 /* Kingfisher */,
+				D9D07441264E0649002782AC /* RxBlocking */,
+				D9D07443264E0649002782AC /* RxCocoa */,
+				D9D07445264E0649002782AC /* RxRelay */,
+				D9D07447264E0649002782AC /* RxSwift */,
+				D9D0744B264E0649002782AC /* Differentiator */,
+				D9D0744D264E0649002782AC /* RxDataSources */,
+				D9D0744F264E0649002782AC /* Kingfisher */,
 			);
 			productName = "MVC-storyboard";
 			productReference = D9F96E35263994190030E1C8 /* MVVM-RxSwift-storyboard.app */;
@@ -275,6 +282,9 @@
 				D9F96EE6263A7F760030E1C8 /* PBXTargetDependency */,
 			);
 			name = "MVVM-RxSwift-storyboardTests";
+			packageProductDependencies = (
+				D9D07451264E06A6002782AC /* RxTest */,
+			);
 			productName = "MVVM-RxSwift-snapKitTests";
 			productReference = D9F96EE0263A7F760030E1C8 /* MVVM-RxSwift-storyboardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -670,45 +680,45 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D9FEAD48264D2BED0089EAB2 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		D9FEAD4A264D2BED0089EAB2 /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
-		};
-		D9FEAD4C264D2BED0089EAB2 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		D9FEAD4E264D2BED0089EAB2 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		D9FEAD50264D2BED0089EAB2 /* RxBlocking */ = {
+		D9D07441264E0649002782AC /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxBlocking;
 		};
-		D9FEAD53264D2BFE0089EAB2 /* RxDataSources */ = {
+		D9D07443264E0649002782AC /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D9FEAD52264D2BFE0089EAB2 /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = RxDataSources;
+			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
 		};
-		D9FEAD55264D2BFE0089EAB2 /* Differentiator */ = {
+		D9D07445264E0649002782AC /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		D9D07447264E0649002782AC /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		D9D0744B264E0649002782AC /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D9FEAD52264D2BFE0089EAB2 /* XCRemoteSwiftPackageReference "RxDataSources" */;
 			productName = Differentiator;
 		};
-		D9FEAD58264D2C1C0089EAB2 /* Kingfisher */ = {
+		D9D0744D264E0649002782AC /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9FEAD52264D2BFE0089EAB2 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+		D9D0744F264E0649002782AC /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D9FEAD57264D2C1C0089EAB2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		D9D07451264E06A6002782AC /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9FEAD47264D2BED0089EAB2 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

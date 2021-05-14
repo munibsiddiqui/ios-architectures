@@ -12,8 +12,8 @@ import RxDataSources
 
 class BeerListVC: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let refreshControl = UIRefreshControl()
-    private let activityIndicator = UIActivityIndicatorView()
     private let disposeBag = DisposeBag()
     private let viewModel = BeerListViewModel()
     

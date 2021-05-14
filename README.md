@@ -29,7 +29,7 @@ Thank for people of this list!
 
 1. Objc
 2. [Swift](#1-mvc---storyboard)
-3. [SwiftUI](#1-swiftui---mv)
+3. [SwiftUI](#1-swiftui--mv)
 
 
 
@@ -115,6 +115,31 @@ $ tuist generate
 
 
 
+## 4-3. [CocoaPods, SPM, Carthage + Rome](https://github.com/Goeun1001/ios-architectures/tree/master/Package-managements)
+
+[MVVM - RxSwift - storyboard](#4-mvvm---rxswift---storyboard)'s 
+
+[CocoaPods(original)],
+
+[SPM],
+
+[Carthage]
+
+- Rome, Carting, Fastlane
+
+```
+$ chmod +x carthage.sh
+$ ./carthage.sh update --platform iOS
+```
+
+Reference
+
+- [.carthage.sh](https://github.com/Carthage/Carthage/blob/master/Documentation/Xcode12Workaround.md)
+- [fastlane-plugin-rome](https://github.com/OpenShelter/fastlane-plugin-rome)
+- [Carthage + Rome으로 빌드 시간 줄이기](https://pilgwon.github.io/post/cache-carthage-builds-with-rome)
+
+
+
 ## 5. [MVVM - RxSwift - snapKit](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-RxSwift-snapKit)
 
 UI - SnapKit, Then, RxDatasource
@@ -164,6 +189,8 @@ Unit Tests 👌 - RxTest, Nimble
 ## 5-4. [Clean Architecture - MVVM - RxSwift - coredata](https://github.com/Goeun1001/ios-architectures/tree/master/Clean-MVVM)
 
 ❗️ **Bug** : CoreDataTests same.
+
+
 
 ## 6. [MVVM-C - RxSwift](https://github.com/Goeun1001/ios-architectures/tree/master/MVVM-C-RxSwift)
 

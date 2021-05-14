@@ -1,0 +1,7 @@
+$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework
+$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework
+$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework
+$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework
+$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework
+$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework
+$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework
