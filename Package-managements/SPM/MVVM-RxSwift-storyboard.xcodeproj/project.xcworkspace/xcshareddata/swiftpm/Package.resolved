@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher",
+        "state": {
+          "branch": null,
+          "revision": "44450a8f564d7c0165f736ba2250649ff8d3e556",
+          "version": "6.3.0"
+        }
+      },
+      {
+        "package": "RxDataSources",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxDataSources",
+        "state": {
+          "branch": null,
+          "revision": "a18cee01c9ee55f04d0c7eb15c77a96c3648c88e",
+          "version": "4.0.1"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
+        "state": {
+          "branch": null,
+          "revision": "254617dd7fae0c45319ba5fbea435bf4d0e15b5d",
+          "version": "5.1.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
