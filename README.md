@@ -33,9 +33,19 @@ Thank for people of this list!
 
 
 
+### Environment
+
+Objc - Xcode 10.2
+
+Swift - Swift 5, Xcode 12.5
+
+
+
 ## 0. Shared
 
 Image Download - Kingfisher
+
+Package Management - Cocoapods
 
 
 
@@ -119,11 +129,11 @@ $ tuist generate
 
 [MVVM - RxSwift - storyboard](#4-mvvm---rxswift---storyboard)'s 
 
-[CocoaPods(original)],
+[CocoaPods(original)](https://github.com/Goeun1001/ios-architectures/tree/master/Package-managements/CocoaPods),
 
-[SPM],
+[SPM](https://github.com/Goeun1001/ios-architectures/tree/master/Package-managements/SPM),
 
-[Carthage]
+[Carthage](https://github.com/Goeun1001/ios-architectures/tree/master/Package-managements/Carthage)
 
 - Rome, Carting, Fastlane
 
@@ -248,9 +258,7 @@ Unit Tests 👌
 
 
 
-## 9. RIBs
-
-## 10. [VIPER](https://github.com/Goeun1001/ios-architectures/tree/master/VIPER-snapKit)
+## 9. [VIPER + Rx](https://github.com/Goeun1001/ios-architectures/tree/master/VIPER-snapKit)
 
 UI - SnapKit, Then, RxDatasource
 
@@ -260,7 +268,9 @@ Unit Tests 👌 - RxTest
 
 VIPER Template - [VIPER + Rx Xcode Template](https://github.com/Goeun1001/VIPER-Rx-Template)
 
-## 11. VIP
+
+
+## 10. RIBs
 
 
 
