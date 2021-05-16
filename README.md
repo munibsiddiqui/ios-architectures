@@ -35,9 +35,7 @@ Thank for people of this list!
 
 ### Environment
 
-Objc - Xcode 10.2
-
-Swift - Swift 5, Xcode 12.5
+Swift 5, Xcode 12.5
 
 
 
