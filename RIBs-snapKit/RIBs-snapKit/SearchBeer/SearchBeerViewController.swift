@@ -1,0 +1,109 @@
+//
+//  SearchBeerViewController.swift
+//  RIBs-snapKit
+//
+//  Created by GoEun Jeong on 2021/05/16.
+//
+
+import RIBs
+import RxSwift
+import UIKit
+
+protocol SearchBeerPresentableListener: AnyObject {
+    // TODO: Declare properties and methods that the view controller can invoke to perform
+    // business logic, such as signIn(). This protocol is implemented by the corresponding
+    // interactor class.
+}
+
+final class SearchBeerViewController: UIViewController, SearchBeerPresentable, SearchBeerViewControllable {
+
+    weak var listener: SearchBeerPresentableListener?
+    private let beerView = BeerView()
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+    
+    private let disposeBag = DisposeBag()
+    var input: SearchBeerPresentableInput?
+    var output: SearchBeerPresentableOutput?
+    
+    // MARK: - Initialization
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        input = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupSubview()
+        setupNavigationTitle()
+        setupSearch()
+        self.bindOutput()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupNavigationTitle() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Search By ID"
+        self.navigationItem.accessibilityLabel = "Search By Beer ID"
+    }
+    
+    private func setupSearch() {
+        self.navigationItem.searchController = searchController
+        searchController.searchBar.keyboardType = .numberPad
+    }
+    
+    private func setupSubview() {
+        view.backgroundColor = .white
+        view.addSubview(beerView)
+        view.addSubview(activityIndicator)
+        
+        beerView.snp.makeConstraints {
+            $0.top.equalTo(view.layoutMarginsGuide)
+            $0.size.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+    }
+}
+
+extension SearchBeerViewController: SearchBeerPresentableInput {
+    var searchTrigger: Observable<String> {
+        return searchController.searchBar.rx.text
+            .orEmpty
+            .filter { $0 != "" }
+            .debounce(RxTimeInterval.microseconds(5), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+    }
+}
+
+extension SearchBeerViewController {
+    private func bindOutput() {
+        guard let output = output else { return }
+        
+        output.beer
+            .subscribe(onNext: { [weak self] beer in
+                self?.beerView.setupView(model: beer.first ?? Beer(id: nil, name: "Please Search Beer By ID", description: "", imageURL: ""))
+            })
+            .disposed(by: disposeBag)
+        
+        output.isLoading
+            .bind(to: activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.searchButtonClicked
+            .subscribe(onNext: {
+                self.searchController.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+    }
+}
