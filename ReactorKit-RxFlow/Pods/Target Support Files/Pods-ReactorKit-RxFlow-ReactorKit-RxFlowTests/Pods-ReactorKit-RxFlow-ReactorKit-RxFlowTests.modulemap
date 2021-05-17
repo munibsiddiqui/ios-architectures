@@ -1,6 +1,0 @@
-framework module Pods_ReactorKit_RxFlow_ReactorKit_RxFlowTests {
-  umbrella header "Pods-ReactorKit-RxFlow-ReactorKit-RxFlowTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_MVVM_C_RxSwift_swinject_MVVM_C_RxSwift_swinjectTests : NSObject
-@end
-@implementation PodsDummy_Pods_MVVM_C_RxSwift_swinject_MVVM_C_RxSwift_swinjectTests
-@end

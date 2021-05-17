@@ -1,6 +1,0 @@
-framework module Pods_MVVM_RxSwift_rxflow_MVVM_RxSwift_rxflowTests {
-  umbrella header "Pods-MVVM-RxSwift-rxflow-MVVM-RxSwift-rxflowTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,0 @@
-framework module Pods_MVC_snapKit {
-  umbrella header "Pods-MVC-snapKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

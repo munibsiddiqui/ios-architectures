@@ -268,7 +268,7 @@ VIPER Template - [VIPER + Rx Xcode Template](https://github.com/Goeun1001/VIPER-
 
 
 
-## 10. RIBs + Rx
+## 10. [RIBs + Rx](https://github.com/Goeun1001/ios-architectures/tree/master/RIBs-snapKit)
 
 Package Management - SPM
 
