@@ -45,6 +45,10 @@ Image Download - Kingfisher
 
 Package Management - Cocoapods
 
+````
+$ pod install
+````
+
 
 
 ## 1. [MVC - storyboard](https://github.com/Goeun1001/ios-architectures/tree/master/MVC-storyboard)
@@ -303,6 +307,16 @@ Unit Tests 👌
 
 
 ## 3. [SwiftUI-MVVM-Combine](https://github.com/Goeun1001/ios-architectures/tree/master/SwiftUI-MVVM-Combine)
+
+Using Combine's PassthroughSubject
+
+Network - Moya
+
+Unit Tests 👌
+
+
+
+## 3-1. [Clean Architecture - MVVM - Combine](https://github.com/Goeun1001/ios-architectures/tree/master/SwiftUI-Clean)
 
 Using Combine's PassthroughSubject
 
